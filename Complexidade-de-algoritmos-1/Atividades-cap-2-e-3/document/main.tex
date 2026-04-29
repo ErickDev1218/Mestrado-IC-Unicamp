@@ -1,0 +1,469 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc} % Para aceitar acentos
+\usepackage[T1]{fontenc}    % Para renderizar fontes com acentos corretamente
+\usepackage[brazil]{babel}  % Para português (hifenização, datas, etc.)
+\usepackage[a4paper, margin=2.5cm]{geometry} % Ajusta a largura da folha
+\usepackage[ruled,vlined, linesnumbered]{algorithm2e}% Escrever pseudocódigo
+\usepackage{amsmath}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{Atividades capítulo 2 e 3 - Livro de algoritmos Cormen 2 edição}
+\author{Antônio Erick Freitas Ferreira \\
+        \small Instituto de Computação - Unicamp
+}
+
+\begin{document}
+
+\maketitle
+
+\section*{Capítulo 2}
+    \textbf{Exercício 2.1-3} 
+    
+    Considere o \textbf{problema de pesquisa}:
+    
+    \textbf{Entrada:} Uma sequência de n números $A = \{a_1, a_2, \dots, a_n\}$ e um valor $v$
+    
+    \textbf{Saída:} Um índice tal que $v = A[i]$ ou o valor especial NIL, se $v$ não aparecer em $A$.
+    
+    Escreva um pseudocódigo para \textbf{pesquisa linear}, que faça a varredura da sequência, procurando por $v$. Usando um loop invariante, prove que seu algoritmo é correto. Certifique-se de que seu loop invariante satisfaz às três propriedades necessárias.
+    
+    \textbf{Resposta:}
+    
+    \begin{algorithm}[H]
+        \caption{Pesquisa Linear}
+        \label{pesquisa-linear}
+        \KwIn{Vetor $A$ de tamanho $n$ e um número $v$}
+        \KwOut{Índice ou NIL}
+
+        \For{$i \leftarrow 1$ \KwTo $comprimento[A]$}{
+            \If{$A[i] = v$}{
+                \Return{$i$}
+            }
+        }
+        \Return{NIL}
+    \end{algorithm}
+    
+    \textbf{Invariante de Laço:} No início de cada iteração do laço for das linhas 1-3, o valor $v$ não está presente no subarranjo $A[0,\dots,i-1]$.
+
+    \textbf{Inicialização:} No início, com $i = 1$, o subarranjo $A[1, \dots, i-1]$ é vazio, então é verdade que $v$ não aparece em nenhuma posição de $A[i, \dots, i-1]$.
+
+    \textbf{Manutenção:} Como $v$ não aparece em $A[1, \dots, i-1]$, na iteração atual o algoritmo compara $A[i]$ com $v$:
+    \begin{itemize}
+        \item Se $A[i] = v$, então o algoritmo retorna $i$ e termina, garantindo a correção: o índice retornado de fato contém $v$.
+        \item Caso contrário, $A[i]$ é diferente de $v$ e $i$ é incrementado para $i + 1$.
+     \end{itemize}
+    Assim, após o incremento, o novo intervalo passa a ser $A[1, \dots, i]$, entretanto, como $v$ não está em $A[i, \dots, i-1]$, como mostrado na inicialização, e $A[i] \neq v$, mantém-se que $v$ não aparece em A[1, \dots, i]. Portanto, o loop invariante é mantido válido para o novo subarranjo.
+
+    \textbf{Término:} O laço acaba quando $i = n + 1$, onde $n = comprimento[A]$ ou $v$ é encontrado durante a execução. Porém, pelo loop invariante, temos que $v$ não aparece em $A[1, \dots, n]$. Como o algoritmo teria retornado o índice caso $v$ estivesse no arranjo, conclui-se que $v \notin A$ e o retorno NIL está correto.
+
+    \textbf{Exercício 2.1-4}
+
+    Considere o problema de somar dois inteiros binários de $n$ bits, armazenados em dois arranjos de $n$ elementos $A$ e $B$. A soma dos dois inteiros deve ser armazenada em forma binária em um arranjo de ($n+1$) elementos $C$. Enuncie o problema de modo formal e escreva o pseudocódigo para somar os dois inteiros.
+
+    \textbf{Resposta:}
+
+    Dado dois números binários de $n$ bits representados pelos arranjos $A$ e $B$, apresente o pseudocódigo que realiza a soma desses dois números, armazenando o resultado em um novo arranjo $C$ também binário de tamanho $n+1$.
+    
+    \begin{algorithm}[H]
+        \caption{Soma Binária}
+        \KwIn{Vetores $A$ e $B$}
+        \KwOut{Vetor $C$}
+
+        $i \leftarrow comprimento[A]$
+
+        $carry \leftarrow 0$
+
+        $C[0,0,\dots,i + 1] \leftarrow 0$
+
+        \While{$i > 0$}{
+            $k \leftarrow i + 1$
+
+            $C[k] \leftarrow A[i] + B[i] + carry$
+
+            $carry \leftarrow C[k] \div 2$
+
+            $C[k] \leftarrow C[k] \bmod 2$
+
+            $i \leftarrow i - 1$
+        }
+        
+        $C[0] \leftarrow carry$
+
+        \Return{$C$}
+    \end{algorithm}
+
+    \textbf{Exercício 2.2-2}
+
+    Considere a ordenação de $n$ números armazenados no arranjo $A$, localizando primeiro o menor elemento de $A$ e permutando esse elemento com o elemento contido em $A[1]$. Em seguida, encontre o segundo menor elemento de $A$ e o troque pelo elemento $A[2]$. Continue dessa maneira para os primeiros $n-1$ elementos de $A$. Escreva o pseudocódigo para esse algoritmo, conhecido como \textbf{ordenação por seleção}. Que loop invariante esse algoritmo mantém? Por que ele só precisa ser executado para os primeiros $n-1$ elementos, e não para todos os $n$ elementos? Forneça os tempos de execução do melhor caso e do pior caso da ordenação por seleção em notação $\Theta$.
+
+    \textbf{Resposta:}
+
+    \begin{algorithm}[H]
+        \caption{Ordenação por seleção}
+        \KwIn{Vetor $A$}
+        \KwOut{Vetor $A$ ordenado de forma crescente}
+
+        $i \leftarrow 1$
+
+        \While{$i <= comprimento[A] - 1$}{
+            $min \leftarrow i$
+
+            $k \leftarrow i + 1$
+
+            \While{$k <= comprimento[A]$}{
+                \If{$A[k] < A[min]$}{
+                    $min \leftarrow k$
+                }
+                
+                $k \leftarrow k + 1$
+            }
+
+            $temp \leftarrow A[min]$
+
+            $A[min] \leftarrow A[i]$
+
+            $A[i] \leftarrow temp$
+
+            $i \leftarrow i + 1$
+        }
+
+        \Return{$A$}
+    \end{algorithm}
+
+    \textbf{Invariante de laço:} No início da i-ésima iteração, o subarranjo $A[1,\cdots, i - 1]$ está ordenado em ordem crescente e contém os $i-1$ menores elementos do arranjo.
+
+    Exatamente por conta da invariante de laço não é necessário executar o algoritmo para os $n$ elementos, pois quando $i=n$ a invariante de laço garante que o subarranjo $A[1,\cdots, i - 1]$ está ordenado com este subarranjo contendo os $i-1$ menores elementos. Desta forma, obrigatoriamente o n-ésimo elemento é o maior elemento do arranjo completo e já está na posição correta.
+    
+
+    Descobrindo T($n$):
+
+    Linha 1 tem tempo constante $c_1$
+
+    Linha 2 tem tempo $c_2 \cdot n$
+
+    Linha 3 tem tempo $c_3 \cdot (n-1)$
+
+    Linha 4 tem tempo $c_4 \cdot (n-1)$
+    
+    Linha 5 tem tempo $c_5 \cdot \sum_{i = 1}^{n-1} {(n - i + 1)}$
+
+    Linha 6 tem tempo $c_6 \cdot \sum_{i = 1}^{n-1} {(n - i)}$
+
+    Linha 7 tem tempo $c_7 \cdot \sum_{i = 1}^{n - 1}{(n - i)}$
+
+    Linha 8 tem tempo $c_8 \cdot \sum_{i = 1}^{n-1}{(n - i)}$
+
+    Linha 9 tem tempo $c_9 \cdot (n-1)$
+
+    Linha 10 tem tempo $c_{10} \cdot (n-1)$
+
+    Linha 11 tem tempo $c_{11} \cdot (n-1)$
+
+    Linha 12 tem tempo $c_{12} \cdot (n-1)$
+
+    Linha 13 tem tempo constante $c_{13}$
+
+    Desta forma temos que
+
+    $T(n) = c_1 + c_2 \cdot n + c_3 \cdot (n-1) + c_4 \cdot (n-1) + c_5 \cdot \sum_{i = 1}^{n-1} {(n - i + 1)} + c_6 \cdot \sum_{i=1}^{n-1} {(n -  i)} + c_7 \cdot \sum_{i = 1}^{n - 1}{(n - i)} + c_8 \sum_{i=1}^{n-1}{(n-i)} + c_9 \cdot (n-1) + c_{10} \cdot (n-1) + c_{11} \cdot (n-1) + c_{12} \cdot (n-1) + c_{13}$
+
+    Sabemos que 
+
+    $\sum_{i=1}^{n-1}{(n-i+1)} = \sum_{i = 1}^{n-1}{n} - \sum_{i=1}^{n-1}{i} + \sum_{i=1}^{n-1}{1} = n(n-1) - \frac{(n-1)((n-1)+1)}{2} + (n-1)= \frac{n^2+n - 2}{2}$
+
+    $\sum_{i = 1}^{n-1}{n-i} = \sum_{i=1}^{n-1}{n} - \sum_{i=1}^{n-1}{i} = n(n-1) - \frac{(n-1)((n-1)+1)}{2} = \frac{n^2-n}{2}$
+
+    Se o arranjo estiver ordenado em ordem inversa, isto é, em ordem descrescente, resulta o pior caso. Neste caso, o algoritmo apenas acabará quando realizar todas as suas extensas operações, portanto:
+
+    $T(n) = c_1 + c_2n + c_3n - c_3 + c_4n - c4 + c_5 \frac{n^2+n - 2}{2} + c_6 \frac{n^2-n}{2}+ c_7 \frac{n^2-n}{2} + c_8 \frac{n^2-n}{2} + c_9n - c_9 + c_{10}n - c_{10} + c_{11}n - c_{11} + c_{12}n - c_{12} + c_{13}$
+
+    Como o termo de maior grau é $n^2$, então $T(n) = \Theta(n^2)$.
+
+    Se o arranjo estiver ordenado em ordem crescente teremos o melhor caso. Neste caso, $T(n)$ segue com os mesmos valores, exceto pela linha 7 que nunca irá ser executada, portanto:
+
+    $T(n) = c_1 + c_2n + c_3n - c_3 + c_4n - c4 + c_5 \frac{n^2+n - 2}{2} + c_6 \frac{n^2-n}{2} + c_8 \frac{n^2-n}{2} + c_9n - c_9 + c_{10}n - c_{10} + c_{11}n - c_{11} + c_{12}n - c_{12} + c_{13}$
+
+    Como o termo de maior grau segue sendo $n^2$, então $T(n) = \Theta(n^2)$.
+
+    \textbf{Exercício 2.2-3}
+
+    Considere mais uma vez a \textbf{pesquisa linear} (Algortimo~\ref{pesquisa-linear}). Quantos elementos da sequência de entrada precisam ser verificados em média, supondo-se que o elemento que está sendo procurado tenha a mesma probabilidade de ser qualquer elemento do arranjo? E no pior caso? Quais são os tempos de execucão do caso médio e do pior caso da pesquisa linear em notação $\Theta$? Justifique sua resposta.
+
+    \textbf{Resposta:}
+
+    Descobrindo $T(n)$:
+
+    Linha 1 tem tempo $c_1 \cdot (n+1)$
+
+    Linha 2 tem tempo $c_2 \cdot n$
+
+    Linha 3 tem tempo $c_3$
+
+    Linha 4 tem tempo $c_4$
+
+    As linhas 3 e 4 dependerá dos seguintes cenários: o elemento buscado é o último da lista ou o elemento buscado não esta no arranjo. É importante entender que quando um caso ocorre o outro obrigatoriamente não ocorre. Entretanto, provarei a seguir que em ambos os casos a complexidade se mantém a mesma.
+
+    Para o pior caso onde o elemento é o último da lista:
+
+    $T(n) = c_1 (n+1) + c_2 n + c_3 = c_1 n + c1 + c_2 n + c_3 = (c_1+c_2)n + (c_1 + c_3)$, que pode ser visto como $an + b$.
+
+    Para o pior caso onde o elemento não está na lista:
+
+    $T(n) = c_1 (n+1) + c_2 n + c_4 = c_1 n + c1 + c_2 n + c_4 = (c_1+c_2)n + (c_1 + c_4)$, que pode ser visto como $an + b$.
+
+    Como ambos os casos $T(n)$ pode ser expressado como uma função linear de $n$, então $T(n) = \Theta(n)$ para o pior caso.
+
+    Para o caso médio, temos que a linha 3 irá acontecer, portanto:
+
+    $T(n) = c_1n + c_2n + (c_1 + c_3)$
+
+    Entretanto, como cada elemento tem chance $\frac{1}{n}$ de estar na $i$-ésima posição, então a linha 2 será executada $i$ vezes, sendo uma comparação por elemento até encontrá-lo. Desta forma, temos:
+
+    $\sum_{i = 1}^{n}({i \cdot \frac{1}{n}}) = \frac{1}{n} \cdot \sum_{i = 1}^{n}{i} = \frac{1}{n} \cdot \frac{n(n+1)}{2} = \frac{n+1}{2}$
+
+    Substituíndo na função do tempo, temos:
+
+    $T(n) = c_1 \frac{n+1}{2} + c_2 \frac{n+1}{2} + (c1 + c3) = (c_1 + c_2) \frac{n+1}{2} + (c_1 + c_3)$, que pode ser visto como $an + b$.
+    
+    Portanto, T(n) pode ser expressado como uma função linear de $n$, então $T(n) = \Theta(n)$ para o caso médio.
+
+    \textbf{Exercício 2.3-3}
+
+    Use indução matemática para mostrar que, quando $n$ é uma potência exata de 2, a solução da recorrência
+
+    \[
+    T(n) =
+    \begin{cases}
+        2 & \text{se } n = 2, \\
+        2T(n/2) + n & \text{se } n = 2^k, \text{para $k \geq 1$}
+    \end{cases}
+    \]
+
+    é $T(n) = n \log n$
+
+    \textbf{Resposta:}
+
+    \textbf{Caso base:} Quando $k = 1$, temos $n = 2^1$, dado que $n$ é uma potência de 2. Então $n = 2$.
+    
+    $T(2) = 2 \cdot \log_2 2 = 2 $.
+
+    \textbf{Hipótese de indução:} Quando $n=2^k$, para $k \geq 1$, $T(2^k) = 2^k \log_2 2^k = 2^k \cdot k$
+
+    Queremos provar que quando $n = 2^{k+1}$, temos $T(n) = n \log n$
+    
+    \begin{align}
+    T(2^{k+1}) &= 2T\left(\frac{2^{k+1}}{2}\right) + 2^{k+1} \\
+            &= 2T\left(\frac{2^k \cdot 2}{2}\right) + 2^{k+1} \\
+            &= 2T(2^k) + 2^{k+1} \quad \text{(Aplicando a hipótese de indução em $T(2^k)$)} \\
+            &= 2 \cdot 2^k \cdot k + 2^{k+1} \\
+            &= 2^{k+1} k + 2^{k+1} \\
+            &= 2^{k+1} \cdot (k + 1) \quad \text{(Observe que $\log_2 2^{k+1} = (k+1)$)} \\ 
+            &= 2^{k+1} \cdot \log_2 2^{k+1} \quad \text{(Como $n = 2^{k+1}$)}\\
+            &= n \log_2 n 
+    \end{align}
+
+
+    \textbf{Exercício 2.3-5}
+
+    Voltando para o problema da pesquisa (ver Algoritmo~\ref{pesquisa-linear}) observe que, se a sequência $A$ estiver ordenada, poderemos comparar o ponto médio da sequência com $v$ e eliminar metade da sequência de consideração posterior. A \textbf{pesquisa binária} é um algoritmo que repete esse procedimento, dividindo ao meio o tamanho da porção restante da sequência a cada vez. Escreva pseudocódigo, sendo ele iterativo ou recursivo, para pesquisa binária. Demostre que o tempo de execução do pior caso da pesquisa binária em $\Theta(\log n)$.
+
+    \textbf{Resposta:}
+
+    \begin{algorithm}[H]
+        \caption{Pesquisa\_binaria}
+        \label{pesquisa-binaria}
+        \KwIn{Vetor $A$, dois números $p$ e $r$, que representam o primeiro e o último de $A$ respectivamente, e um número $v$}
+        \KwOut{Índice de $v$ se $v \in A$ ou NIL se $v \notin A$}
+
+        \If{$p > r$}{
+            \Return NIL
+        }\Else{
+            $meio \leftarrow p + \lfloor\frac{(r - p)}{2}\rfloor$
+
+            \If{$A[meio] = v$}{
+                \Return $meio$
+            }\ElseIf{$A[meio] > v$}{
+                \Return{$Pesquisa\_binaria(A, p, meio - 1, v)$}
+            }\Else{
+                \Return{$Pesquisa\_binaria(A, meio + 1, r, v)$}
+            }
+        }
+    \end{algorithm}
+
+    Se $v \notin A$ ou $v$ for o último elemento buscado, resultará no pior caso. Nestes casos, o algoritmo irá parar somente quando antigir o caso onde a linha 2 ou 6 é executada. Os casos citados se diferenciam apenas no fato de que na última iteração o algiritmo decidirá se $v$ está ou não em $A$. 
+
+    Descobrindo $T(n)$:
+    
+    Sabendo que as operações que ocorrem antes da subchamada recursiva possuem custo constante $1 = \Theta(1)$ e que o algoritmo reduz o espaço de busca pela metade a cada chamada recursiva, temos a seguinte relação de recorrência:
+
+    \[
+    T(n) =
+    \begin{cases}
+        1 & \text{se } n = 1, \\
+        T(n/2) + 1 & \text{se } n > 1 
+    \end{cases}
+    \]
+
+    Assumindo que $n$ é uma potência de 2, isto é, $n = 2^k$ para $k \geq 0$, no pior caso, o algoritmo continuará dividindo o subarranjo até que o índice $p$ seja maior que $r$ atingindo o caso base da linha 1, o que leva a uma profundidade de recursão de aproximadamente $\log_2 n$ níveis, como mostra a equação a seguir ($i$ representa o i-ésimo nível da árvore):
+
+    $\frac{n}{2^i} = 1 \rightarrow n = 2^i \rightarrow \log_2 n = \log_2 2^i \rightarrow i = log_2 n$
+
+    Agora, basta sormarmos quanto cada nível custa para chegarmos a formula final
+
+    $\sum_{i=0}^{\log_2 n} 1 = \log_2 n$ 
+    
+    Portanto, podemos concluir que o Algoritmo~\ref{pesquisa-binaria}, no seu pior caso, tem complexidade na ordem de $\Theta(\log_2 n)$  
+
+    \textbf{Exercício 2.3-6}
+
+    Observe que o loop while das linhas 5 a 7 do procedimento \textbf{INSERTION-SORT} na Seção 2.1 utiliza uma pesquisa linear para varrer (no sentido inverso) o subarranjo odernado $A[1, \cdots, j-1]$. Podemos usar em vez disso uma pesquisa binária para melhorar o tempo de execução global do pior caso da ordenação por inserção para $\Theta(n \log n)$?
+
+
+    \begin{algorithm}[H]
+        \caption{INSERTION-SORT}
+        \KwIn{Vetor $A$}
+        \KwOut{}
+
+        \For{$j \leftarrow 2$ to $comprimento[A]$}{
+            $chave \leftarrow A[j]$
+            
+            $i \leftarrow j - 1$
+
+            \While{$i > 0$ e $A[i] > chave$}{
+                $A[i + 1] \leftarrow A[i]$
+
+                $i \leftarrow i - 1$
+            }
+            $A[i + 1] \leftarrow chave$
+        }
+    \end{algorithm}
+
+    Observando o algoritmo acima, podemos perceber que o while da linha 4 realiza 2 operações de forma simultânea: busca o índice correto da inserção do j-ésimo elemento e faz shift em todos os elementos, isto é, o i-ésimo elemento irá para a posição i+1.
+
+    A pesquisa binária poderia ajudar a encontrar o índice correto em tempo $\Theta(\log_2 n)$. Entretanto, ainda seria necessário realizar a operação de shift nos elementos entre j e i. Veja o algoritmo abaixo (nele supomos que há uma função chamada $Binary\_Search$ que recebe um arranjo, o primeiro e o último índice, e um valor. Por fim, esta função retorna o índice onde o valor deve ser inserido com complexidade, no pior caso, de $\Theta(\log_2 n)$).
+    
+    \begin{algorithm}[H]
+        \caption{INSERTION-SORT-With-Binary-Search}
+        \KwIn{Vetor $A$}
+        \KwOut{}
+
+        \For{$j \leftarrow 2$ to $comprimento[A]$}{
+            $chave \leftarrow A[j]$
+            
+            $i \leftarrow j - 1$
+
+            $index \leftarrow Binary\_Search(A, 0, i, chave)$
+
+            \While{$i \geq index$}{
+                $A[i + 1] \leftarrow A[i]$
+
+                $i \leftarrow i - 1$
+            }
+            $A[index] \leftarrow chave$
+        }
+    \end{algorithm}
+
+    % Perceba que, como falado anteriormente, ainda é necessário realizar a operação de shift. Realizando uma análise do algoritmo acima temos:
+    
+    % Linha 1 tem tempo $c_1 \cdot n$
+
+    % Linha 2 tem tempo $c_2 \cdot (n-1)$
+
+    % Linha 3 tem tempo $c_3 \cdot (n-1)$
+
+    % Linha 4 tem tempo $c_4 \cdot \sum_{j = 2}^{n} \log_2 (j - 1)$
+
+    % Linha 5 tem tempo $c_5 \cdot \sum_{j = 2}^{n} j$
+    
+    % Linha 6 tem tempo $c_6 \cdot \sum_{j = 2}^{n} (j - 1)$
+
+    % Linha 7 tem tempo $c_7 \cdot \sum_{j = 2}^{n} (j - 1)$
+
+    % Linha 8 tem tempo $c_8 \cdot (n - 1)$
+
+    Embora a busca binária possa encontrar mais rapidamente o índice onde o j-ésimo elemento deve ser inserito, a operação de shift continua dominando assintoticamente a função. Portanto, não é possível melhorar o INSERTION-SORT utilizando da busca binária para conseguir a complexidade $\Theta(n \log n)$.
+
+
+    \textbf{Exercício 2.3-7}
+
+    Descreva um algoritmo de tempo $\Theta(n \log n)$ que, dado um conjunto $S$ de $n$ inteiros e outro inteiro $x$, determina se existem ou não dois elementos em $S$ cuja a soma seja exatamente $x$.
+
+    \textbf{Resposta:}
+
+    Para este algoritmo, usarei do $\text{MERGE-SORT}$ que está escrito e analisado na Seção 2.3.1.
+
+    \begin{algorithm}[H]
+        \caption{Busca-Soma}
+        \KwIn{Conjunto $S$, inteiro $x$}
+        \KwOut{true, se houver 2 elementos em $S$ cujo a soma é $x$, caso contário, false}
+
+        $i \leftarrow \text{primeiro índice de S}$
+
+        $k \leftarrow \text{último índice de S}$
+        
+        
+        $\text{MERGE-SORT}(S, i, k)$
+
+        \While{$i < k$}{
+            \If{$S[i] + S[k] = x$}{
+                \Return true
+            }\ElseIf{$S[i] + S[k] < x$}{
+                $i \leftarrow i + i$
+            }\Else{
+                $k \leftarrow k - 1$
+            }
+        }
+        \Return false
+    \end{algorithm}  
+    
+    Como a operação de ordenação tem complexidade, no pior caso, de $\Theta(n \log n)$ e os passos em busca de $x$ tem complexidade, no pior caso, de $\Theta(n)$, então a operação de ordenação irá dominar assintoticamente a complexidade desta função (em seu ambito completo). Portanto, esta função tem complexidade, no pior caso, $\Theta(n \log n)$.
+
+
+    \textbf{Problema 2-1 
+    Ordenação por inserção sobre arranjos pequenos na ordenação por intercalação}
+
+    Embora a ordenação por intercalação funcione no tempo de pior caso $\Theta(n \log n)$ e a ordenação por inserção funcione no tempo de pior caso $\Theta(n^2)$, os fatores constantes na ordenação por inserção a tornam mais rápida para $n$ pequeno. Assim, faz sentido usar a ordenação por inserção dentro da ordenação por intercalação quando os subproblemas se tornam suficientemente pequenos. Considere uma modificação na ordenação por intercalação, na qual $n/k$ sublistas de comprimento $k$ são ordenadas usando-se a ordenação por inserção, e depois intercaladas com o uso do mecanismo padrão de intercalação, onde $k$ é um valor a ser determinado.
+
+    a) Mostre que as $n/k$ sublistas, cada uma com comprimento $k$, podem ser ordenadas através da ordenação por inserção no tempo de pior caso $\Theta(nk)$
+
+    \textbf{Resposta:}
+
+    Como teremos $n/k$ sublistas, todas de tamanho $k$, sendo ordenadas, no pior caso, em tempo $\Theta(k^2)$, podemos ver a seguinte equação:
+
+    $\frac{n}{k} \cdot \Theta(k^2) = \frac{n}{k} \cdot k^2 = n \cdot k = \Theta(nk)$
+
+    b) Mostre que as sublistas podem ser intercaladas no tempo de pior caso $\Theta(n \log (\frac{n}{k}))$
+
+    \textbf{Resposta:}
+
+    O algoritmo de intercalação constrói uma árvore de chamadas recursivas até o problema chegar ao caso base, por isso tem sua complexidade $\Theta(\log n)$ e usa $n$ operações para realizar a ordenação, isso justifica sua complexidade de pior caso ser $\Theta(n \log n)$. Entretanto, nesta variável sugerida no enunciado, teremos que cada sublista será dividida até seu tamanho ser igual a $k$. Com isso, teremos $\log (\frac{n}{k})$ níveis que ainda necessitarão de $n$ operações de ordenação, então sua complexidade, em pior caso, será de $\Theta(n \log (\frac{n}{k}))$.
+
+
+    c) Dado que o algoritmo modificado é executado no tempo de pior caso $\Theta(nk + n \log (\frac{n}{k}))$, qual é o maior valor assintótico (notação $\Theta$) de $k$ como uma função de $n$ para a qual o algoritmo modificado tem o mesmo tempo de execução assintótico que a ordenação por intercalação padrão?
+
+    \textbf{Resposta:}
+
+    Queremos encontrar um $k$ em função de $n$ de forma que ao aplicarmos $k$ em $nk + \log (\frac{n}{k}) = n \log(n)$.
+
+    $nk + \log (\frac{n}{k}) = n \log(n)$ implica que 
+    $nk \leq n \log(n) \rightarrow k \leq \log(n)$
+
+    Usando $k = \log n$, teremos:
+
+    $n \log n + \log (\frac{n}{\log n}) = n \log n + n (\log n - \log\log n) = n \log n + n \log n - n \log\log n = 2n \log n - n\log\log n$
+
+    Como sabemos que $n \log n > n \log\log n$, então, com $k = \log n$ teremos $\Theta(n \log n)$. Portanto, o maior valor para $k$ é $\log n$.
+
+
+    d) Como $k$ deve ser escolhido na prática?
+
+    Na prática $k$ deve ser uma potência de 2, como $2^i$, com $0 \leq i \leq 5$. Isso ajuda a manter o alinhamento com a estrutura do $\text{MERGE-SORT}$ e também mantém baixo custo no $\text{INSERTION-SORT}$
+
+
+
+
+    
+\end{document}

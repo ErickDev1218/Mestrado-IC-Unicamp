@@ -1,0 +1,9 @@
+\section{Objetivos}
+
+O presente trabalho tem como objetivo principal investigar e propor melhorias nas formulações matemáticas existentes para o problema de compra mínima, com foco no aprimoramento de sua consistência estrutural e eficiência computacional. Em particular, busca-se desenvolver variações das formulações apresentadas que resultem em modelos mais fortes do ponto de vista de relaxação linear e, consequentemente, mais eficientes quando resolvidos por solvers de otimização modernos.
+
+Nesse contexto, pretende-se analisar criticamente as formulações DIB, DD, DIV e DDI, identificando possíveis fragilidades, redundâncias ou oportunidades de fortalecimento por meio da introdução de novas restrições, reformulações ou técnicas de linearização. O objetivo é obter modelos que apresentem melhor desempenho prático, reduzindo o tempo de resolução e melhorando a qualidade dos limites obtidos por métodos exatos, especialmente quando utilizados em ferramentas como o solver Gurobi~\cite{gurobi}.
+
+Adicionalmente, este trabalho visa abordar o desafio da escalabilidade, propondo abordagens heurísticas capazes de lidar com instâncias de grande porte, envolvendo mais de mil itens ou compradores. Para isso, serão desenvolvidas e avaliadas heurísticas baseadas no Algoritmo Genético de Chaves Aleatórias Enviésadas e na abordagem Otimizador de Chaves Aleatórias, explorando sua capacidade de produzir soluções de boa qualidade em tempos computacionais reduzidos.
+
+Por fim, espera-se que a combinação entre melhorias nas formulações exatas e o desenvolvimento de métodos heurísticos contribua para ampliar a aplicabilidade prática do problema estudado, permitindo a resolução eficiente de instâncias que são desafiadoras para abordagens puramente exatas.

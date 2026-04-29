@@ -1,0 +1,350 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc} % Para aceitar acentos
+\usepackage[T1]{fontenc}    % Para renderizar fontes com acentos corretamente
+\usepackage[brazil]{babel}  % Para português (hifenização, datas, etc.)
+\usepackage[a4paper, margin=2.5cm]{geometry} % Ajusta a largura da folha
+\usepackage[ruled,vlined, linesnumbered]{algorithm2e}% Escrever pseudocódigo
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{Lista 02 - Introdução a Criptografia}
+\author{Antônio Erick Freitas Ferreira - 322980\\
+        \small Instituto de Computação - Unicamp - São Paulo - Brasil
+}
+
+\begin{document}
+\maketitle
+
+\textbf{Questão 1}
+
+\textbf{Item C)}
+
+    Seja $f(n) = g(n) = \frac{1}{2^n}$, temos que $\frac{f(n)}{g(n)} = \frac{\frac{1}{2^n}}{\frac{1}{2^n}} = 1$
+
+    Como 1 não descreve mais rápido que qualquer polinômio $p(n)$, então $\frac{f(n)}{g(n)} \notin negl$
+
+\textbf{Item F)}
+
+    Seja $f(n) = \frac{1}{2}$, $g(n) = (\frac{1}{2})^n = \frac{1}{2^n}$. Como $f(n) = \frac{1}{2}$ não descresce mais rápido que qualquer polinômio $p(n)$, então $f(n) \notin negl$
+
+\textbf{Item G)}
+
+    Seja $f(n) = \frac{1}{2^n}$ e $g(n) = 2^n$, temos que $f(n) \cdot g(n) = \frac{1}{2^n} \cdot 2^n = 1$. Como $1$ não descresce mais rápido que qualquer polinômio $p(n)$, então $f(n) \notin negl$
+
+
+\textbf{Questão 2}
+
+\textbf{a)} $G_k(x) = F_k(0||x) || F_k(0||x)$
+
+    Não é $PRF$.
+
+        \begin{algorithm}[H]
+            \caption{Distinguidor $D$}
+            % \KwIn{$m \in \{0,1\}^{n-1}$}
+            % \KwOut{1, se $y_l = y_r$, 0 caso contrário}
+            $m \leftarrow \{0,1\}^{n-1}$
+
+            $y \leftarrow O(m)$
+            
+            $y_L, y_R \leftarrow y$, onde $y_L = \{y_1,y_2,\cdots,y_n \}$ e $y_R = \{y_{n+1},y_{n+2},\cdots,y_{2n} \}$
+
+            \If{$y_L = y_R$}{
+                \Return 1
+            }\Else{
+                \Return 0
+            }
+        \end{algorithm}
+
+    $Adv = | Pr(D^{G(.)} = 1 | O = G) - Pr(D^{g(.)} = 1 | O = g) |$
+
+    Temos que:
+
+    $Pr(D^{G(.)} = 1 | O = G) = Pr(y_L = y_R | O = G) = 1$
+    
+    e
+
+    $Pr(D^{g(.)} = 0 | O = g) = Pr(y_L = y_R | O = g)$, como $g(m)$ é uniformente distribuído, temos que $Pr(y_i = 0) = Pr(y_i = 1) = 1/2$ e como os bits são independentes, logo
+    
+    $Pr(y_L = y_R | O = g) = \prod_{i = 1}^{n} Pr(y_{L_i} = y_{R_i}) = \prod_{i = 1}^{n} \frac{1}{2} = (\frac{1}{2})^n = \frac{1}{2^n}$
+
+    Portanto, $Adv$ pode ser calculado como:
+
+    $Adv = | 1 - \frac{1}{2^n}|$. Como $Adv$ não descresce mais rápido que o inverso de qualquer polinômio $p(n)$, então $Adv \notin negl$.
+
+\textbf{b)} $G_k(x) = F_k(0||x) || F(x||1)$
+
+    É uma $PRF$.
+    
+    A seguir, construirei uma prova por contra-positiva como segue.
+
+    $G$ não é uma $PRF$, então $F$ não é uma $PRF$
+
+    Se $G$ não é uma $PRF$, então existe um distinguidor $D'$ que destingui quando $G(x) = F(0||x) || F(x||1)$.
+
+    Seja $D$ um distinguidor para $F$ simulando o oráculo de $D'$ da seguinte forma.
+
+    \begin{algorithm}[H]
+            \caption{Distinguidor $D$}
+            % \KwIn{$m \in \{0,1\}^{n-1}$}
+            % \KwOut{1, se $y_l = y_r$, 0 caso contrário}
+            Receba $i$ consultas de $D'$
+            $x \leftarrow D'$ onde $x \in \{0,1\}^{n-1}$
+
+            $y_0 \leftarrow O^F(0||x)$
+
+            $y_1 \leftarrow O^F(x||1)$
+
+            $y \leftarrow y_0||y_1$
+
+            Retorne $y$ para $D'$ e receba uma resposta $b \leftarrow D'$ onde $b \in \{0,1\}$
+
+            \Return $b$
+    \end{algorithm}
+
+    $Adv = | Pr(D^{F(.)} = 1 | O = F) - Pr(D^{f(.)} = 1 | O = f) |$
+
+    $Pr(D^{F(.)} = 1 | O = F) = Pr(D'^{G(.)} = 1 | O' = G)$
+
+    $Pr(D^{f(.)} = 1 | O = f) = Pr(D^{g(.)} = 1 | O' = g)$
+
+    Então,
+
+
+    $Adv = | Pr(D'^{G(.)} = 1 | O' = G) - Pr(D'^{g(.)} = 1 | O' = g) |$, que $\notin negl$, pois $D'$ é capaz de distiguir com probabilidade não negligenciável. Desta forma, $D$ também consegue distinguir com probabilidade não negligenciável. Portanto, $F$ não é uma $PRF$.  
+
+\textbf{c)} $G_k(x) = F_k(0||x)||F_k(x||0)$
+
+    Não é $PRF$. 
+    
+    Note que qualquer entrada como $0^{n-1}$ resultará em $F_k(0^{n-1}||0) = F_k(0^n)$ e $F_k(0||0^{n-1}) = F_k(0^n)$
+
+    \begin{algorithm}[H]
+        \caption{Distinguidor $D$}
+        % \KwIn{$\emptyset$}
+        % \KwOut{1, se $y_l = y_r$, 0 caso contrário}
+
+        $m \leftarrow 0^{n-1}$
+
+        $y \leftarrow O(m)$
+        
+        $y_L, y_R \leftarrow y$, onde $y_L = \{y_1,y_2,\cdots,y_n \}$ e $y_R = \{y_{n+1},y_{n+2},\cdots,y_{2n} \}$
+
+
+        \If{$y_L = y_R$}{
+            \Return 1
+        }\Else{
+            \Return 0
+        }
+    \end{algorithm}
+
+    $Adv = |Pr(D^{G(.)} = 1 | O = G) - Pr(D^{g(.)} = 1 | O = g)|$
+
+    $Pr(D^{G(.)} = 1 | O = G) = Pr(y_L = y_R | O = G) = 1$
+
+    $Pr(D^{g(.)} = 1 | O = g) = Pr(y_L = y_R | O = g)$. 
+    
+    Como $g(m)$ é uniformemente distribuído, então $Pr(y_i = 0) = Pr(y_i = 1) = \frac{1}{2}$ e os bits são independentes, então $Pr(y_L = y_R | O = g) = \prod_{i=1}^{n}Pr(y_{L_i} = y_{R_i}) = \prod_{i=1}^{n}\frac{1}{2} = \frac{1}{2^n}$. Logo, a vantagem pode ser calculada como segue.
+
+
+    $Adv = |1 - \frac{1}{2^n}|$. Como $Adv$ não descresce mais rápido que o inverso de qualquer polinômio $p(n)$, então $Adv \notin negl$.
+
+\textbf{Questão 3}
+
+    $1$ Tb = $2^{40}$, então $1$ TB = $8 \cdot 2^{40} = 2^3 \cdot 2^{40} = 2^{43}$.
+
+    O tamanho do bloco usado pelo AES é de $2^7$ bits.
+
+    Com isso, $1$TB será dividido em $\frac{2^{43}}{2^7} = 2^{36}$ blocos.
+
+    Como o counter mode usa um contador, precisaremos contar $2^{36}$, pois temos essa quantidade de blocos. O bloco completo tem 128 bits, como usaremos 36 para o contador, temos que o tamanho máximo do IV $= 128 - 36 = 92$ bits.
+
+
+\textbf{Questão 4}
+
+        \begin{algorithm}[H]
+            \caption{Distinguidor $D$}
+            % \KwIn{$m \in \{0,1\}^n$}
+            % \KwOut{1, se $F$ não for PRF, 0 caso contrário}
+
+            Seja $Q$ uma lista como $Q = \{(x_1,O(x_1)),(x_2,O(x_2)),\cdots,(x_{poly(n)},O(x_{poly(n)}))\}$, onde $x_i = \{0,1\}^n$ e $O(x_i)$ a resposta do oráculo em $x_i$
+
+            $k \leftarrow A(Q)$
+
+            Seja $z \in \{0,1\}^n$ tal que $z \neq x_i$ para todo $x_i \in Q$
+            
+            $y \leftarrow F_k(z)$, onde $F_k$ é a função $F$ com a chave $k$ obtida pela consulta em $A$
+            
+            $y' \leftarrow O(z)$
+
+            \If{$y = y'$}{
+                \Return 1
+            }\Else{
+                \Return 0
+            }
+        \end{algorithm}  
+
+        $Adv = |Pr(D^{F(.)} = 1 | O = F) - Pr(D^{f(.)} = 1 | O = f)|$
+
+        $Pr(D^{F(.)} = 1 | O = F) = Pr(y = y'| O = F) = 1$
+
+        $Pr(D^{f(.)} = 1 | O = f) = Pr(y = y' | O = f) = Pr(y_i = y'_i)$. Como $Pr(y_i = 0) = Pr(y_i = 1) = \frac{1}{2}$ e os bits são independentes, então temos que
+
+        $Pr(y_i = y'_i) = \prod_{i = 1}^{n} Pr(y_i = y'_i) = \prod_{i = 1}^{n} \frac{1}{2} = \frac{1}{2^n}$.
+
+        Portanto, $Adv$ pode ser calculado como
+
+        $Adv = |1 - \frac{1}{2^n}|$. Como $Adv$ não descresce mais rápido que o inverso que qualquer polinômio $p(n)$, então $Adv \notin negl$.
+
+\textbf{Questão 5}
+
+        \begin{algorithm}[H]
+            \caption{Algoritmo de recuperação de chave $RK$}
+            % \KwIn{$m \in \{0,1\}^n$}
+            % \KwOut{1, se $F$ não for PRF, 0 caso contrário}
+
+            Seja $b'_{n}$ um vetor onde todo elemento $b'_i = 0$
+
+            $b \leftarrow O(b')$
+
+            Seja $I_{n \times n}$ a matriz identidade em $\mathbb{F}_2^{n \times n}$
+
+            $Q \leftarrow \emptyset$
+
+            \For{Toda coluna $j$ em $I$, tal que $1 \leq j \leq n$}{
+                $y \leftarrow O(I_j) \oplus b$
+
+                Insira $y$ em $Q$
+            }
+
+            Seja $A_{n \times n}$ uma matriz tal que toda coluna $j$ é $Q_j^T$
+
+            $k \leftarrow (A,b)$
+
+            \Return k
+        \end{algorithm} 
+
+        O novo distinguidor pode ser definido como segue.
+
+        \begin{algorithm}[H]
+            \caption{Distinguidor $D$}
+            % \KwIn{$m \in \{0,1\}^n$}
+            % \KwOut{1, se $F$ não for PRF, 0 caso contrário}
+
+            Receba b' de $RK$
+
+            Retorne $O(b')$ a $RK$
+
+            Receba $I_j$ $j$ vezes de $RK$ 
+
+            Para todo $I_j$ retorne $O(I_j)$ a $RK$
+
+            Receba $k$ de $RK$
+
+            Seja $z \in \{0,1\}^n$ tal que $z \neq I_j$ para todo $I_j$ recebido nas consultas anteriores
+            
+            $y \leftarrow F_k(z)$, onde $F_k$ é a função $F$ com a chave $k$ obtida pela consulta em $RK$
+            
+            $y' \leftarrow O(z)$
+
+            \If{$y = y'$}{
+                \Return 1
+            }\Else{
+                \Return 0
+            }
+        \end{algorithm}
+
+        O número total de consultas ao oráculo é $n+1$ (uma para $b'$ e $n$ para as colunas $I_j$), mais uma consulta final para $y'$, totalizando $n+2$ consultas. Como $n+2$ é um polinômio em $n$, o distinguidor é $PPT$, portanto a vantagem não é negligenciável e $F$ não é uma $PRF$.
+
+        $Adv = |Pr(D^{F(.)} = 1 | O = F) - Pr(D^{f(.)} = 1 | O = f)|$
+
+        $Pr(D^{F(.)} = 1 | O = F) = Pr(y = y'| O = F) = 1$
+
+        $Pr(D^{f(.)} = 1 | O = f) = Pr(y = y' | O = f) = Pr(y_i = y'_i)$. Como $Pr(y_i = 0) = Pr(y_i = 1) = \frac{1}{2}$ e os bits são independentes, então temos que
+
+        $Pr(y_i = y'_i) = \prod_{i = 1}^{n} Pr(y_i = y'_i) = \prod_{i = 1}^{n} \frac{1}{2} = \frac{1}{2^n}$.
+
+        Portanto, $Adv$ pode ser calculado como
+
+        $Adv = |1 - \frac{1}{2^n}|$. Como $Adv$ não descresce mais rápido que o inverso que qualquer polinômio $p(n)$, então $Adv \notin negl$.
+
+\textbf{Questão 6}
+    
+    Seja o distinguidor D definido como segue.
+
+        \begin{algorithm}[H]
+            \caption{Distinguidor $D$}
+            % \KwIn{$m \in \{0,1\}^n$}
+            % \KwOut{1, se $F$ não for PRF, 0 caso contrário}
+
+            $A \leftarrow 0^{128}$
+
+            $B \leftarrow 1^{128}$
+
+            $m_0 \leftarrow (A,A)$
+
+            $m_1 \leftarrow (A,B)$
+            
+
+            $C \leftarrow O(m_0,m_1)$
+
+            $y_L, y_R \leftarrow C$, onde $y_L = \{C_1,C_2, \cdots, C_{128}\}$ e $y_R = \{C_{129},C_{130},\cdots, C_{256}\}$
+
+            \If{$y_L = y_R$}{
+                \Return 0
+            }\Else{
+                \Return 1
+            }
+        \end{algorithm}
+
+    A vantagem pode ser calculada como segue.
+
+    $Adv = |Pr(D^{O} = 0 | b = 0) - Pr(D^{O} = 0 | b = 1)|$
+
+    $Pr(D^{O} = 0 | b = 0) = Pr(y_L = y_R| b = 0) = 1$
+
+    $Pr(D^{O} = 0 | b = 1) = Pr(E_k(A) = E_k(B) | b = 1) = 0$, pois $Enc_k$ é determinística e injetiva.
+
+    Portanto,
+
+    $Adv = |1 - 0|$, como $1 - 0$ não descresce mais rápido que qualquer polinômio $p(n)$, então $Adv \notin negl$
+
+\textbf{Questão 7}
+
+\textbf{Item A)} 
+    Seja duas mensagens quaisquer $m_i$ e $m'_i$, tal que $C_{m_i} = m_i \oplus AES_k(IV||i)$ e $C_{m'_i} = m'_i \oplus AES_k(IV||i)$. Ao realizarmos a operação XOR entre ambos $C$, temos
+
+    $C_{m_i} \oplus C_{m'_i} = (m_i \oplus AES_k(IV||i)) \oplus (m'_i \oplus AES_k(IV||i))$
+
+    Como $\oplus$ é associativo, podemos reorganizar da seguinte forma:
+
+    $C_{m_i} \oplus C_{m'_i} = m_i \oplus m'_i \oplus AES_k(IV||i) \oplus AES_k(IV||i)$
+
+    Se o $IV$ e a chave $k$ forem repetidos, temos que 
+
+    $AES_k(IV||i) \oplus AES_k(IV||i) = 0$
+
+    Portanto,
+
+    $C_{m_i} \oplus C_{m'_i} = m_i \oplus m'_i \oplus 0$
+
+    $C_{m_i} \oplus C_{m'_i} = m_i \oplus m'_i$
+
+\textbf{Item B)}
+    Como mostrado no item anterior, $C_{m_i} \oplus C_{m'_i} = m_i \oplus m'_i$. No jogo CPA, o atacante pode escolher qual mensagem irá enviar, logo, basta que o atacante envie qualquer uma das mensagens igual a 0. Dessa forma teriamos (supondo $m'_i = 0$) $C_{m_i} \oplus C_{m'_i} = m_i \oplus m'_i = m_i$, que o atacante poderia simplesmente comparar com suas mensagens enviadas na etapa de desafio e vencê-lo sem nenhuma dificuldade. Portanto, se o $IV$ e a chave $k$ forem reusadas, o $AES$ com modo de operação CTR não é CPA-seguro.
+
+\textbf{Questão 8}
+
+    Não. Seja $A = 0^n$ e $B = 1^n$. Para vencer o jogo CPA, o atacante pode fazer $m_0 = (A,A)$ e $m_1 = (A,B)$ e receber $C_b = (r, c_0, c_1)$. Perceba que $c_0 = F_k(r)$ sempre, entretanto, $c_1 = F_k(r)$ se e somente se $b = 0$. Isto é, $c_1 = F_k(r) \oplus A = F_k(r) \oplus 0^n = F_k(r)$.
+    
+    Portanto, basta então realizar uma simples comparacão como: se $c_0 = c_1$, então $b' = 0$, caso contrário, $b' = 1$.
+
+\end{document}

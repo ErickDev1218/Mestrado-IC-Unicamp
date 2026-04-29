@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc} % Para aceitar acentos
+\usepackage[T1]{fontenc}    % Para renderizar fontes com acentos corretamente
+\usepackage[brazil]{babel}  % Para português (hifenização, datas, etc.)
+\usepackage[a4paper, margin=2.5cm]{geometry} % Ajusta a largura da folha
+\usepackage[ruled,vlined, linesnumbered]{algorithm2e}% Escrever pseudocódigo
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\usepackage{setspace}
+
+\usepackage{float}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{pgfgantt}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{Projeto de pesquisa - Problema da compra mínima}
+\author{Antônio Erick Freitas Ferreira \\
+        \small Instituto de Computação - Unicamp - São Paulo - Brasil
+}
+
+\begin{document}
+\onehalfspacing
+
+\input{Secoes/Folha-rosto/folha_rosto}
+
+% \tableofcontents
+\newpage
+
+\input{Secoes/Introducao/introducao}
+\input{Secoes/Trabalhos-relacionados/trabalhos-relacionados}
+\input{Secoes/Metodologia/metodologia}
+\input{Secoes/Beneficios-desafios/beneficios-desafios}
+\newpage
+\bibliographystyle{plain}
+\bibliography{Secoes/Referencias/referencias}
+\end{document}

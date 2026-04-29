@@ -1,0 +1,58 @@
+\begin{thebibliography}{10}
+
+\bibitem{aggarwal2004}
+Gagan Aggarwal, Tom{\'a}s Feder, Rajeev Motwani, and An~Zhu.
+\newblock Algorithms for multi-product pricing.
+\newblock In {\em Automata, Languages and Programming}, pages 72--83, Berlin, Heidelberg, 2004. Springer Berlin Heidelberg.
+
+\bibitem{briest2007}
+Patrick Briest and Piotr Krysta.
+\newblock Buying cheap is expensive: hardness of non-parametric multi-product pricing.
+\newblock In {\em Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA '07)}, SODA '07, page 716–725, USA, 2007. Society for Industrial and Applied Mathematics.
+
+\bibitem{catabriga2025}
+Sandro Catabriga.
+\newblock Formulações de programação linear inteira para o problema da compra mínima.
+\newblock Dissertação de mestrado, Universidade Estadual de Campinas (UNICAMP), Campinas, 2025.
+\newblock DOI: 10.47749/T/UNICAMP.2025.1499549.
+
+\bibitem{chalermsook2012}
+Parinya Chalermsook, Julia Chuzhoy, Sampath Kannan, and Sanjeev Khanna.
+\newblock Improved hardness results for profit maximization pricing problems with unlimited supply.
+\newblock In {\em Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques}, pages 73--84, Berlin, Heidelberg, 2012. Springer Berlin Heidelberg.
+
+\bibitem{gurobi}
+{Gurobi Optimization, LLC}.
+\newblock {Gurobi Optimizer Reference Manual}, 2024.
+
+\bibitem{venkatesan2005}
+Venkatesan Guruswami, Jason~D. Hartline, Anna~R. Karlin, David Kempe, Claire Kenyon, and Frank McSherry.
+\newblock On profit-maximizing envy-free pricing.
+\newblock In {\em Proceedings of the Sixteenth Annual ACM-SIAM Symposium on Discrete Algorithms}, SODA '05, page 1164–1173, USA, 2005. Society for Industrial and Applied Mathematics.
+\newblock DOI: 10.5555/1070432.1070598.
+
+\bibitem{shmuel1984}
+Shmuel Oren, Stephen Smith, and Robert Wilson.
+\newblock Pricing a product line.
+\newblock {\em The Journal of Business}, 57(1):73--99, January 1984.
+\newblock DOI: 10.1007/978-1-349-15651-1\_9.
+
+\bibitem{shmuel1987}
+Shmuel~S. Oren, Stephen~A. Smith, and Robert~B. Wilson.
+\newblock Multi-product pricing for electric power.
+\newblock {\em Energy Economics}, 9(2):104--114, 1987.
+\newblock DOI: 10.1016/0140-9883(87)90013-2.
+
+\bibitem{rusmevichientong2006}
+Paat Rusmevichientong, Benjamin Van~Roy, and Peter~W. Glynn.
+\newblock A nonparametric approach to multiproduct pricing.
+\newblock {\em Operations Research}, 54(1):82--98, 2006.
+\newblock DOI: 10.1287/opre.1050.0252.
+
+\bibitem{smith1986}
+Stephen~A. Smith.
+\newblock New product pricing in quality sensitive markets.
+\newblock {\em Marketing Science}, 5(1):70--87, 1986.
+\newblock Winter 1986.
+
+\end{thebibliography}

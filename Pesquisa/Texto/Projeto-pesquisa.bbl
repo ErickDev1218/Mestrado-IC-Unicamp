@@ -1,0 +1,154 @@
+\begin{thebibliography}{10}
+
+\bibitem{Khandelwal2021}
+Kamal~Srivastava Aditi~Khandelwal and Gur Saran.
+\newblock On roman domination of graphs using a genetic algorithm.
+\newblock In Vishal~Singh et~al., editor, {\em Computational Methods and Data Engineering}, volume 1227 of {\em Advances in Intelligent Systems and Computing}, pages 133--147. Springer, 2021.
+
+\bibitem{aggarwal2004}
+Gagan Aggarwal, Tom{\'a}s Feder, Rajeev Motwani, and An~Zhu.
+\newblock Algorithms for multi-product pricing.
+\newblock In {\em Automata, Languages and Programming}, pages 72--83, Berlin, Heidelberg, 2004. Springer Berlin Heidelberg.
+
+\bibitem{Aggarwal2024}
+Himanshu Aggarwal and P.~Venkata~Subba Reddy.
+\newblock Meta-heuristic algorithms for double roman domination problem.
+\newblock {\em Applied Soft Computing}, 154:111306, 2024.
+
+\bibitem{Bean1994}
+John~C. Bean.
+\newblock Genetic algorithms and random keys for sequencing and optimization.
+\newblock {\em ORSA Journal on Computing}, 1994.
+
+\bibitem{Bertsimas2005}
+Dimitris Bertsimas and Robert Weismantel.
+\newblock {\em Optimization Over Integers}.
+\newblock Dynamic Ideas, Belmont, MA, 2005.
+
+\bibitem{briest2007}
+Patrick Briest and Piotr Krysta.
+\newblock Buying cheap is expensive: hardness of non-parametric multi-product pricing.
+\newblock In {\em Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA '07)}, SODA '07, page 716–725, USA, 2007. Society for Industrial and Applied Mathematics.
+
+\bibitem{catabriga2025}
+Sandro Catabriga.
+\newblock Formulações de programação linear inteira para o problema da compra mínima.
+\newblock Dissertação de mestrado, Universidade Estadual de Campinas (UNICAMP), Campinas, 2025.
+\newblock DOI: 10.47749/T/UNICAMP.2025.1499549.
+
+\bibitem{chalermsook2012}
+Parinya Chalermsook, Julia Chuzhoy, Sampath Kannan, and Sanjeev Khanna.
+\newblock Improved hardness results for profit maximization pricing problems with unlimited supply.
+\newblock In {\em Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques}, pages 73--84, Berlin, Heidelberg, 2012. Springer Berlin Heidelberg.
+
+\bibitem{Dolan2002}
+Elizabeth~D. Dolan and Jorge~J. Mor{\'e}.
+\newblock Benchmarking optimization software with performance profiles.
+\newblock {\em Mathematical Programming}, 91(2):201--213, 2002.
+
+\bibitem{Goldbarg2005}
+Marco~C. Goldbarg and Hélio P.~L. Luna.
+\newblock {\em Otimização Combinatória e Programação Linear}.
+\newblock Editora Campus, Rio de Janeiro, 2005.
+
+\bibitem{Goncalves2011}
+J.~F. Goncalves and M.~G.~C. Resende.
+\newblock Biased random-key genetic algorithms for combinatorial optimization.
+\newblock {\em Journal of Heuristics}, 2011.
+
+\bibitem{Chaves2023}
+José~Fernando Gonçalves, Mauricio G.~C. Resende, and Felipe Campelo.
+\newblock The random-key optimizer: A general framework for optimization using random keys.
+\newblock {\em European Journal of Operational Research}, 307(2):555--570, 2023.
+
+\bibitem{gurobi}
+{Gurobi Optimization, LLC}.
+\newblock {Gurobi Optimizer Reference Manual}, 2024.
+
+\bibitem{venkatesan2005}
+Venkatesan Guruswami, Jason~D. Hartline, Anna~R. Karlin, David Kempe, Claire Kenyon, and Frank McSherry.
+\newblock On profit-maximizing envy-free pricing.
+\newblock In {\em Proceedings of the Sixteenth Annual ACM-SIAM Symposium on Discrete Algorithms}, SODA '05, page 1164–1173, USA, 2005. Society for Industrial and Applied Mathematics.
+\newblock DOI: 10.5555/1070432.1070598.
+
+\bibitem{Hillier2013}
+F.~S. Hillier and G.~J. Lieberman.
+\newblock {\em Introdução à pesquisa operacional}.
+\newblock McGraw Hill Brasil, [S. l.], 2013.
+
+\bibitem{Londe2025}
+Mariana~A. Londe, Luciana~S. Pessoa, Carlos~E. Andrade, and Mauricio G.~C. Resende.
+\newblock Biased random-key genetic algorithms.
+\newblock {\em European Journal of Operational Research}, 321(1):1--22, 2025.
+\newblock Invited review.
+
+\bibitem{Nash2000}
+J.~C. Nash.
+\newblock The (dantzig) simplex method for linear programming.
+\newblock {\em Computing in Science \& Engineering}, 2(1):29--31, 2000.
+
+\bibitem{Nemhauser1988}
+George~L. Nemhauser and Laurence~A. Wolsey.
+\newblock {\em Integer and Combinatorial Optimization}.
+\newblock Wiley-Interscience, New York, 1988.
+
+\bibitem{shmuel1984}
+Shmuel Oren, Stephen Smith, and Robert Wilson.
+\newblock Pricing a product line.
+\newblock {\em The Journal of Business}, 57(1):73--99, January 1984.
+\newblock DOI: 10.1007/978-1-349-15651-1\_9.
+
+\bibitem{shmuel1987}
+Shmuel~S. Oren, Stephen~A. Smith, and Robert~B. Wilson.
+\newblock Multi-product pricing for electric power.
+\newblock {\em Energy Economics}, 9(2):104--114, 1987.
+\newblock DOI: 10.1016/0140-9883(87)90013-2.
+
+\bibitem{Raju2024}
+M.~Alfred Raju and P.~Venkata~Subba Reddy.
+\newblock Metaheuristic algorithms for solving roman \{2\}-domination problem.
+\newblock {\em RAIRO - Operations Research}, 58:2107--2121, 2024.
+
+\bibitem{Resende2013}
+Mauricio G.~C. Resende.
+\newblock Introdução aos algoritmos genéticos de chaves aleatórias viciadas.
+\newblock In {\em Anais [...]}, pages 3680--3691, Natal, 2013. Simp{\'o}sio Brasileiro de Pesquisa Operacional, SBPO.
+
+\bibitem{rusmevichientong2006}
+Paat Rusmevichientong, Benjamin Van~Roy, and Peter~W. Glynn.
+\newblock A nonparametric approach to multiproduct pricing.
+\newblock {\em Operations Research}, 54(1):82--98, 2006.
+\newblock DOI: 10.1287/opre.1050.0252.
+
+\bibitem{Schrijver1986}
+Alexander Schrijver.
+\newblock {\em Theory of Linear and Integer Programming}.
+\newblock John Wiley \& Sons, New York, 1986.
+
+\bibitem{Sivanandam2007}
+S.~N. Sivanandam and S.~N. Deepa.
+\newblock {\em Introduction to Genetic Algorithms}.
+\newblock Springer Berlin Heidelberg, New York, 2007.
+
+\bibitem{smith1986}
+Stephen~A. Smith.
+\newblock New product pricing in quality sensitive markets.
+\newblock {\em Marketing Science}, 5(1):70--87, 1986.
+\newblock Winter 1986.
+
+\bibitem{Metaheuristics}
+Kenneth S{\"o}rensen and Fred Glover.
+\newblock Metaheuristics.
+\newblock In S.~I. Gass and M.~C. Fu, editors, {\em Encyclopedia of Operations Research and Management Science}. Springer, New York, 2013.
+
+\bibitem{Spears1991}
+William~M. Spears and Kenneth~A. De~Jong.
+\newblock On the virtues of parameterized uniform crossover.
+\newblock In {\em Anais [...]}, pages 230--236, San Francisco, 1991. International Conference on Genetic Algorithms, Morgan Kaufmann.
+
+\bibitem{Wosley1998}
+Laurence~A. Wolsey.
+\newblock {\em Integer Programming}.
+\newblock John Wiley \& Sons, New York, 1998.
+
+\end{thebibliography}

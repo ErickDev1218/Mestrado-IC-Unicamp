@@ -1,0 +1,61 @@
+\section{Metodologia}
+
+% Este projeto tem como objetivo investigar e desenvolver novas abordagens para a resolução do PCmin, com ênfase no aperfeiçoamento de modelos matemáticos e na proposição de métodos heurísticos para o tratamento de instâncias de maior porte. A metodologia proposta parte do trabalho de Catabriga, que apresentou quatro formulações de Programação Linear para o problema, sendo uma formulação de PLI e três formulações de PLIM, além de restrições adicionais de fortalecimento e resultados computacionais promissores para diferentes classes de instâncias.
+
+% Em particular, o trabalho de Catabriga constitui a principal base deste projeto, pois representa um dos estudos mais recentes e abrangentes sobre o PCmin, problema ainda pouco explorado na literatura no que diz respeito a formulações de PLI. A partir dessas formulações, este trabalho pretende avançar em duas frentes complementares:
+
+% \begin{itemize}
+%     \item O aperfeiçoamento de modelos exatos;
+%     \item O desenvolvimento de abordagens heurísticas capazes de produzir boas soluções em tempo computacional reduzido.
+% \end{itemize}
+
+% Portanto, a metodologia será organizada como segue.
+
+% \subsection{Revisão bibliográfica e consolidação do referencial teórico}
+
+% Inicialmente, será realizada uma revisão aprofundada da literatura sobre problemas de precificação, com foco especial no PCmin e em problemas correlatos, como o PCmax e a PCrank. Nessa etapa, serão analisadas tanto as propriedades teóricas do problema quanto as principais abordagens algorítmicas e de modelagem já existentes. Também serão estudadas as formulações propostas por Catabriga, incluindo suas variantes fortalecidas e os resultados computacionais reportados.
+
+% \subsection{Investigação e proposição de melhorias nas formulações exatas}
+
+% Com base na análise estrutural dos modelos existentes, serão investigadas possibilidades de aperfeiçoamento das formulações exatas. Entre as direções possíveis, destacam-se a introdução de novas restrições válidas para fortalecimento da relaxação linear; Eliminação de simetrias e redundâncias; Redução adicional do número de variáveis e restrições; Reformulações que favoreçam o desempenho de solvers de programação inteira. O objetivo desta etapa é obter modelos que preservem a qualidade da solução ótima, mas apresentem melhor escalabilidade e menor tempo de execução, especialmente em instâncias de médio e grande porte.
+
+% \subsection{Desenvolvimento de abordagens heurísticas}
+
+% Considerando que o PCmin é NP-difícil e que métodos exatos tendem a se tornar impraticáveis à medida que o porte das instâncias aumenta, pretende-se também investigar heurísticas capazes de produzir soluções de boa qualidade em tempo computacional reduzido. Nesse contexto, serão exploradas abordagens metaheurísticas baseadas em algoritmos genéticos, como o Algoritmo Genético tradicional (do inglês, \textit{Genetic Algorithm} (GA)) e o Algoritmo Genético de Chaves Aleatórias Enviesadas (do inglês, \textit{Biased Random-Key Genetic Algorithm} (BRKGA)), além de métodos de otimização agnóstica, como o Otimizador de Chaves Aleatórias (do inglês, \textit{Random-Key Optimizer} (RKO)), com o intuito de ampliar a exploração do espaço de soluções e identificar alternativas promissoras para instâncias de maior dimensão.
+
+% A escolha final das heurísticas será guiada tanto pela adequação à estrutura do problema quanto pelos resultados preliminares obtidos durante a experimentação.
+
+% \subsection{Avaliação computacional e análise comparativa}
+
+% As abordagens desenvolvidas serão avaliadas por meio de experimentos computacionais em diferentes classes de instâncias, incluindo cenários esparsos e densos, em linha com a literatura. Serão considerados indicadores como valor da solução obtida, o tempo de execução, o gap em relação à solução ótima (quando disponível) e a robustez em diferentes tamanhos e perfis de instâncias. Os resultados dos novos modelos e heurísticas serão comparados com as formulações de referência, especialmente aquelas propostas por Catabriga, buscando identificar em quais cenários cada abordagem se mostra mais eficiente.
+
+% \subsection{Sistematização dos resultados e redação final}
+
+% Por fim, os resultados teóricos e computacionais serão organizados e discutidos de forma crítica, com vistas à redação do trabalho final. Nessa etapa, também serão consolidadas as contribuições do projeto, suas limitações e possíveis direções para pesquisas futuras.
+
+% \begin{table}[H]
+%     \centering
+%     \caption{Cronograma de execução das atividades}
+%     \label{tab:cronograma}
+%     \renewcommand{\arraystretch}{1.5}
+%         \begin{tabular}{|p{9cm}|c|c|c|c|}
+%         \hline
+%         \textbf{Atividades} & \textbf{2026.1} & \textbf{2026.2} & \textbf{2027.1} & \textbf{2027.2} \\ \hline
+
+%         Disciplinas & $\times$ & $\times$ &  &  \\ \hline
+%         Revisão bibliográfica & $\times$ & $\times$ &  &  \\ \hline
+%         Melhorias nas formulações &  & $\times$ & $\times$ &  \\ \hline
+%         Desenvolvimento de heurísticas &  & $\times$ & $\times$ &  \\ \hline
+%         Experimentação computacional e análise comparativa &  & $\times$ & $\times$ & $\times$ \\ \hline
+%         Escrita da redação &  & $\times$ & $\times$ & $\times$ \\ \hline
+%         Entrega de dissertação e defesa &  &  & & $\times$ \\ \hline
+
+%         \end{tabular}
+% \end{table}
+
+
+A metodologia do projeto será estruturada em etapas complementares. Inicialmente, será realizada uma revisão bibliográfica sobre problemas de precificação, com ênfase no PCmin e em variantes correlatas, bem como nas formulações e resultados computacionais propostos por Catabriga~\cite{catabriga2025}. Em seguida, serão investigadas melhorias nas formulações exatas existentes, considerando estratégias como fortalecimento da relaxação linear, eliminação de simetrias e redundâncias, redução do número de variáveis e restrições e possíveis reformulações que favoreçam o desempenho de solucionadores de programação inteira, como o Gurobi~\cite{gurobi}.
+
+Paralelamente, serão desenvolvidas abordagens heurísticas para a resolução de instâncias de maior porte, nas quais métodos exatos tendem a se tornar impraticáveis. Entre as estratégias a serem exploradas, destacam-se metaheurísticas baseadas em algoritmos genéticos, como o \textit{Algoritmo Genético de Chaves Aleatórias Enviesadas} (do inglês, \textit{Biased Random-Key Genetic Algorithm}, BRKGA), além de métodos de otimização agnóstica, como o \textit{Otimizador de Chaves Aleatórias} (do inglês, \textit{Random-Key Optimizer}, RKO).
+
+As abordagens propostas serão avaliadas por meio de experimentos computacionais em diferentes classes de instâncias, considerando indicadores como valor da solução, tempo de execução e gap em relação à solução ótima. Por fim, os resultados obtidos serão sistematizados e analisados criticamente na dissertação de mestrado, podendo também fundamentar a elaboração de artigos científicos, com vistas à consolidação das contribuições do projeto, ao reconhecimento de suas limitações e à indicação de possíveis direções para pesquisas futuras.

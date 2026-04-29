@@ -1,0 +1,13 @@
+\section{Forma de Análise dos Resultados}
+
+A análise dos resultados deste trabalho será conduzida com o objetivo de avaliar, de forma sistemática, a qualidade e a eficiência das formulações propostas, bem como dos métodos de solução desenvolvidos. Para isso, serão considerados tanto aspectos relacionados à qualidade das soluções obtidas quanto ao desempenho computacional dos algoritmos.
+
+Inicialmente, as formulações matemáticas propostas serão avaliadas por meio de sua capacidade de produzir soluções ótimas ou de alta qualidade dentro de limites de tempo computacional preestabelecidos. Serão analisadas métricas como valor da função objetivo, tempo de processamento e número de nós explorados pelos algoritmos de \emph{branch-and-bound}, quando aplicável. Além disso, será verificada a robustez das formulações em instâncias de diferentes tamanhos, com ênfase especial em problemas de grande porte.
+
+Para a comparação entre os diferentes modelos e abordagens, será utilizada a metodologia de \emph{performance profiles}, conforme proposto por Dolan e Moré~\cite{Dolan2002}. Essa técnica permite avaliar o desempenho relativo dos algoritmos em um conjunto de instâncias, considerando simultaneamente eficiência e robustez. A partir dessa análise, será possível identificar quais formulações e métodos apresentam melhor comportamento geral, bem como aqueles mais adequados para diferentes cenários de aplicação.
+
+No que se refere às heurísticas, serão desenvolvidos e avaliados métodos baseados em BRKGA e RKO, com foco na resolução eficiente de instâncias de grande escala. A qualidade das soluções obtidas por essas heurísticas será comparada com os resultados provenientes dos métodos exatos, considerando tanto o valor da função objetivo quanto o tempo de execução. Sempre que possível, serão utilizados limites inferiores fornecidos pelos modelos exatos para mensurar o \emph{gap} de otimalidade das soluções heurísticas.
+
+Adicionalmente, será investigada a possibilidade de desenvolvimento de heurísticas baseadas nos próprios métodos exatos. Em particular, serão exploradas estratégias que utilizem informações provenientes da relaxação linear, soluções parciais e estruturas identificadas durante o processo de otimização para guiar a construção de soluções factíveis de alta qualidade. Essa abordagem visa combinar a precisão dos métodos exatos com a eficiência das heurísticas, resultando em algoritmos híbridos mais robustos e escaláveis.
+
+Por fim, os resultados obtidos serão analisados de forma comparativa e crítica em artigos cientifícos e na dissertação de mestrado, buscando identificar padrões de desempenho, limitações das abordagens propostas e possíveis direções para trabalhos futuros.

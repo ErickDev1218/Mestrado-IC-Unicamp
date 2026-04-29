@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\graphicspath{{./Secoes/Figuras/Photos/}}
+\usepackage[utf8]{inputenc} % Para aceitar acentos
+\usepackage[T1]{fontenc}    % Para renderizar fontes com acentos corretamente
+\usepackage[brazil]{babel}  % Para português (hifenização, datas, etc.)
+\usepackage[a4paper, margin=2.5cm]{geometry} % Ajusta a largura da folha
+\usepackage[ruled,vlined, linesnumbered]{algorithm2e}% Escrever pseudocódigo
+\usepackage{amsmath}  % Suporte matemático extra
+\usepackage{amssymb}  % Define o \mathbb
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{setspace}
+
+\usepackage{float}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{pgfgantt}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{caption}
+\captionsetup{
+    justification=raggedright,
+    singlelinecheck=false
+}
+\usepackage{subcaption}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+\geometry{margin=2.5cm}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{4pt}
+
+\title{Projeto de pesquisa - Problema da compra mínima}
+\author{Antônio Erick Freitas Ferreira \\
+        \small Instituto de Computação - Unicamp - São Paulo - Brasil
+}
+
+\begin{document}
+
+\input{Secoes/Figuras/figuras}
+\input{Secoes/Folha-rosto/folha_rosto}
+\newpage
+
+% \tableofcontents
+% \newpage
+
+\input{Secoes/Introducao/introducao_v3}
+\input{Secoes/Metodologia/metodologia}
+\input{Secoes/Objetivos/objetivos}
+\input{Secoes/Plano-trabalho/plano-trabalho}
+\input{Secoes/Materiais-metodos/materiais-metodos}
+\input{Secoes/Analise/analise}
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{Secoes/Referencias/referencias}
+\end{document}

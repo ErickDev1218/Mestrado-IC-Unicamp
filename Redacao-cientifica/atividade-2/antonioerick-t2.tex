@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc} % Para aceitar acentos
+\usepackage[T1]{fontenc}    % Para renderizar fontes com acentos corretamente
+\usepackage[brazil]{babel}  % Para português (hifenização, datas, etc.)
+\usepackage[a4paper, margin=2.5cm]{geometry} % Ajusta a largura da folha
+\usepackage[ruled,vlined, linesnumbered]{algorithm2e}% Escrever pseudocódigo
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\title{O problema da compra mínima: formulações e heurísticas.}
+\author{Antônio Erick Freitas Ferreira - 322980\\
+        Rafael C. S. Schouery \\
+        \small Instituto de Computação - Unicamp - São Paulo - Brasil
+}
+
+\begin{document}
+\maketitle
+
+    \begin{abstract}
+
+        \textbf{AND:} Relações comerciais estão presentes no nosso cotidiano. Um vendedor expõe seus produtos à venda e um comprador que esteja disposto a desembolsar o valor pode adquiri-lo. Com um mercado cada vez mais competitivo, o desafio do vendedor passa a ser como precificar seus produtos.
+
+        \textbf{BUT:} No entanto, surge um dilema econômico: preços mais elevados aumentam a receita unitária, mas podem reduzir o conjunto de compradores dispostos a adquirir determinado produto; por outro lado, preços mais baixos ampliam o número de vendas possíveis, porém diminuem o ganho obtido em cada transação. Assim, do ponto de vista do vendedor, o problema consiste em definir preços para um conjunto de itens de forma a equilibrar essas forças antagônicas e maximizar a receita total obtida.
+
+        Com o objetivo de maximizar a receita do vendedor, define-se o \textit{problema da compra mínima} como segue. Seja $I$ um conjunto de itens, $B$ um conjunto de compradores e $V$ uma matriz em que cada elemento $v_{ib}$ representa o valor que o comprador $b \in B$ está disposto a pagar pelo item $i \in I$. O problema consiste em determinar um conjunto de preços $P$, em que cada elemento $p_i$ corresponde ao preço atribuído ao item $i$. Além disso, o comportamento do comprador é conhecido: ele comprará um único produto mais barato viável, caso contrário, ele não comprará nada.
+
+        \textbf{THEREFORE:} Portanto, este trabalho tem como objetivo propor melhorias às formulações matemáticas existentes, com o intuito de fortalecer os modelos de Programação Linear Inteira, bem como desenvolver heurísticas eficientes para a resolução de instâncias de grande porte do problema.
+
+        \vspace{0.5cm}
+        
+        \center \textbf{Palavras-chave:} Otimização combinatória, precificação, heurística.
+    \end{abstract}
+
+    Este trabalho tem como objetivo investigar possíveis melhorias nas modelagens e implementações já existentes para o problema, bem como propor heurísticas baseadas em algoritmos genéticos para resolução de problemas de grande porte em tempo hábil.
+\end{document}
