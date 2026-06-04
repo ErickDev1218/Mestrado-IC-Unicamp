@@ -1,154 +1,1302 @@
-\begin{thebibliography}{10}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem{Khandelwal2021}
-Kamal~Srivastava Aditi~Khandelwal and Gur Saran.
-\newblock On roman domination of graphs using a genetic algorithm.
-\newblock In Vishal~Singh et~al., editor, {\em Computational Methods and Data Engineering}, volume 1227 of {\em Advances in Intelligent Systems and Computing}, pages 133--147. Springer, 2021.
 
-\bibitem{aggarwal2004}
-Gagan Aggarwal, Tom{\'a}s Feder, Rajeev Motwani, and An~Zhu.
-\newblock Algorithms for multi-product pricing.
-\newblock In {\em Automata, Languages and Programming}, pages 72--83, Berlin, Heidelberg, 2004. Springer Berlin Heidelberg.
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{smith1986}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3cd6fb723438538bd0c17ce115a9a977}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Stephen\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{fullhash}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{fullhashraw}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{bibnamehash}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{authorbibnamehash}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{authornamehash}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{authorfullhash}{3cd6fb723438538bd0c17ce115a9a977}
+      \strng{authorfullhashraw}{3cd6fb723438538bd0c17ce115a9a977}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Marketing Science}
+      \field{number}{1}
+      \field{title}{New Product Pricing in Quality Sensitive Markets}
+      \field{volume}{5}
+      \field{year}{1986}
+      \field{pages}{70\bibrangedash 87}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1287/mksc.5.1.70
+      \endverb
+    \endentry
+    \entry{aggarwal2004}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=8176693633a6904d0686a58c02abe11c}{%
+           family={Aggarwal},
+           familyi={A\bibinitperiod},
+           given={Gagan},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6ca45a075214e3f9e1fc09e857374e6f}{%
+           family={Feder},
+           familyi={F\bibinitperiod},
+           given={Tomás},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2f555526320a1c4028ad0f6328953999}{%
+           family={Motwani},
+           familyi={M\bibinitperiod},
+           given={Rajeev},
+           giveni={R\bibinitperiod}}}%
+        {{hash=00e905d7ea557ea8801b702f567ae0b9}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={An},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f41c23015d961d1057dfa980e03155ab}
+      \strng{fullhash}{38379e84a5d05b01c6dcc53093225783}
+      \strng{fullhashraw}{38379e84a5d05b01c6dcc53093225783}
+      \strng{bibnamehash}{38379e84a5d05b01c6dcc53093225783}
+      \strng{authorbibnamehash}{38379e84a5d05b01c6dcc53093225783}
+      \strng{authornamehash}{f41c23015d961d1057dfa980e03155ab}
+      \strng{authorfullhash}{38379e84a5d05b01c6dcc53093225783}
+      \strng{authorfullhashraw}{38379e84a5d05b01c6dcc53093225783}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Automata, Languages and Programming}
+      \field{title}{Algorithms for Multi-product Pricing}
+      \field{year}{2004}
+      \field{pages}{72\bibrangedash 83}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/978-3-540-27836-8_9
+      \endverb
+    \endentry
+    \entry{venkatesan2005}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=fb6e0e6ff36a30395ada0c82fe11cc98}{%
+           family={Guruswami},
+           familyi={G\bibinitperiod},
+           given={Venkatesan},
+           giveni={V\bibinitperiod}}}%
+        {{hash=7b057865764e6e1818d5ff277c460c24}{%
+           family={Hartline},
+           familyi={H\bibinitperiod},
+           given={Jason\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=ebc19edc06144fdf56fb26514654ef6e}{%
+           family={Karlin},
+           familyi={K\bibinitperiod},
+           given={Anna\bibnamedelima R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=548c8439009be7e3768757c6ff4fc6d3}{%
+           family={Kempe},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=da5ef8018324f57ab5016f2df65f5fd6}{%
+           family={Kenyon},
+           familyi={K\bibinitperiod},
+           given={Claire},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a0e6c99aabdc2587f248892c8bb23f70}{%
+           family={McSherry},
+           familyi={M\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{ffe6505e26fc1b76a8578e9bccf8249b}
+      \strng{fullhash}{9ad2f4a428365d85accf1b51fcf8bfc2}
+      \strng{fullhashraw}{9ad2f4a428365d85accf1b51fcf8bfc2}
+      \strng{bibnamehash}{9ad2f4a428365d85accf1b51fcf8bfc2}
+      \strng{authorbibnamehash}{9ad2f4a428365d85accf1b51fcf8bfc2}
+      \strng{authornamehash}{ffe6505e26fc1b76a8578e9bccf8249b}
+      \strng{authorfullhash}{9ad2f4a428365d85accf1b51fcf8bfc2}
+      \strng{authorfullhashraw}{9ad2f4a428365d85accf1b51fcf8bfc2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Sixteenth Annual ACM-SIAM Symposium on Discrete Algorithms}
+      \field{title}{On profit-maximizing envy-free pricing}
+      \field{year}{2005}
+      \field{pages}{1164\bibrangedash 1173}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.5555/1070432.1070598
+      \endverb
+    \endentry
+    \entry{shmuel1984}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=23c5616ade02caa2b4e6dc3816a49ea1}{%
+           family={Oren},
+           familyi={O\bibinitperiod},
+           given={Shmuel},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3cd6fb723438538bd0c17ce115a9a977}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Stephen\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=9f1907ac6b9553b99fc6ef763ce02e5d}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Robert\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d1689e7e861f781a44b5b2ce269beedf}
+      \strng{fullhash}{2df28d8432a1dc6e6e57aa7f445984e7}
+      \strng{fullhashraw}{2df28d8432a1dc6e6e57aa7f445984e7}
+      \strng{bibnamehash}{2df28d8432a1dc6e6e57aa7f445984e7}
+      \strng{authorbibnamehash}{2df28d8432a1dc6e6e57aa7f445984e7}
+      \strng{authornamehash}{d1689e7e861f781a44b5b2ce269beedf}
+      \strng{authorfullhash}{2df28d8432a1dc6e6e57aa7f445984e7}
+      \strng{authorfullhashraw}{2df28d8432a1dc6e6e57aa7f445984e7}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Journal of Business}
+      \field{number}{1}
+      \field{title}{Pricing a Product Line}
+      \field{volume}{57}
+      \field{year}{1984}
+      \field{pages}{S73\bibrangedash S99}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1086/296238
+      \endverb
+    \endentry
+    \entry{shmuel1987}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1a245da1ed3b83172ee4307bb967d49e}{%
+           family={Oren},
+           familyi={O\bibinitperiod},
+           given={Shmuel\bibnamedelima S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=3cd6fb723438538bd0c17ce115a9a977}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Stephen\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=9f1907ac6b9553b99fc6ef763ce02e5d}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Robert\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{98d271702be81ee0b28c6f0f1d688e17}
+      \strng{fullhash}{ac8aa4770b7e1069771dd9dcd8491e98}
+      \strng{fullhashraw}{ac8aa4770b7e1069771dd9dcd8491e98}
+      \strng{bibnamehash}{ac8aa4770b7e1069771dd9dcd8491e98}
+      \strng{authorbibnamehash}{ac8aa4770b7e1069771dd9dcd8491e98}
+      \strng{authornamehash}{98d271702be81ee0b28c6f0f1d688e17}
+      \strng{authorfullhash}{ac8aa4770b7e1069771dd9dcd8491e98}
+      \strng{authorfullhashraw}{ac8aa4770b7e1069771dd9dcd8491e98}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy Economics}
+      \field{number}{2}
+      \field{title}{Multi-product pricing for electric power}
+      \field{volume}{9}
+      \field{year}{1987}
+      \field{pages}{104\bibrangedash 114}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/0140-9883(87)90013-2
+      \endverb
+    \endentry
+    \entry{rusmevichientong2006}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=9f6a993540c69aa6887464d78101130f}{%
+           family={Rusmevichientong},
+           familyi={R\bibinitperiod},
+           given={Paat},
+           giveni={P\bibinitperiod}}}%
+        {{hash=912e5e2d55c83bd48c04351b24e99269}{%
+           family={Van\bibnamedelima Roy},
+           familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=bbb2938067028135a82ee516bd25dece}{%
+           family={Glynn},
+           familyi={G\bibinitperiod},
+           given={Peter\bibnamedelima W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5637bd0fb16fa9cd47c57b6869575f0}
+      \strng{fullhash}{51beeb0e8784471970e31f3eea4df612}
+      \strng{fullhashraw}{51beeb0e8784471970e31f3eea4df612}
+      \strng{bibnamehash}{51beeb0e8784471970e31f3eea4df612}
+      \strng{authorbibnamehash}{51beeb0e8784471970e31f3eea4df612}
+      \strng{authornamehash}{f5637bd0fb16fa9cd47c57b6869575f0}
+      \strng{authorfullhash}{51beeb0e8784471970e31f3eea4df612}
+      \strng{authorfullhashraw}{51beeb0e8784471970e31f3eea4df612}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Operations Research}
+      \field{number}{1}
+      \field{title}{A Nonparametric Approach to Multiproduct Pricing}
+      \field{volume}{54}
+      \field{year}{2006}
+      \field{pages}{82\bibrangedash 98}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1287/opre.1050.0252
+      \endverb
+    \endentry
+    \entry{briest2007}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=428d10ee9cd6a15c03c6ed66a600b0ce}{%
+           family={Briest},
+           familyi={B\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=df66c1fad4b7bdcb9c71f88b9d19d4c3}{%
+           family={Krysta},
+           familyi={K\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{fullhash}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{fullhashraw}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{bibnamehash}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{authorbibnamehash}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{authornamehash}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{authorfullhash}{0a72586450aa9ff0ac3265ca6534d06a}
+      \strng{authorfullhashraw}{0a72586450aa9ff0ac3265ca6534d06a}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms}
+      \field{title}{Buying cheap is expensive: hardness of non-parametric multi-product pricing}
+      \field{year}{2007}
+      \field{pages}{716\bibrangedash 725}
+      \range{pages}{10}
+    \endentry
+    \entry{chalermsook2012}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=50bf5ab30ac4c194fe90a2191b913046}{%
+           family={Chalermsook},
+           familyi={C\bibinitperiod},
+           given={Parinya},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ca9a15097647ba3b5fe151394f0efd33}{%
+           family={Chuzhoy},
+           familyi={C\bibinitperiod},
+           given={Julia},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2019ea0bc57805287a6fc1a6117f4148}{%
+           family={Kannan},
+           familyi={K\bibinitperiod},
+           given={Sampath},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1892633f2f52be776bcfd32f9967a0f0}{%
+           family={Khanna},
+           familyi={K\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a86a7dee4564ba6bc1033caa83e3e65b}
+      \strng{fullhash}{46f8041825753b1004fa235603bc5f67}
+      \strng{fullhashraw}{46f8041825753b1004fa235603bc5f67}
+      \strng{bibnamehash}{46f8041825753b1004fa235603bc5f67}
+      \strng{authorbibnamehash}{46f8041825753b1004fa235603bc5f67}
+      \strng{authornamehash}{a86a7dee4564ba6bc1033caa83e3e65b}
+      \strng{authorfullhash}{46f8041825753b1004fa235603bc5f67}
+      \strng{authorfullhashraw}{46f8041825753b1004fa235603bc5f67}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques}
+      \field{title}{Improved Hardness Results for Profit Maximization Pricing Problems with Unlimited Supply}
+      \field{year}{2012}
+      \field{pages}{73\bibrangedash 84}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/978-3-642-32512-0_7
+      \endverb
+    \endentry
+    \entry{catabriga2025}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=f5a776815947b6f60a49195ef4147ed9}{%
+           family={Catabriga},
+           familyi={C\bibinitperiod},
+           given={Sandro},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Universidade Estadual de Campinas (UNICAMP)}%
+      }
+      \list{location}{1}{%
+        {Campinas}%
+      }
+      \strng{namehash}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{fullhash}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{fullhashraw}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{bibnamehash}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{authorbibnamehash}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{authornamehash}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{authorfullhash}{f5a776815947b6f60a49195ef4147ed9}
+      \strng{authorfullhashraw}{f5a776815947b6f60a49195ef4147ed9}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Formulações de Programação Linear Inteira para o Problema da Compra Mínima}
+      \field{type}{Dissertação de Mestrado}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.47749/T/UNICAMP.2025.1499549
+      \endverb
+    \endentry
+    \entry{gurobi}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=e3fb19cc60482639d6ec88ca136745f1}{%
+           family={{Gurobi Optimization, LLC}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{fullhash}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{fullhashraw}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{bibnamehash}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{authorbibnamehash}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{authornamehash}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{authorfullhash}{e3fb19cc60482639d6ec88ca136745f1}
+      \strng{authorfullhashraw}{e3fb19cc60482639d6ec88ca136745f1}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Gurobi Optimizer Reference Manual}}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.gurobi.com
+      \endverb
+      \verb{url}
+      \verb https://www.gurobi.com
+      \endverb
+    \endentry
+    \entry{heilporn2010}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=9339841cf9217d287748e23b417ae4a3}{%
+           family={Heilporn},
+           familyi={H\bibinitperiod},
+           given={Géraldine},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c665a0396f578301f2025aca8fbfb90e}{%
+           family={Labbé},
+           familyi={L\bibinitperiod},
+           given={Martine},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bf6177b50ac5c2a372126214bb947f27}{%
+           family={Marcotte},
+           familyi={M\bibinitperiod},
+           given={Patrice},
+           giveni={P\bibinitperiod}}}%
+        {{hash=221cb9086cd916efec4cedfb29cc83a6}{%
+           family={Savard},
+           familyi={S\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{d05537641bed223916233f893ef52176}
+      \strng{fullhash}{de5676ff4fb877f97cd9c96102e334a5}
+      \strng{fullhashraw}{de5676ff4fb877f97cd9c96102e334a5}
+      \strng{bibnamehash}{de5676ff4fb877f97cd9c96102e334a5}
+      \strng{authorbibnamehash}{de5676ff4fb877f97cd9c96102e334a5}
+      \strng{authornamehash}{d05537641bed223916233f893ef52176}
+      \strng{authorfullhash}{de5676ff4fb877f97cd9c96102e334a5}
+      \strng{authorfullhashraw}{de5676ff4fb877f97cd9c96102e334a5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Networks}
+      \field{number}{2}
+      \field{title}{A Polyhedral Study of the Network Pricing Problem with Connected Toll Arcs}
+      \field{volume}{55}
+      \field{year}{2010}
+      \field{pages}{234\bibrangedash 246}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1002/net.20368
+      \endverb
+    \endentry
+    \entry{fernandes2016}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c62b409311b6b561161e7ac14b7eddb1}{%
+           family={Fernandes},
+           familyi={F\bibinitperiod},
+           given={Cristina\bibnamedelima G.},
+           giveni={C\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=2cda084241db7f9d48fa00a707b2f022}{%
+           family={Ferreira},
+           familyi={F\bibinitperiod},
+           given={Carlos\bibnamedelima E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=2313fd86c49b32b46cda7ef8529e9d0d}{%
+           family={Franco},
+           familyi={F\bibinitperiod},
+           given={Álvaro\bibnamedelimb J.\bibnamedelimi P.},
+           giveni={Á\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=a811bfe23613ac8e548de16d9269015d}{%
+           family={Schouery},
+           familyi={S\bibinitperiod},
+           given={Rafael\bibnamedelimb C.\bibnamedelimi S.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c4949aae42760a46cb3056c32d9ed5b4}
+      \strng{fullhash}{94c3fadbe4538a58ebbc042f5334d5eb}
+      \strng{fullhashraw}{94c3fadbe4538a58ebbc042f5334d5eb}
+      \strng{bibnamehash}{94c3fadbe4538a58ebbc042f5334d5eb}
+      \strng{authorbibnamehash}{94c3fadbe4538a58ebbc042f5334d5eb}
+      \strng{authornamehash}{c4949aae42760a46cb3056c32d9ed5b4}
+      \strng{authorfullhash}{94c3fadbe4538a58ebbc042f5334d5eb}
+      \strng{authorfullhashraw}{94c3fadbe4538a58ebbc042f5334d5eb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Discrete Optimization}
+      \field{title}{The envy-free pricing problem, unit-demand markets and connections with the network pricing problem}
+      \field{volume}{22}
+      \field{year}{2016}
+      \field{pages}{141\bibrangedash 161}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1016/j.disopt.2015.09.003
+      \endverb
+    \endentry
+    \entry{Chaves2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=05706fa89ac0aa2272576718c4e1e9df}{%
+           family={Goncalves},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=67a6291f793bac975113130834007b6b}{%
+           family={Resende},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi G.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=c99054431c6596246ea0731b8bf8838f}{%
+           family={Campelo},
+           familyi={C\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{789be428d83419da57d57b43f9571638}
+      \strng{fullhash}{a2aa45912908349af6a3ebf9956dfd6c}
+      \strng{fullhashraw}{a2aa45912908349af6a3ebf9956dfd6c}
+      \strng{bibnamehash}{a2aa45912908349af6a3ebf9956dfd6c}
+      \strng{authorbibnamehash}{a2aa45912908349af6a3ebf9956dfd6c}
+      \strng{authornamehash}{789be428d83419da57d57b43f9571638}
+      \strng{authorfullhash}{a2aa45912908349af6a3ebf9956dfd6c}
+      \strng{authorfullhashraw}{a2aa45912908349af6a3ebf9956dfd6c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{number}{2}
+      \field{title}{The Random-Key Optimizer: A general framework for optimization using random keys}
+      \field{volume}{307}
+      \field{year}{2023}
+      \field{pages}{555\bibrangedash 570}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/s10732-025-09568-z
+      \endverb
+    \endentry
+    \entry{Goldbarg2005}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=9182255d91d372a1414ac22793989b79}{%
+           family={Goldbarg},
+           familyi={G\bibinitperiod},
+           given={Marco\bibnamedelima C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=2f8c96ead968e6bad79506e72aa78dfb}{%
+           family={Luna},
+           familyi={L\bibinitperiod},
+           given={Hélio\bibnamedelimb P.\bibnamedelimi L.},
+           giveni={H\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Rio de Janeiro}%
+      }
+      \list{publisher}{1}{%
+        {Editora Campus}%
+      }
+      \strng{namehash}{90403427922a0fb36d276a5a85962f3b}
+      \strng{fullhash}{90403427922a0fb36d276a5a85962f3b}
+      \strng{fullhashraw}{90403427922a0fb36d276a5a85962f3b}
+      \strng{bibnamehash}{90403427922a0fb36d276a5a85962f3b}
+      \strng{authorbibnamehash}{90403427922a0fb36d276a5a85962f3b}
+      \strng{authornamehash}{90403427922a0fb36d276a5a85962f3b}
+      \strng{authorfullhash}{90403427922a0fb36d276a5a85962f3b}
+      \strng{authorfullhashraw}{90403427922a0fb36d276a5a85962f3b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-8535215205}
+      \field{subtitle}{Modelos e Algoritmos}
+      \field{title}{Otimização Combinatória e Programação Linear}
+      \field{year}{2005}
+    \endentry
+    \entry{Nash2000}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=7662f97e5d94c24bb7c2fe6cda4b91c4}{%
+           family={Nash},
+           familyi={N\bibinitperiod},
+           given={J.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{fullhash}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{fullhashraw}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{bibnamehash}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{authorbibnamehash}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{authornamehash}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{authorfullhash}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \strng{authorfullhashraw}{7662f97e5d94c24bb7c2fe6cda4b91c4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computing in Science \& Engineering}
+      \field{number}{1}
+      \field{title}{The (Dantzig) Simplex Method for Linear Programming}
+      \field{volume}{2}
+      \field{year}{2000}
+      \field{pages}{29\bibrangedash 31}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/5992.814654
+      \endverb
+    \endentry
+    \entry{klee1972}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=3fc4fb7684111cb9dcd6eb11d4024766}{%
+           family={Klee},
+           familyi={K\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=81a36835bbf332908a92d5dbcb530b25}{%
+           family={Minty},
+           familyi={M\bibinitperiod},
+           given={George\bibnamedelima L.},
+           giveni={G\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=db2060c1692dee782abd634706d37e7f}{%
+           family={Shisha},
+           familyi={S\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{fullhash}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{fullhashraw}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{bibnamehash}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{authorbibnamehash}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{authornamehash}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{authorfullhash}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{authorfullhashraw}{51b9474ba6c14e44a2ed30218bf8c3da}
+      \strng{editorbibnamehash}{db2060c1692dee782abd634706d37e7f}
+      \strng{editornamehash}{db2060c1692dee782abd634706d37e7f}
+      \strng{editorfullhash}{db2060c1692dee782abd634706d37e7f}
+      \strng{editorfullhashraw}{db2060c1692dee782abd634706d37e7f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Inequalities}
+      \field{title}{How good is the simplex algorithm?}
+      \field{year}{1972}
+      \field{pages}{159\bibrangedash 175}
+      \range{pages}{17}
+    \endentry
+    \entry{khachiyan1979}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=f2f75753a82337ab9b1181e1d1238c8b}{%
+           family={Khachiyan},
+           familyi={K\bibinitperiod},
+           given={Leonid\bibnamedelima G.},
+           giveni={L\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{fullhash}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{fullhashraw}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{bibnamehash}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{authorbibnamehash}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{authornamehash}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{authorfullhash}{f2f75753a82337ab9b1181e1d1238c8b}
+      \strng{authorfullhashraw}{f2f75753a82337ab9b1181e1d1238c8b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soviet Mathematics Doklady}
+      \field{number}{1}
+      \field{title}{A polynomial algorithm in linear programming}
+      \field{volume}{20}
+      \field{year}{1979}
+      \field{pages}{191\bibrangedash 194}
+      \range{pages}{4}
+    \endentry
+    \entry{karmarkar1984}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c3c6081b99a2d442ab38286185a3165e}{%
+           family={Karmarkar},
+           familyi={K\bibinitperiod},
+           given={Narendra},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{fullhash}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{fullhashraw}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{bibnamehash}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{authorbibnamehash}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{authornamehash}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{authorfullhash}{c3c6081b99a2d442ab38286185a3165e}
+      \strng{authorfullhashraw}{c3c6081b99a2d442ab38286185a3165e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Combinatorica}
+      \field{number}{4}
+      \field{title}{A New Polynomial-Time Algorithm for Linear Programming-II}
+      \field{volume}{4}
+      \field{year}{1984}
+      \field{pages}{373\bibrangedash 395}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1007/BF02579150
+      \endverb
+    \endentry
+    \entry{Nemhauser1988}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=151b280703f96e0cfa3f018c0c2ae0f9}{%
+           family={Nemhauser},
+           familyi={N\bibinitperiod},
+           given={George\bibnamedelima L.},
+           giveni={G\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=85dba919fdceaad20b2b4009570310cc}{%
+           family={Wolsey},
+           familyi={W\bibinitperiod},
+           given={Laurence\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Wiley-Interscience}%
+      }
+      \strng{namehash}{d5fca81a15be4df9522c476cae63f457}
+      \strng{fullhash}{d5fca81a15be4df9522c476cae63f457}
+      \strng{fullhashraw}{d5fca81a15be4df9522c476cae63f457}
+      \strng{bibnamehash}{d5fca81a15be4df9522c476cae63f457}
+      \strng{authorbibnamehash}{d5fca81a15be4df9522c476cae63f457}
+      \strng{authornamehash}{d5fca81a15be4df9522c476cae63f457}
+      \strng{authorfullhash}{d5fca81a15be4df9522c476cae63f457}
+      \strng{authorfullhashraw}{d5fca81a15be4df9522c476cae63f457}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0471828198}
+      \field{title}{Integer and Combinatorial Optimization}
+      \field{year}{1988}
+    \endentry
+    \entry{Schrijver1986}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=25d5b8c6eeb2588f4cd646cfe8d0827b}{%
+           family={Schrijver},
+           familyi={S\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{fullhash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{fullhashraw}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{bibnamehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authorbibnamehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authornamehash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authorfullhash}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \strng{authorfullhashraw}{25d5b8c6eeb2588f4cd646cfe8d0827b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0471982326}
+      \field{title}{Theory of Linear and Integer Programming}
+      \field{year}{1986}
+    \endentry
+    \entry{Wosley1998}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=85dba919fdceaad20b2b4009570310cc}{%
+           family={Wolsey},
+           familyi={W\bibinitperiod},
+           given={Laurence\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{85dba919fdceaad20b2b4009570310cc}
+      \strng{fullhash}{85dba919fdceaad20b2b4009570310cc}
+      \strng{fullhashraw}{85dba919fdceaad20b2b4009570310cc}
+      \strng{bibnamehash}{85dba919fdceaad20b2b4009570310cc}
+      \strng{authorbibnamehash}{85dba919fdceaad20b2b4009570310cc}
+      \strng{authornamehash}{85dba919fdceaad20b2b4009570310cc}
+      \strng{authorfullhash}{85dba919fdceaad20b2b4009570310cc}
+      \strng{authorfullhashraw}{85dba919fdceaad20b2b4009570310cc}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0471283669}
+      \field{title}{Integer Programming}
+      \field{year}{1998}
+    \endentry
+    \entry{Bertsimas2005}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=5b57425178d5ae2d2835ef44cb330e42}{%
+           family={Bertsimas},
+           familyi={B\bibinitperiod},
+           given={Dimitris},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d0a8d11de08414fe1e90fdf5624ec36c}{%
+           family={Weismantel},
+           familyi={W\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Belmont, MA}%
+      }
+      \list{publisher}{1}{%
+        {Dynamic Ideas}%
+      }
+      \strng{namehash}{f667835099eff4ab46db20cac097e93a}
+      \strng{fullhash}{f667835099eff4ab46db20cac097e93a}
+      \strng{fullhashraw}{f667835099eff4ab46db20cac097e93a}
+      \strng{bibnamehash}{f667835099eff4ab46db20cac097e93a}
+      \strng{authorbibnamehash}{f667835099eff4ab46db20cac097e93a}
+      \strng{authornamehash}{f667835099eff4ab46db20cac097e93a}
+      \strng{authorfullhash}{f667835099eff4ab46db20cac097e93a}
+      \strng{authorfullhashraw}{f667835099eff4ab46db20cac097e93a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0975914625}
+      \field{title}{Optimization Over Integers}
+      \field{year}{2005}
+    \endentry
+    \entry{Sivanandam2007}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=34f2b088675fe9010506e013602f2cb0}{%
+           family={Sivanandam},
+           familyi={S\bibinitperiod},
+           given={S.\bibnamedelimi N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=46a56ccc66af2fa24854870ebb7436ce}{%
+           family={Deepa},
+           familyi={D\bibinitperiod},
+           given={S.\bibnamedelimi N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{fullhash}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{fullhashraw}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{bibnamehash}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{authorbibnamehash}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{authornamehash}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{authorfullhash}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \strng{authorfullhashraw}{9443722c9c7f4ec6541d0ab0e26b566e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-540-73189-4}
+      \field{title}{Introduction to Genetic Algorithms}
+      \field{year}{2007}
+    \endentry
+    \entry{Metaheuristics}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{hash=029683c0f75670b0a53c1f33dc2732d0}{%
+           family={Sörensen},
+           familyi={S\bibinitperiod},
+           given={Kenneth},
+           giveni={K\bibinitperiod}}}%
+        {{hash=dc17e11972df8b60f2996162604f37ac}{%
+           family={Glover},
+           familyi={G\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=96922ae8a16abb3dd54268e3e1600073}{%
+           family={Gass},
+           familyi={G\bibinitperiod},
+           given={S.\bibnamedelimi I.},
+           giveni={S\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=292d4b51463931c913a75bfa2f099283}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={M.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{fullhash}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{fullhashraw}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{bibnamehash}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{authorbibnamehash}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{authornamehash}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{authorfullhash}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{authorfullhashraw}{50d1fe7fb3035c00d6b1c36cca126dc4}
+      \strng{editorbibnamehash}{e07062daf559adaffbd94de6f19aa0f7}
+      \strng{editornamehash}{e07062daf559adaffbd94de6f19aa0f7}
+      \strng{editorfullhash}{e07062daf559adaffbd94de6f19aa0f7}
+      \strng{editorfullhashraw}{e07062daf559adaffbd94de6f19aa0f7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Encyclopedia of Operations Research and Management Science}
+      \field{title}{Metaheuristics}
+      \field{year}{2013}
+    \endentry
+    \entry{Khandelwal2021}{incollection}{}{}
+      \name{author}{3}{}{%
+        {{hash=64184b15dd18577144f435525eab3adf}{%
+           family={Khandelwal},
+           familyi={K\bibinitperiod},
+           given={Aditi},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a35025af88ee1511918232b34906489f}{%
+           family={Srivastava},
+           familyi={S\bibinitperiod},
+           given={Kamal},
+           giveni={K\bibinitperiod}}}%
+        {{hash=04f8c3cc59a4d6f991236e46c58ef0e1}{%
+           family={Saran},
+           familyi={S\bibinitperiod},
+           given={Gur},
+           giveni={G\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=e27a27e2531cd1a7b403cc5759effa3c}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           given={Vishal\bibnamedelima Singh},
+           giveni={V\bibinitperiod\bibinitdelim S\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{3aeb50697f37747ad76318844ee6a607}
+      \strng{fullhash}{387cb42ccef1293196d75b07fca34abc}
+      \strng{fullhashraw}{387cb42ccef1293196d75b07fca34abc}
+      \strng{bibnamehash}{387cb42ccef1293196d75b07fca34abc}
+      \strng{authorbibnamehash}{387cb42ccef1293196d75b07fca34abc}
+      \strng{authornamehash}{3aeb50697f37747ad76318844ee6a607}
+      \strng{authorfullhash}{387cb42ccef1293196d75b07fca34abc}
+      \strng{authorfullhashraw}{387cb42ccef1293196d75b07fca34abc}
+      \strng{editorbibnamehash}{e27a27e2531cd1a7b403cc5759effa3c}
+      \strng{editornamehash}{e27a27e2531cd1a7b403cc5759effa3c}
+      \strng{editorfullhash}{e27a27e2531cd1a7b403cc5759effa3c}
+      \strng{editorfullhashraw}{e27a27e2531cd1a7b403cc5759effa3c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Computational Methods and Data Engineering}
+      \field{title}{On Roman Domination of Graphs Using a Genetic Algorithm}
+      \field{volume}{1227}
+      \field{year}{2021}
+      \field{pages}{133\bibrangedash 147}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1007/978-981-15-6876-3_11
+      \endverb
+    \endentry
+    \entry{Aggarwal2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=2c25c3cb86445535e9e57c86f2ac88ec}{%
+           family={Aggarwal},
+           familyi={A\bibinitperiod},
+           given={Himanshu},
+           giveni={H\bibinitperiod}}}%
+        {{hash=dca176851e9440c8ca9435c49aa69b75}{%
+           family={Reddy},
+           familyi={R\bibinitperiod},
+           given={P.\bibnamedelimi Venkata\bibnamedelima Subba},
+           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{fullhash}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{fullhashraw}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{bibnamehash}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{authorbibnamehash}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{authornamehash}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{authorfullhash}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \strng{authorfullhashraw}{786fe70fd61341f27b6eb8b7b7d6adb2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Soft Computing}
+      \field{title}{Meta-heuristic Algorithms for Double Roman Domination Problem}
+      \field{volume}{154}
+      \field{year}{2024}
+      \field{pages}{111306}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.asoc.2024.111306
+      \endverb
+    \endentry
+    \entry{Raju2024}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=d550967e4fb866a5b1d10d8e51a3b72c}{%
+           family={Raju},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi Alfred},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=dca176851e9440c8ca9435c49aa69b75}{%
+           family={Reddy},
+           familyi={R\bibinitperiod},
+           given={P.\bibnamedelimi Venkata\bibnamedelima Subba},
+           giveni={P\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{27971d0347b7072b0c5bf1802d777720}
+      \strng{fullhash}{27971d0347b7072b0c5bf1802d777720}
+      \strng{fullhashraw}{27971d0347b7072b0c5bf1802d777720}
+      \strng{bibnamehash}{27971d0347b7072b0c5bf1802d777720}
+      \strng{authorbibnamehash}{27971d0347b7072b0c5bf1802d777720}
+      \strng{authornamehash}{27971d0347b7072b0c5bf1802d777720}
+      \strng{authorfullhash}{27971d0347b7072b0c5bf1802d777720}
+      \strng{authorfullhashraw}{27971d0347b7072b0c5bf1802d777720}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{RAIRO - Operations Research}
+      \field{title}{Metaheuristic Algorithms for Solving Roman \{2\}-Domination Problem}
+      \field{volume}{58}
+      \field{year}{2024}
+      \field{pages}{2107\bibrangedash 2121}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1051/ro/2024074
+      \endverb
+    \endentry
+    \entry{Resende2013}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=67a6291f793bac975113130834007b6b}{%
+           family={Resende},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi G.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{67a6291f793bac975113130834007b6b}
+      \strng{fullhash}{67a6291f793bac975113130834007b6b}
+      \strng{fullhashraw}{67a6291f793bac975113130834007b6b}
+      \strng{bibnamehash}{67a6291f793bac975113130834007b6b}
+      \strng{authorbibnamehash}{67a6291f793bac975113130834007b6b}
+      \strng{authornamehash}{67a6291f793bac975113130834007b6b}
+      \strng{authorfullhash}{67a6291f793bac975113130834007b6b}
+      \strng{authorfullhashraw}{67a6291f793bac975113130834007b6b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Anais do XLV Simpósio Brasileiro de Pesquisa Operacional}
+      \field{title}{Introdução aos algoritmos genéticos de chaves aleatórias viciadas}
+      \field{year}{2013}
+      \field{pages}{3680\bibrangedash 3691}
+      \range{pages}{12}
+    \endentry
+    \entry{Bean1994}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=5a7010a98f9a7feac66b07e5e26f3aa8}{%
+           family={Bean},
+           familyi={B\bibinitperiod},
+           given={John\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{fullhash}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{fullhashraw}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{bibnamehash}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{authorbibnamehash}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{authornamehash}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{authorfullhash}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \strng{authorfullhashraw}{5a7010a98f9a7feac66b07e5e26f3aa8}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ORSA Journal on Computing}
+      \field{number}{2}
+      \field{title}{Genetic Algorithms and Random Keys for Sequencing and Optimization}
+      \field{volume}{6}
+      \field{year}{1994}
+      \field{pages}{154\bibrangedash 160}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1287/ijoc.6.2.154
+      \endverb
+    \endentry
+    \entry{Goncalves2011}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=05706fa89ac0aa2272576718c4e1e9df}{%
+           family={Goncalves},
+           familyi={G\bibinitperiod},
+           given={J.\bibnamedelimi F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=67a6291f793bac975113130834007b6b}{%
+           family={Resende},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi G.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{fullhash}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{fullhashraw}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{bibnamehash}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{authorbibnamehash}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{authornamehash}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{authorfullhash}{e61834043234b7d97ca2f5cfec3f18a5}
+      \strng{authorfullhashraw}{e61834043234b7d97ca2f5cfec3f18a5}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Heuristics}
+      \field{number}{5}
+      \field{title}{Biased Random-Key Genetic Algorithms for Combinatorial Optimization}
+      \field{volume}{17}
+      \field{year}{2011}
+      \field{pages}{487\bibrangedash 525}
+      \range{pages}{39}
+      \verb{doi}
+      \verb 10.1007/s10732-010-9143-1
+      \endverb
+    \endentry
+    \entry{Spears1991}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=b75f3135d7f823a1fba5927b3ee30f4e}{%
+           family={Spears},
+           familyi={S\bibinitperiod},
+           given={William\bibnamedelima M.},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=488081ba84e0d772b715ff542ece7806}{%
+           family={De\bibnamedelima Jong},
+           familyi={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={Kenneth\bibnamedelima A.},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{fullhash}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{fullhashraw}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{bibnamehash}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{authorbibnamehash}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{authornamehash}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{authorfullhash}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \strng{authorfullhashraw}{f6eb1e07071e1f69f554cb5b3f76e3d2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Fourth International Conference on Genetic Algorithms}
+      \field{title}{On the Virtues of Parameterized Uniform Crossover}
+      \field{year}{1991}
+      \field{pages}{230\bibrangedash 236}
+      \range{pages}{7}
+    \endentry
+    \entry{Londe2025}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=fbdffc80d09ea8c11c0604a49a5f738f}{%
+           family={Londe},
+           familyi={L\bibinitperiod},
+           given={Mariana\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=5d9da6860ca17c42545abc14535bf32e}{%
+           family={Pessoa},
+           familyi={P\bibinitperiod},
+           given={Luciana\bibnamedelima S.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=b741ef0e7273050881631ca888696ad2}{%
+           family={Andrade},
+           familyi={A\bibinitperiod},
+           given={Carlos\bibnamedelima E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=67a6291f793bac975113130834007b6b}{%
+           family={Resende},
+           familyi={R\bibinitperiod},
+           given={M.\bibnamedelimi G.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{87f2d984bcea9bc66f6c7fe92ac33df1}
+      \strng{fullhash}{0b932bf507cfd2713efa3ff48b73de08}
+      \strng{fullhashraw}{0b932bf507cfd2713efa3ff48b73de08}
+      \strng{bibnamehash}{0b932bf507cfd2713efa3ff48b73de08}
+      \strng{authorbibnamehash}{0b932bf507cfd2713efa3ff48b73de08}
+      \strng{authornamehash}{87f2d984bcea9bc66f6c7fe92ac33df1}
+      \strng{authorfullhash}{0b932bf507cfd2713efa3ff48b73de08}
+      \strng{authorfullhashraw}{0b932bf507cfd2713efa3ff48b73de08}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{number}{1}
+      \field{subtitle}{A review}
+      \field{title}{Biased random-key genetic algorithms}
+      \field{volume}{321}
+      \field{year}{2025}
+      \field{pages}{1\bibrangedash 22}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1016/j.ejor.2024.03.030
+      \endverb
+    \endentry
+    \entry{Dolan2002}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=aae907590cbbab65e83b9ffbb205fce7}{%
+           family={Dolan},
+           familyi={D\bibinitperiod},
+           given={Elizabeth\bibnamedelima D.},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=a9a66b314c9ad619a4bdf7ae4261f894}{%
+           family={Moré},
+           familyi={M\bibinitperiod},
+           given={Jorge\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{fullhash}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{fullhashraw}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{bibnamehash}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{authorbibnamehash}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{authornamehash}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{authorfullhash}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \strng{authorfullhashraw}{8a9cfc0a37b6fbc1c38c5c6a9feb7a5e}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Mathematical Programming}
+      \field{number}{2}
+      \field{title}{Benchmarking optimization software with performance profiles}
+      \field{volume}{91}
+      \field{year}{2002}
+      \field{pages}{201\bibrangedash 213}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/s101070100263
+      \endverb
+    \endentry
+    \entry{aiex2007}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=79c2817bc7aca432685174ba8173e8f4}{%
+           family={Aiex},
+           familyi={A\bibinitperiod},
+           given={Renata},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f8488a4c9970c46562996e02b67567b7}{%
+           family={Ribeiro},
+           familyi={R\bibinitperiod},
+           given={Celso},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{fullhash}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{fullhashraw}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{bibnamehash}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{authorbibnamehash}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{authornamehash}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{authorfullhash}{aba9c7a4848dabab49e98c07267a6330}
+      \strng{authorfullhashraw}{aba9c7a4848dabab49e98c07267a6330}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Optimization Letters}
+      \field{number}{4}
+      \field{title}{TTT plots: A perl program to create time-to-target plots}
+      \field{volume}{1}
+      \field{year}{2007}
+      \field{pages}{355\bibrangedash 366}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/s11590-006-0031-4
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
 
-\bibitem{Aggarwal2024}
-Himanshu Aggarwal and P.~Venkata~Subba Reddy.
-\newblock Meta-heuristic algorithms for double roman domination problem.
-\newblock {\em Applied Soft Computing}, 154:111306, 2024.
-
-\bibitem{Bean1994}
-John~C. Bean.
-\newblock Genetic algorithms and random keys for sequencing and optimization.
-\newblock {\em ORSA Journal on Computing}, 1994.
-
-\bibitem{Bertsimas2005}
-Dimitris Bertsimas and Robert Weismantel.
-\newblock {\em Optimization Over Integers}.
-\newblock Dynamic Ideas, Belmont, MA, 2005.
-
-\bibitem{briest2007}
-Patrick Briest and Piotr Krysta.
-\newblock Buying cheap is expensive: hardness of non-parametric multi-product pricing.
-\newblock In {\em Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA '07)}, SODA '07, page 716–725, USA, 2007. Society for Industrial and Applied Mathematics.
-
-\bibitem{catabriga2025}
-Sandro Catabriga.
-\newblock Formulações de programação linear inteira para o problema da compra mínima.
-\newblock Dissertação de mestrado, Universidade Estadual de Campinas (UNICAMP), Campinas, 2025.
-\newblock DOI: 10.47749/T/UNICAMP.2025.1499549.
-
-\bibitem{chalermsook2012}
-Parinya Chalermsook, Julia Chuzhoy, Sampath Kannan, and Sanjeev Khanna.
-\newblock Improved hardness results for profit maximization pricing problems with unlimited supply.
-\newblock In {\em Approximation, Randomization, and Combinatorial Optimization. Algorithms and Techniques}, pages 73--84, Berlin, Heidelberg, 2012. Springer Berlin Heidelberg.
-
-\bibitem{Dolan2002}
-Elizabeth~D. Dolan and Jorge~J. Mor{\'e}.
-\newblock Benchmarking optimization software with performance profiles.
-\newblock {\em Mathematical Programming}, 91(2):201--213, 2002.
-
-\bibitem{Goldbarg2005}
-Marco~C. Goldbarg and Hélio P.~L. Luna.
-\newblock {\em Otimização Combinatória e Programação Linear}.
-\newblock Editora Campus, Rio de Janeiro, 2005.
-
-\bibitem{Goncalves2011}
-J.~F. Goncalves and M.~G.~C. Resende.
-\newblock Biased random-key genetic algorithms for combinatorial optimization.
-\newblock {\em Journal of Heuristics}, 2011.
-
-\bibitem{Chaves2023}
-José~Fernando Gonçalves, Mauricio G.~C. Resende, and Felipe Campelo.
-\newblock The random-key optimizer: A general framework for optimization using random keys.
-\newblock {\em European Journal of Operational Research}, 307(2):555--570, 2023.
-
-\bibitem{gurobi}
-{Gurobi Optimization, LLC}.
-\newblock {Gurobi Optimizer Reference Manual}, 2024.
-
-\bibitem{venkatesan2005}
-Venkatesan Guruswami, Jason~D. Hartline, Anna~R. Karlin, David Kempe, Claire Kenyon, and Frank McSherry.
-\newblock On profit-maximizing envy-free pricing.
-\newblock In {\em Proceedings of the Sixteenth Annual ACM-SIAM Symposium on Discrete Algorithms}, SODA '05, page 1164–1173, USA, 2005. Society for Industrial and Applied Mathematics.
-\newblock DOI: 10.5555/1070432.1070598.
-
-\bibitem{Hillier2013}
-F.~S. Hillier and G.~J. Lieberman.
-\newblock {\em Introdução à pesquisa operacional}.
-\newblock McGraw Hill Brasil, [S. l.], 2013.
-
-\bibitem{Londe2025}
-Mariana~A. Londe, Luciana~S. Pessoa, Carlos~E. Andrade, and Mauricio G.~C. Resende.
-\newblock Biased random-key genetic algorithms.
-\newblock {\em European Journal of Operational Research}, 321(1):1--22, 2025.
-\newblock Invited review.
-
-\bibitem{Nash2000}
-J.~C. Nash.
-\newblock The (dantzig) simplex method for linear programming.
-\newblock {\em Computing in Science \& Engineering}, 2(1):29--31, 2000.
-
-\bibitem{Nemhauser1988}
-George~L. Nemhauser and Laurence~A. Wolsey.
-\newblock {\em Integer and Combinatorial Optimization}.
-\newblock Wiley-Interscience, New York, 1988.
-
-\bibitem{shmuel1984}
-Shmuel Oren, Stephen Smith, and Robert Wilson.
-\newblock Pricing a product line.
-\newblock {\em The Journal of Business}, 57(1):73--99, January 1984.
-\newblock DOI: 10.1007/978-1-349-15651-1\_9.
-
-\bibitem{shmuel1987}
-Shmuel~S. Oren, Stephen~A. Smith, and Robert~B. Wilson.
-\newblock Multi-product pricing for electric power.
-\newblock {\em Energy Economics}, 9(2):104--114, 1987.
-\newblock DOI: 10.1016/0140-9883(87)90013-2.
-
-\bibitem{Raju2024}
-M.~Alfred Raju and P.~Venkata~Subba Reddy.
-\newblock Metaheuristic algorithms for solving roman \{2\}-domination problem.
-\newblock {\em RAIRO - Operations Research}, 58:2107--2121, 2024.
-
-\bibitem{Resende2013}
-Mauricio G.~C. Resende.
-\newblock Introdução aos algoritmos genéticos de chaves aleatórias viciadas.
-\newblock In {\em Anais [...]}, pages 3680--3691, Natal, 2013. Simp{\'o}sio Brasileiro de Pesquisa Operacional, SBPO.
-
-\bibitem{rusmevichientong2006}
-Paat Rusmevichientong, Benjamin Van~Roy, and Peter~W. Glynn.
-\newblock A nonparametric approach to multiproduct pricing.
-\newblock {\em Operations Research}, 54(1):82--98, 2006.
-\newblock DOI: 10.1287/opre.1050.0252.
-
-\bibitem{Schrijver1986}
-Alexander Schrijver.
-\newblock {\em Theory of Linear and Integer Programming}.
-\newblock John Wiley \& Sons, New York, 1986.
-
-\bibitem{Sivanandam2007}
-S.~N. Sivanandam and S.~N. Deepa.
-\newblock {\em Introduction to Genetic Algorithms}.
-\newblock Springer Berlin Heidelberg, New York, 2007.
-
-\bibitem{smith1986}
-Stephen~A. Smith.
-\newblock New product pricing in quality sensitive markets.
-\newblock {\em Marketing Science}, 5(1):70--87, 1986.
-\newblock Winter 1986.
-
-\bibitem{Metaheuristics}
-Kenneth S{\"o}rensen and Fred Glover.
-\newblock Metaheuristics.
-\newblock In S.~I. Gass and M.~C. Fu, editors, {\em Encyclopedia of Operations Research and Management Science}. Springer, New York, 2013.
-
-\bibitem{Spears1991}
-William~M. Spears and Kenneth~A. De~Jong.
-\newblock On the virtues of parameterized uniform crossover.
-\newblock In {\em Anais [...]}, pages 230--236, San Francisco, 1991. International Conference on Genetic Algorithms, Morgan Kaufmann.
-
-\bibitem{Wosley1998}
-Laurence~A. Wolsey.
-\newblock {\em Integer Programming}.
-\newblock John Wiley \& Sons, New York, 1998.
-
-\end{thebibliography}

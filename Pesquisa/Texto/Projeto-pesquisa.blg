@@ -1,46 +1,15 @@
-This is BibTeX, Version 0.99e (TeX Live 2026)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: Projeto-pesquisa.aux
-The style file: plain.bst
-Database file #1: Secoes/Referencias/referencias.bib
-You've used 29 entries,
-            2118 wiz_defined-function locations,
-            705 strings with 8895 characters,
-and the built_in function-call counts, 9854 in all, are:
-= -- 1014
-> -- 411
-< -- 8
-+ -- 163
-- -- 131
-* -- 611
-:= -- 1606
-add.period$ -- 101
-call.type$ -- 29
-change.case$ -- 145
-chr.to.int$ -- 0
-cite$ -- 29
-duplicate$ -- 429
-empty$ -- 782
-format.name$ -- 131
-if$ -- 2136
-int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 34
-newline$ -- 154
-num.names$ -- 62
-pop$ -- 162
-preamble$ -- 1
-purify$ -- 122
-quote$ -- 0
-skip$ -- 316
-stack$ -- 0
-substring$ -- 548
-swap$ -- 115
-text.length$ -- 8
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 102
-warning$ -- 0
-while$ -- 94
-width$ -- 31
-write$ -- 350
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'Projeto-pesquisa.blg'
+[27] biber-darwin:342> INFO - === Sun May 31, 2026, 21:18:57
+[35] Biber.pm:421> INFO - Reading 'Projeto-pesquisa.bcf'
+[68] Biber.pm:1002> INFO - Found 34 citekeys in bib section 0
+[84] Biber.pm:4487> INFO - Processing section 0
+[90] Biber.pm:4678> INFO - Looking for bibtex file 'Secoes/Referencias/referencias.bib' for section 0
+[91] bibtex.pm:1713> INFO - LaTeX decoding ...
+[104] bibtex.pm:1519> INFO - Found BibTeX data source 'Secoes/Referencias/referencias.bib'
+[208] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'variable = shifted' with 'variable = non-ignorable'
+[208] UCollate.pm:68> INFO - Overriding locale 'pt-BR' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[208] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'pt-BR'
+[208] Biber.pm:4313> INFO - No sort tailoring available for locale 'pt-BR'
+[218] bbl.pm:676> INFO - Writing 'Projeto-pesquisa.bbl' with encoding 'UTF-8'
+[227] bbl.pm:779> INFO - Output to Projeto-pesquisa.bbl

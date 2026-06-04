@@ -1,69 +1,143 @@
 \documentclass[11pt]{article}
-\usepackage{graphicx}
-\graphicspath{{./Secoes/Figuras/Photos/}}
-\usepackage[utf8]{inputenc} % Para aceitar acentos
-\usepackage[T1]{fontenc}    % Para renderizar fontes com acentos corretamente
-\usepackage[brazil]{babel}  % Para português (hifenização, datas, etc.)
-\usepackage[a4paper, margin=2.5cm]{geometry} % Ajusta a largura da folha
-\usepackage[ruled,vlined, linesnumbered]{algorithm2e}% Escrever pseudocódigo
-\usepackage{amsmath}  % Suporte matemático extra
-\usepackage{amssymb}  % Define o \mathbb
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{adjustbox}
-\usepackage{setspace}
 
-\usepackage{float}
-\usepackage{multirow}
-\usepackage[table]{xcolor}
+% =========================================================
+% CONFIGURAÇÕES BÁSICAS
+% =========================================================
 
-\newcommand{\blue}[1]{\textcolor{blue}{#1}}
-\newcommand{\red}[1]{\textcolor{red}{#1}}
+\usepackage[a4paper,margin=2.5cm]{geometry}
 
-
+% Codificação e idioma
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
-\usepackage{pgfgantt}
-\usepackage{geometry}
+
+% Espaçamento
+\usepackage{setspace}
+\doublespacing
+
+% =========================================================
+% PACOTES MATEMÁTICOS
+% =========================================================
+
+\usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{IEEEtrantools}
+
+% =========================================================
+% FIGURAS E TABELAS
+% =========================================================
+
+\usepackage{graphicx}
+\graphicspath{{./Secoes/Figuras/Photos/}}
+
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{adjustbox}
+
+% =========================================================
+% ALGORITMOS
+% =========================================================
+
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% =========================================================
+% LEGENDAS
+% =========================================================
+
 \usepackage{caption}
 \captionsetup{
     justification=raggedright,
     singlelinecheck=false
 }
+
 \usepackage{subcaption}
+
+% =========================================================
+% TIKZ E GANTT
+% =========================================================
 
 \usepackage{tikz}
 \usetikzlibrary{positioning, arrows.meta}
 
-\geometry{margin=2.5cm}
+\usepackage{pgfgantt}
+
+% =========================================================
+% CORES E LINKS
+% =========================================================
+
+\usepackage{xcolor}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\usepackage[hidelinks]{hyperref}
+
+% =========================================================
+% FORMATAÇÃO
+% =========================================================
 
 \setlength{\parindent}{1.25cm}
 \setlength{\parskip}{4pt}
 
-\title{Projeto de pesquisa - Problema da compra mínima}
-\author{Antônio Erick Freitas Ferreira \\
-        \small Instituto de Computação - Unicamp - São Paulo - Brasil
-}
+% =========================================================
+% BIBLIOGRAFIA
+% =========================================================
+
+% biblatex: bibliografia no estilo IEEE e citações numéricas agrupadas em um único colchete
+\usepackage{csquotes}
+\usepackage{multicol}
+\usepackage[backend=biber,bibstyle=ieee,citestyle=numeric,sorting=none,sortcites=true,doi=true,isbn=true,url=true,natbib=true]{biblatex}
+\addbibresource{Secoes/Referencias/referencias.bib}
+
+% Reduz o espaçamento entre itens na bibliografia
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibhang}{1em}
+\setlength{\biblabelsep}{0.5em}
+
+% =========================================================
+% DOCUMENTO
+% =========================================================
 
 \begin{document}
 
 \input{Secoes/Figuras/figuras}
+
 \input{Secoes/Folha-rosto/folha_rosto}
+
 \newpage
 
 % \tableofcontents
 % \newpage
 
 \input{Secoes/Introducao/introducao_v3}
+
+\input{Secoes/Relacionados/relacionados}
+
 \input{Secoes/Metodologia/metodologia}
+
 \input{Secoes/Objetivos/objetivos}
+
 \input{Secoes/Plano-trabalho/plano-trabalho}
+
 \input{Secoes/Materiais-metodos/materiais-metodos}
+
 \input{Secoes/Analise/analise}
 
+% =========================================================
+% REFERÊNCIAS
+% =========================================================
+
 \newpage
-\bibliographystyle{plain}
-\bibliography{Secoes/Referencias/referencias}
+
+\begingroup
+\footnotesize
+\setlength{\columnsep}{1em}
+\begin{multicols}{2}
+\printbibliography
+\end{multicols}
+\endgroup
+
 \end{document}

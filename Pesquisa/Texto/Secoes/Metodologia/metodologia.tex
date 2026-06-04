@@ -1,20 +1,18 @@
 \section{Metodologia}
 
-A presente seção descreve a metodologia adotada para o desenvolvimento deste trabalho, contemplando os principais fundamentos teóricos e as abordagens computacionais empregadas na modelagem e resolução do problema em estudo. Inicialmente, são apresentados os conceitos de Programação Linear e Programação Linear Inteira, que fornecem a base matemática para a formulação do problema. Em seguida, são discutidas metaheurísticas inspiradas em processos evolutivos, com ênfase nos Algoritmos Genéticos e em suas variações baseadas em chaves aleatórias. Depois, é introduzido o framework Random-Key Optimizer (RKO), que integra diferentes estratégias de busca em uma representação unificada, servindo como principal abordagem adotada neste trabalho. Por fim, é discutido as formluções matemáticas existentes para o PCmin.
+A presente seção descreve a metodologia adotada para o desenvolvimento deste trabalho. Inicialmente, são apresentados os conceitos de Programação Linear e Programação Linear Inteira. Em seguida, são discutidas metaheurísticas inspiradas em processos evolutivos, com ênfase nos Algoritmos Genéticos e em suas variações baseadas em chaves aleatórias. Depois, é introduzido o \emph{framework} Random-Key Optimizer (RKO)~\cite{Chaves2023}. Por fim, são discutidas as formulações matemáticas existentes para o PCmin.
 
 \subsection{Programação Linear}
 
-A \textit{Programação Linear} (PL) consiste em uma das técnicas mais tradicionais da Pesquisa Operacional, sendo empregada na modelagem e resolução de problemas de otimização nos quais se deseja maximizar ou minimizar uma função objetivo linear sujeita a um conjunto de restrições também lineares. Esse tipo de abordagem é amplamente aplicado em contextos como alocação de recursos, planejamento produtivo e problemas logísticos, nos quais as relações entre variáveis podem ser adequadamente descritas por funções lineares.
+A \textit{Programação Linear} (PL) é uma das técnicas centrais da Otimização Combinatória, aplicada na modelagem e resolução de problemas de otimização onde funções lineares representam tanto o objetivo quanto as restrições do sistema~\cite{Goldbarg2005}.
 
-A formulação de um problema de PL baseia-se na construção de um modelo matemático que represente fielmente o sistema real. O termo “linear” indica que todas as relações envolvidas, tanto na função objetivo quanto nas restrições, são expressas por funções lineares. Já o termo “programação” deve ser entendido como planejamento, e não como programação computacional. Assim, a programação linear trata do planejamento de atividades com o intuito de alcançar um resultado ótimo, isto é, aquele que melhor atende ao objetivo definido dentro do conjunto de soluções viáveis~\cite{Hillier2013}.
-
-Em um modelo de PL, assume-se que as variáveis de decisão pertencem ao conjunto dos números reais $\mathbb{R}$, isto é, são contínuas. As restrições do modelo delimitam a região factível, e uma solução é considerada viável se satisfaz todas essas restrições. A solução ótima corresponde à melhor solução viável segundo o critério estabelecido pela função objetivo. Quando expresso em sua forma canônica, o modelo de programação linear pode ser descrito como:
+Em um modelo de PL, assume-se que as variáveis de decisão pertencem ao conjunto dos números reais $\mathbb{R}$, isto é, são contínuas. As restrições do modelo delimitam a região viável, e uma solução é considerada viável se satisfaz todas essas restrições. Uma solução ótima corresponde a uma solução viável que maximiza (ou minimiza) a função objetivo. Quando expresso em sua forma canônica, o modelo de programação linear pode ser descrito como:
 
 \[
     \begin{aligned}
-    \text{max} \quad & z = c^T x \\
-    \text{sujeito a} \quad & Ax \leq b \\
-    & x \geq 0
+    &\text{maximize} \quad  z  = &c^T x \\
+    &\text{sujeito a} \quad & Ax & \leq & b \\
+    & & x & \geq & 0
     \end{aligned}
 \]
 
@@ -27,217 +25,176 @@ em que:
     \item $z \in \mathbb{R}$ é o valor da função objetivo.
 \end{itemize}
 
-Um dos principais avanços na resolução de problemas de programação linear ocorreu em 1947, quando George Dantzig propôs o algoritmo simplex~\cite{Nash2000}. Trata-se de um método exato e iterativo que explora a estrutura geométrica do problema, percorrendo os vértices do politopo definido pelas restrições. A cada iteração, o método busca uma solução adjacente que melhore o valor da função objetivo, até que não seja mais possível obter ganhos adicionais, caracterizando assim a otimalidade da solução encontrada~\cite{Goldbarg2005}.
+Um dos principais avanços na resolução de problemas de PL ocorreu em 1947, quando George Dantzig propôs o algoritmo \emph{simplex}~\cite{Nash2000}. Trata-se de um método exato e iterativo que explora a estrutura geométrica do problema, percorrendo os vértices do politopo definido pelas restrições. A cada iteração, o método busca um vértice adjacente que melhore o valor da função objetivo, até que não seja mais possível obter ganhos adicionais, caracterizando assim a otimalidade da solução correspondente ao vértice atual~\cite{Goldbarg2005}.
+
+Embora o método simplex apresente uma eficiência prática notável, resolvendo a maioria dos problemas reais em um número de iterações linear em relação ao número de restrições, sua complexidade teórica no pior caso é exponencial~\cite{klee1972}. Esse comportamento ocorre porque, em instâncias específicas, o algoritmo pode ser forçado a percorrer todos os vértices do politopo antes de alcançar a solução ótima.
+
+Essa limitação teórica motivou a busca por algoritmos de tempo polinomial. O primeiro marco nessa direção foi o método dos elipsoides, proposto por Leonid Khachiyan~\cite{khachiyan1979}, que provou matematicamente que a programação linear pertence à classe de complexidade polinomial. Contudo, apesar de seu valor teórico histórico, o método dos elipsoides mostrou-se computacionalmente ineficiente e lento para resolver instâncias práticas.
+
+O cenário mudou significativamente em 1984, quando Narendra Karmarkar~\cite{karmarkar1984} introduziu o método de pontos interiores, um algoritmo que combina complexidade teórica polinomial com um desempenho prático altamente competitivo. Diferentemente do simplex, que caminha pela fronteira do politopo através de seus vértices, os métodos de pontos interiores (e suas variações modernas, como os algoritmos de barreira primal-dual) cruzam o interior da região viável em direção a uma solução ótima. Atualmente, os principais \emph{solvers} comerciais utilizam tanto o algoritmo simplex quanto os métodos de barreira e pontos interiores, escolhendo a abordagem mais adequada a depender da estrutura e da escala do problema linear a ser resolvido.
 
 \subsubsection{Programação Linear Inteira}
 
-A \textit{Programação Linear Inteira} (PLI) constitui uma extensão da programação linear, na qual se impõe que parte ou a totalidade das variáveis de decisão assumam valores inteiros. Essa restrição transforma o conjunto de soluções viáveis, que deixa de ser contínuo e passa a ser discreto, o que aumenta significativamente a complexidade do problema~\cite{Nemhauser1988}.
+A \textit{Programação Linear Inteira} (PLI) e a sua variante Mista (PLIM) estendem a PL ao impor que a totalidade ou parte das variáveis de decisão assumam valores discretos~\cite{Nemhauser1988}. Embora matematicamente simples, alterar o espaço de soluções de contínuo para discreto torna a resolução de tais modelos um problema NP-difícil no caso geral~\cite{Schrijver1986}.
 
-De acordo com Goldbarg~\cite{Goldbarg2005}, um problema é classificado como de \emph{Programação Inteira} (PI) quando ao menos uma variável de decisão está restrita a assumir valores discretos. Formalmente, isso implica que $x_i \in \mathbb{Z}$ para as variáveis sujeitas à integralidade. Apesar de sua formulação aparentemente simples, essa restrição torna o problema consideravelmente mais difícil do ponto de vista computacional, sendo, em geral, NP-difícil~\cite{Schrijver1986}.
+Essas técnicas são particularmente adequadas para modelar situações em que as decisões envolvem quantidades indivisíveis, como seleção de projetos, definição de rotas, alocação de equipes ou decisões binárias. Para sua resolução, métodos clássicos de PL, como o simplex, não são suficientes, sendo necessário recorrer a técnicas mais elaboradas, como \emph{branch-and-bound}~\cite{Wosley1998} e \emph{branch-and-cut}~\cite{Bertsimas2005}.
 
-Problemas de PLI são particularmente adequados para modelar situações em que as decisões envolvem quantidades indivisíveis, como seleção de projetos, definição de rotas, alocação de equipes ou decisões binárias. Para sua resolução, métodos clássicos de PL, como o simplex, não são suficientes, sendo necessário recorrer a técnicas mais elaboradas, como branch-and-bound~\cite{Wosley1998}, métodos de enumeração e abordagens híbridas como branch-and-cut~\cite{Bertsimas2005}.
+Um conceito central nesse contexto é a \emph{relaxação linear}, que consiste em remover temporariamente as restrições de integralidade, permitindo que as variáveis assumam valores contínuos. A solução desse problema relaxado fornece um limitante para o problema original: no caso de maximização, um limitante superior; e no caso de minimização, um limitante inferior. Caso a solução obtida seja inteira, ela também é ótima para o problema original~\cite{Nemhauser1988}.
 
-Um conceito central nesse contexto é o \emph{relaxamento linear}, que consiste em remover temporariamente as restrições de integralidade, permitindo que as variáveis assumam valores contínuos. A solução desse problema relaxado fornece um limitante para o problema original: no caso de maximização, um limitante superior; e no caso de minimização, um limitante inferior. Caso a solução obtida seja inteira, ela também é ótima para o problema original~\cite{Nemhauser1988}.
+O método de \emph{branch-and-bound}~\cite{Wosley1998} resolve problemas de PLI por meio da exploração sistemática do espaço de busca representado por uma árvore. O processo inicia com a resolução da relaxação linear do problema, cuja solução fornece um limitante para o valor da solução ótima. Durante a exploração da árvore, esses limitantes são utilizados para identificar e eliminar subproblemas que comprovadamente não podem produzir soluções melhores do que a melhor solução inteira encontrada até o momento.
 
-O método de \emph{branch-and-bound} é uma das principais estratégias para resolver problemas de PLI. Sua ideia central é explorar sistematicamente o espaço de soluções por meio de uma árvore de busca. Inicialmente, resolve-se o relaxamento linear do problema. Caso a solução encontrada não seja inteira, o problema é particionado em subproblemas (ramificação), adicionando-se restrições que forçam determinadas variáveis a assumir valores inteiros específicos. Para cada subproblema, calcula-se um limitante por meio do relaxamento linear, permitindo descartar regiões do espaço de busca que não podem conter soluções melhores do que a já conhecida (delimitação). Esse processo é repetido até que todas as regiões relevantes sejam exploradas ou eliminadas.
+Quando a solução da relaxação linear de um subproblema é fracionária, realiza-se uma ramificação (\emph{branching}) sobre uma de suas variáveis fracionárias, criando novos subproblemas por meio da imposição de restrições adicionais. O procedimento é então repetido recursivamente nos nós gerados até que todos os subproblemas tenham sido explorados ou podados. Nesse ponto, a melhor solução inteira encontrada é garantidamente ótima para o problema original.
 
-Uma evolução importante dessa abordagem é o método de \emph{branch-and-price}, que combina a estratégia de branch-and-bound com técnicas de geração de colunas. Essa abordagem é particularmente útil em problemas com um número muito grande de variáveis, nos quais a formulação completa seria impraticável. Em vez de considerar todas as variáveis desde o início, o método resolve iterativamente versões restritas do problema, adicionando novas variáveis (colunas) apenas quando necessário, com base em problemas auxiliares de precificação. A integração entre a geração dinâmica de colunas e a estrutura de ramificação permite resolver instâncias de grande porte de forma mais eficiente, sendo amplamente utilizada em problemas clássicos como corte de estoque e roteamento de veículos.
+
+% Uma evolução importante dessa abordagem é o método de \emph{branch-and-price}, que combina a estratégia de branch-and-bound com técnicas de geração de colunas. Essa abordagem é particularmente útil em problemas com um número muito grande de variáveis, nos quais a formulação completa seria impraticável. Em vez de considerar todas as variáveis desde o início, o método resolve iterativamente versões restritas do problema, adicionando novas variáveis (colunas) apenas quando necessário, com base em problemas auxiliares de precificação. A integração entre a geração dinâmica de colunas e a estrutura de ramificação permite resolver instâncias de grande porte de forma mais eficiente, sendo amplamente utilizada em problemas clássicos como corte de estoque e roteamento de veículos.
 
 
 \subsection{Algoritmo Genético}
 
-A teoria da evolução das espécies, proposta por Charles Darwin em \emph{A Origem das Espécies}, estabelece que os organismos evoluem ao longo de gerações por meio do mecanismo de seleção natural, frequentemente descrito como a sobrevivência dos mais aptos~\cite{Sivanandam2007}. Nesse processo, características que conferem vantagens adaptativas tendem a ser preservadas e propagadas, resultando, ao longo do tempo, em soluções altamente eficientes do ponto de vista biológico. Exemplos dessa eficiência podem ser observados em estruturas como a aerodinâmica do albatroz, a hidrodinâmica dos tubarões e a convergência funcional entre tubarões e golfinhos, apesar de pertencerem a grupos distintos~\cite{Sivanandam2007}.
+A observação dos mecanismos de seleção natural propostos por Charles Darwin, onde os organismos evoluem e se adaptam ao longo das gerações por meio da sobrevivência dos mais aptos, há muito tempo inspira o desenvolvimento de métodos computacionais~\cite{Sivanandam2007}. No campo da otimização, essa lógica biológica deu origem a diversas \emph{meta-heurísticas}, estruturas algorítmicas de alto nível projetadas para guiar processos de busca por soluções de maneira eficiente. Diferentemente dos métodos exatos, meta-heurísticas não garantem a obtenção do ótimo global, mas priorizam o encontro de soluções de alta qualidade em tempo computacional viável, sendo ideais para problemas NP-difíceis~\cite{Metaheuristics}.
 
-A capacidade da evolução natural de produzir soluções robustas e adaptativas tem servido de inspiração para o desenvolvimento de métodos computacionais voltados à resolução de problemas complexos. Nesse contexto, destacam-se as \emph{metaheurísticas}, que consistem em estruturas algorítmicas de alto nível, geralmente independentes do problema, responsáveis por orientar a construção de métodos heurísticos de otimização. Diferentemente de abordagens exatas, que garantem a obtenção da solução ótima em tempo finito, as metaheurísticas priorizam a obtenção de soluções de boa qualidade em tempo computacional viável, sendo particularmente adequadas para problemas de alta complexidade, como aqueles classificados como NP-difíceis~\cite{Metaheuristics}.
-
-Entre as metaheurísticas mais difundidas, destacam-se os \textit{Algoritmos Genéticos} (GA), que constituem métodos de busca estocásticos e iterativos inspirados diretamente nos princípios da genética e da seleção natural~\cite{Sivanandam2007}. Esses algoritmos operam sobre uma população de indivíduos, em que cada indivíduo representa uma possível solução para o problema, codificada de forma apropriada. A evolução da população ocorre por meio da aplicação de operadores genéticos, como seleção, cruzamento (do inglês, \emph{crossover}) e mutação, os quais podem assumir diferentes implementações dependendo do problema abordado. O processo evolutivo é guiado por uma função de aptidão (\emph{fitness}), responsável por avaliar a qualidade das soluções, orientando a busca em direção a regiões mais promissoras do espaço de soluções~\cite{Sivanandam2007}.
-
-Um aspecto frequentemente incorporado em implementações de algoritmos genéticos é o \textit{elitismo}, mecanismo que garante a preservação dos melhores indivíduos ao longo das gerações, evitando a perda de soluções de alta qualidade durante o processo evolutivo~\cite{Sivanandam2007}. Essa característica contribui para a estabilidade e eficiência do método, especialmente em problemas com espaços de busca extensos e complexos.
-
-Devido à sua flexibilidade e capacidade de explorar eficientemente grandes espaços de busca sem a necessidade de informações estruturais detalhadas, como derivadas ou propriedades específicas da função objetivo. Os algoritmos genéticos têm sido amplamente estudados e aplicados na resolução de diversos problemas de otimização combinatória~\cite{Khandelwal2021,Aggarwal2024,Raju2024}.
+Nesse cenário, os Algoritmos Genéticos (do inglês \emph{Genetic Algorithms} GA) destacam-se como métodos estocásticos que mimetizam diretamente essa evolução, operando sobre uma população de indivíduos onde cada membro representa uma solução candidata~\cite{Sivanandam2007}. O processo é conduzido por uma função de aptidão, que avalia a qualidade de cada solução e orienta os operadores de seleção, cruzamento e mutação em direção a regiões promissoras do espaço de busca. Para evitar a perda dessas características adaptativas ao longo das gerações, incorpora-se o elitismo, garantindo a preservação dos melhores indivíduos na transição de populações e tornando os GAs uma ferramenta robusta para a otimização combinatória~\cite{Khandelwal2021,Aggarwal2024,Raju2024}.
 
 
     \begin{figure}[H]
         \centering
-        \caption{Fluxograma passo-a-passo do GA.}
-        \scalebox{0.65}{\fluxograma}
-        \caption*{Fonte: autoria própria.}
+        \scalebox{0.55}{\fluxograma}
+        \caption{Fluxograma passo-a-passo dos GAs.}
         \label{fig:fluxograma_ga}
     \end{figure}
 
-    A Figura~\ref{fig:fluxograma_ga} apresenta o fluxograma geral passo-a-passo de um algoritmo genético. O processo inicia-se com a geração de uma população inicial de soluções, seguida pela avaliação de sua aptidão por meio de uma função de \emph{fitness}. Em seguida, verifica-se um critério de parada, que pode estar relacionado, por exemplo, ao número máximo de gerações ou à convergência da solução. Caso o critério não seja satisfeito, aplica-se uma sequência de operadores genéticos (seleção, cruzamento, mutação e elitismo) para gerar uma nova população. Esse ciclo é repetido iterativamente até que o critério de parada seja atendido, momento em que o algoritmo é encerrado.
+    A Figura~\ref{fig:fluxograma_ga} ilustra o fluxo de um GA. O processo inicia com a geração e avaliação da população inicial através da função de \emph{fitness}. Em seguida, verifica-se o critério de parada; se não for atendido, operadores de seleção, cruzamento, mutação e elitismo geram uma nova população, reiniciando o ciclo. O processo encerra-se assim que o critério de parada é satisfeito.
 
 \subsubsection{Algoritmos genéticos com chaves aleatórias enviesadas}
    
-O Algoritmo Genético de Chaves Aleatórias (do inglês, \emph{Random-Key Genetic Algorithm} RKGA) constitui uma variação dos algoritmos genéticos tradicionais, introduzida por Bean~\cite{Bean1994}, com o propósito de tratar problemas de otimização combinatória nos quais as soluções podem ser representadas como permutações. Diferentemente das abordagens clássicas, que manipulam diretamente estruturas discretas, o RKGA representa cada solução por meio de um vetor de números reais no intervalo $[0,1)$, denominado \emph{vetor de chaves aleatórias}. A interpretação desses vetores é realizada por um \emph{decodificador} determinístico, responsável por mapear cada indivíduo para uma solução do problema, a qual é então avaliada pela função objetivo~\cite{Resende2013}. A construção desse decodificador depende diretamente da natureza do problema abordado, sendo, portanto, específica de cada aplicação.
+O \emph{Algoritmo Genético de Chaves Aleatórias Enviesadas}~\cite{Resende2013} (do inglês \emph{Biased Random-Key Genetic Algorithm} BRKGA) é uma extensão do \emph{Algoritmo Genético de Chaves Aleatórias} (do inglês \emph{Random-Key Genetic Algorithm} RKGA) clássico, introduzido por Bean~\cite{Bean1994} para resolver problemas de otimização combinatória cujas soluções podem ser mapeadas como permutações. Ambos são uma variante do GA que representam cada solução como um vetor de números reais no intervalo $[0,1)$, chamado vetor de chaves aleatórias. Esse vetor é interpretado por um decodificador determinístico específico, responsável por mapear o indivíduo em uma solução viável para o problema e avaliar sua função objetivo~\cite{Resende2013}.
 
-O RKGA opera sobre uma população de tamanho fixo, que evolui ao longo de múltiplas gerações. Em cada iteração, os indivíduos são particionados em dois subconjuntos: o conjunto \emph{elite}, composto pelas melhores soluções segundo o critério de avaliação, e o conjunto \emph{não-elite}, formado pelos demais indivíduos. Os elementos do conjunto elite são preservados na geração seguinte, caracterizando um mecanismo de elitismo. Adicionalmente, parte da nova população é composta por \emph{mutantes}, gerados aleatoriamente com o objetivo de manter a diversidade. O restante dos indivíduos é obtido por meio de cruzamentos entre pares selecionados da população atual, utilizando o operador de cruzamento uniforme parametrizado. Nesse operador, para cada posição $i$ do vetor, o descendente $c[i]$ herda o valor $a[i]$ de um dos pais com probabilidade $p_a$, ou o valor $b[i]$ do outro pai com probabilidade $p_b = 1 - p_a$, sendo ambos os pais escolhidos aleatoriamente~\cite{Spears1991}.
+A evolução no BRKGA ocorre dividindo a população de tamanho fixo em três grupos: o conjunto elite (melhores soluções, preservadas para a próxima geração), os mutantes (indivíduos gerados aleatoriamente para manter a diversidade) e os filhos~\cite{Goncalves2011}. A grande distinção do BRKGA está no operador de cruzamento~\cite{Spears1991}: um dos pais é obrigatoriamente escolhido do grupo elite e o outro do não-elite. Através de uma estratégia de moeda viciada, o descendente herda a chave do pai elite com probabilidade $p > 0.5$, o que acelera o processo de busca ao propagar características de alta qualidade sem perder a variabilidade de busca.~\cite{Resende2013}.
 
-O BRKGA estende o RKGA ao introduzir um viés sistemático no processo de geração de descendentes, com o objetivo de acelerar a convergência sem comprometer a diversidade da população~\cite{Goncalves2011}. Assim como no RKGA, a população é dividida em três grupos: (i) o conjunto elite, cujos indivíduos são diretamente preservados; (ii) o conjunto de mutantes, responsável por introduzir novas soluções aleatórias; e (iii) o conjunto de filhos, gerados a partir do cruzamento.
-
-A principal distinção do BRKGA reside na forma de seleção dos pais e na aplicação do operador de cruzamento. Nesse método, um dos pais é sempre selecionado do conjunto elite, enquanto o outro é escolhido do conjunto não-elite. O cruzamento é realizado por meio de uma estratégia conhecida como \emph{moeda viciada}, na qual, para cada posição $i$, o descendente herda o valor do pai elite com probabilidade $p > 0.5$, e do pai não-elite com probabilidade complementar. Esse viés favorece a propagação de características de alta qualidade, ao mesmo tempo em que preserva a variabilidade necessária para a exploração do espaço de busca~\cite{Resende2013}.
-
-Além disso, o BRKGA pode incorporar mecanismos adicionais para evitar estagnação prematura. Entre eles, destaca-se a estratégia de \emph{reinicialização}, na qual, após um número predefinido de gerações sem melhoria na melhor solução encontrada, parte da população é substituída por novos indivíduos aleatórios, mantendo-se os elementos elite. Outra extensão relevante consiste no uso de múltiplas populações evoluindo em paralelo, com trocas periódicas de indivíduos entre elas. Esse mecanismo favorece tanto a intensificação quanto a diversificação da busca, contribuindo para a obtenção de soluções de melhor qualidade~\cite{Resende2013}.
-
-Devido ao seu mecanismo de seleção enviesada e à forma de representação baseada em chaves aleatórias, o BRKGA tem sido amplamente aplicado em problemas de otimização combinatória e contínua. Um \emph{survey} recente destaca sua versatilidade e desempenho competitivo em diferentes domínios, frequentemente superando outras abordagens~\cite{Londe2025}. Em diversos cenários, observa-se que o BRKGA apresenta desempenho superior ao do RKGA, o que pode ser atribuído, principalmente, ao viés introduzido no processo de seleção e cruzamento~\cite{Resende2013}. A Figura~\ref{fig:fluxograma_BRKGA} ilustra o fluxo geral de execução de um BRKGA.
-
+Para evitar a estagnação prematura em uma região de soluções com baixa qualidade, o BRKGA pode adotar estratégias como a reinicialização, que substitui parte da população por novos indivíduos após gerações sem melhoria, ou o uso de múltiplas populações em paralelo com migração periódica~\cite{Resende2013}. Devido a esse viés na seleção e à flexibilidade das chaves aleatórias, o BRKGA frequentemente supera o RKGA tradicional, apresentando alta competitividade em diversos problemas de otimização~\cite{Resende2013,Londe2025}. O fluxo de execução do algoritmo está ilustrado na Figura~\ref{fig:fluxograma_BRKGA}.
 
     \begin{figure}[H]
         \centering
-        \caption{Fluxograma passo-a-passo do BRKGA.}
         \scalebox{0.65}{\fluxogramaBRKGA}
-        \caption*{Fonte: autoria própria.}
+        \caption{Fluxograma passo-a-passo do BRKGA.}
         \label{fig:fluxograma_BRKGA}
     \end{figure}
 
 \subsection{Otimizador de chaves aleatórias}
 
-O \emph{Otimizador de Chaves Aleatórias} (do inglês, \emph{Random-Key Optimizer} RKO), proposto por Chaves et al.~\cite{Chaves2023}, é um framework de otimização que generaliza o paradigma de chaves aleatórias, originalmente explorado no RKGA e posteriormente aprimorado pelo BRKGA. Nesse contexto, soluções são representadas como vetores de valores reais no intervalo $[0,1)$, os quais são interpretados por meio de um decodificador que mapeia essas representações contínuas em soluções viáveis do problema original. Essa separação entre representação e avaliação é um dos principais fatores que contribuem para a flexibilidade do método.
+O Otimizador de Chaves Aleatórias (do inglês, \emph{Random Key Optimizer} RKO), proposto por Chaves et al.~\cite{Chaves2023}, é um \emph{framework} que generaliza o paradigma das chaves aleatórias ao desacoplá-lo da estrutura dos GA. Enquanto o RKGA e o BRKGA limitam-se à dinâmica populacional, o RKO permite que diferentes meta-heurísticas — como \emph{Simulated Annealing} (SA), \emph{Iterated Local Search} (ILS) e \emph{GRASP} — operem diretamente no espaço contínuo $[0, 1)$. Essa característica modular possibilita aplicar diversas estratégias de busca sobre o mesmo decodificador, ampliando a capacidade de exploração do método.
 
-Diferentemente do RKGA e do BRKGA, que estão intrinsicamente ligados à estrutura de algoritmos genéticos, o RKO propõe um desacoplamento entre a representação por chaves aleatórias e o mecanismo de busca utilizado. Em particular, o framework permite que diferentes meta-heurísticas operem diretamente no espaço contínuo das chaves aleatórias, como \emph{simulated annealing} (SA), \emph{iterated local search} (ILS), \emph{GRASP} e métodos híbridos. Essa característica amplia significativamente o espaço de exploração, uma vez que diferentes estratégias de busca podem ser aplicadas sobre uma mesma representação, potencialmente explorando regiões distintas do espaço de soluções.
-
-Um elemento central do RKO é a manutenção de um conjunto de soluções de alta qualidade, denominado \emph{elite pool}. Esse conjunto atua como um mecanismo de memória compartilhada entre as diferentes heurísticas empregadas, permitindo que soluções promissoras sejam reutilizadas, refinadas e combinadas ao longo da execução. Esse compartilhamento de informação induz um processo de intensificação em regiões relevantes do espaço de busca, ao mesmo tempo em que diferentes heurísticas contribuem para a diversificação, reduzindo a probabilidade de estagnação em ótimos locais.
-
-Do ponto de vista prático, o RKO apresenta vantagens importantes. Primeiramente, sua modularidade permite a adaptação a diferentes problemas de otimização combinatória com esforço relativamente reduzido, exigindo essencialmente a definição de um decodificador apropriado. Além disso, a possibilidade de integrar múltiplas estratégias de busca em um único arcabouço torna o método particularmente robusto, pois combina características complementares de diferentes meta-heurísticas.
-
-No entanto, essa flexibilidade também introduz desafios. O desempenho do RKO depende fortemente da escolha das heurísticas utilizadas, bem como da forma como estas interagem por meio do \emph{elite pool}. A calibração de parâmetros e o balanceamento entre intensificação e diversificação tornam-se, portanto, aspectos críticos para o sucesso do método.
-
-Ainda assim, evidências experimentais indicam que o RKO é capaz de alcançar desempenho competitivo, e em alguns casos superior, ao de abordagens tradicionais baseadas em uma única meta-heurística. Isso se deve, em grande parte, à sua capacidade de explorar sinergias entre diferentes estratégias de busca dentro de uma representação unificada. Dessa forma, o RKO pode ser interpretado como uma evolução aprimorada do paradigma de chaves aleatórias, ampliando significativamente seu escopo e potencial de aplicação. A Figura~\ref{fig:RKO_Flow} apresenta de forma visual o fluxo do RKO.
+O elemento central do RKO é o \emph{elite pool}, um conjunto de soluções de alta qualidade que atua como memória compartilhada entre as meta-heurísticas empregadas. Esse mecanismo permite que soluções promissoras sejam refinadas e combinadas por diferentes algoritmos, balanceando os processos de intensificação e diversificação para evitar a estagnação em ótimos locais. Embora sua eficiência dependa da calibração de parâmetros e da sinergia entre os métodos escolhidos, o RKO destaca-se como uma evolução refinada para a otimização combinatória, frequentemente superando abordagens baseadas em meta-heurísticas isoladas~\cite{Chaves2023}. O fluxo visual do RKO é apresentado na Figura~\ref{fig:RKO_Flow}.
 
 \begin{figure}[H]
     \centering
     \caption{Fluxo geral do RKO.}
-    \includegraphics[width=0.6\textwidth]{RKO_Flow.jpeg}
-    \caption*{Fonte: autoria própria.}
+    \includegraphics[width=0.6\textwidth]{RKO_FLOW_V2.jpeg}
     \label{fig:RKO_Flow}
 \end{figure}
 
-\subsection{Abordagens de otimização da literatura}
+\subsection{Formulações matemáticas da literatura}
 
-Nesta seção, apresentamos as quatro formulações desenvolvidas para o Problema de Compra Mínima (PCmin) proposto por Catabriga~\cite{catabriga2025}. Conforme demonstrado no Teorema 2 do referido trabalho, o espaço de busca dos preços pode ser significativamente reduzido sem perda de otimalidade, restringindo-se ao conjunto de preços candidatos $P_i = \{v_{ib} \mid \forall b \in B\} \setminus \{0\} \cup \{R_i\}$. Tal resultado é fundamental, pois permite limitar o domínio das variáveis de preço a um conjunto finito e relevante, reduzindo o tamanho das formulações e melhorando sua tratabilidade computacional.
+Nesta seção, é apresentado duas formulações de PLIM desenvolvidas para o PCmin proposto por Catabriga~\cite{catabriga2025}. Conforme demonstrado no Teorema 2 do referido trabalho, o espaço de busca dos preços pode ser significativamente reduzido sem perda de otimalidade, restringindo-se ao conjunto de preços candidatos. Tal resultado é fundamental, pois permite limitar o domínio das variáveis de preço a um conjunto finito e relevante, reduzindo o tamanho das formulações e melhorando sua tratabilidade computacional.
 
-\subsubsection{Formulação de Decisão Indireta Binária (DIB)}
+\subsubsection{Formulação de Decisão Indireta Binária}
 
-Proposta originalmente por Aggarwal et al.~\cite{aggarwal2004} para o problema de maximização (PCmax) e posteriormente adaptada neste trabalho para o contexto do PCmin, a formulação DIB adota uma abordagem de decisão indireta. Nessa modelagem, os preços dos itens são explicitamente representados por variáveis de decisão, enquanto a alocação entre itens e compradores não é modelada de forma direta, sendo inferida a partir das decisões de pagamento.
-
-As variáveis binárias desempenham papel central na formulação. A variável $x_{ip}$ assume valor 1 caso o item $i$ seja precificado com o valor $p$, e 0 caso contrário, representando assim a decisão de atribuição de preços aos itens. Por sua vez, a variável $y_{bp}$ assume valor 1 se o comprador $b$ realiza uma compra pagando o preço $p$, e 0 caso contrário, modelando diretamente o comportamento de pagamento dos compradores.
+A formulação de Decisão Indireta Binária (DIB) foi proposta originalmente por Aggarwal et al.~\cite{aggarwal2004} para o PCmax e posteriormente adaptada por Catabriga~\cite{catabriga2025} para o contexto do PCmin, a formulação DIB baseia-se em decisões indiretas. Nela, os preços são representados explicitamente pelas variáveis binárias $x_{ip}$ (que assume valor 1 se o item $i$ recebe o preço $p$) e $y_{bp}$ (que indica se o comprador $b$ realiza uma compra pagando o valor $p$). Nesse modelo, a escolha do consumidor é inferida a partir do comportamento de pagamento, eliminando a necessidade de modelar diretamente a alocação entre itens e compradores.
 
 \begin{align}
 \text{maximizar} \quad & \sum_{b \in B} \sum_{p \in P} p \cdot y_{bp} \label{dib_obj} \\
-\text{sujeito a} \quad & \sum_{p \in P} x_{ip} \leq 1, & \forall i \in I \label{dib_1} \\
-& y_{bp} \leq \sum_{i \in I: v_{ib} \geq p} x_{ip}, & \forall b \in B, \forall p \in P \label{dib_2} \\
-& \sum_{p \in P} y_{bp} \leq 1, & \forall b \in B \label{dib_3} \\
-& \sum_{p' \in P: p' < p, p' \leq v_{ib}} x_{ip'} \leq 1 - y_{bp}, & \forall b \in B, \forall i \in I, \forall p \in P \label{dib_pcm} \\
-& y_{bp}, x_{ip} \in \{0, 1\}, & \forall b \in B, \forall i \in I, \forall p \in P \label{dib_dom}
+\text{sujeito a} \quad & \sum_{p \in P} x_{ip} &&\leq 1, && \forall i \in I \label{dib_1} \\
+& y_{bp} &&\leq \sum_{i \in I: p \leq v_{ib}} x_{ip}, && \forall b \in B, \forall p \in P \label{dib_2} \\
+& \sum_{p \in P} y_{bp} &&\leq 1, && \forall b \in B \label{dib_3} \\
+& \sum_{p' \in P: p' < p, p' \leq v_{ib}} x_{ip'} &&\leq 1 - y_{bp}, && \forall b \in B, \forall i \in I, \forall p \in P \label{dib_pcm} \\
+& y_{bp}, x_{ip} &&\in \{0, 1\}, && \forall b \in B, \forall i \in I, \forall p \in P \label{dib_dom}
 \end{align}
 
-A função objetivo \eqref{dib_obj} maximiza a receita total obtida a partir dos compradores, somando os valores pagos em cada transação. Como as variáveis $y_{bp}$ indicam diretamente se um comprador realiza um pagamento de valor $p$, a função objetivo captura de forma explícita o total arrecadado.
+A função objetivo \eqref{dib_obj} maximiza a receita total somando os valores pagos por comprador. A restrição \eqref{dib_1} garante que cada item receba no máximo um preço, enquanto a restrição \eqref{dib_3} limita cada comprador a no máximo uma compra, atendendo à hipótese de demanda unitária.
 
-A restrição \eqref{dib_1} garante que cada item receba no máximo um preço. Embora não se imponha explicitamente que todo item deva ser precificado, a própria estrutura de maximização da receita favorece a atribuição de preços àqueles itens que possam contribuir para a função objetivo.
+O vínculo lógico entre preços e compras é estabelecido pelas restrições \eqref{dib_2} e \eqref{dib_pcm}. A restrição \eqref{dib_2} assegura que um comprador só pague o valor $p$ se houver algum item disponível e viável nessa faixa de preço. Por fim, a restrição \eqref{dib_pcm} adapta a formulação ao PCmin ao impor que, se o comprador $b$ pagar o preço $p$, não pode existir nenhum outro item viável com valor estritamente menor. Esse conjunto força o pagamento a corresponder à opção mais barata disponível, representando a dinâmica de escolha do problema sem a necessidade de rastrear explicitamente o item adquirido. Por fim, as restrições de domínio \eqref{dib_dom} definem a natureza binária das variáveis de decisão. 
 
-A restrição \eqref{dib_2} estabelece a ligação entre os preços definidos e os pagamentos realizados. Especificamente, ela assegura que um comprador só pode pagar um determinado preço $p$ se existir ao menos um item precificado com esse valor e cuja valoração para esse comprador seja suficiente para justificar a compra. Dessa forma, embora a alocação não seja explicitamente modelada, essa restrição garante sua consistência implícita.
+\subsubsection{Formulação de Decisão Direta}
 
-A restrição \eqref{dib_3} impõe que cada comprador realize no máximo uma compra, refletindo a hipótese de demanda unitária. Isso impede que um mesmo comprador contribua múltiplas vezes para a receita total, mantendo coerência com a estrutura do problema.
-
-A restrição \eqref{dib_pcm} é o principal elemento que adapta a formulação ao contexto do PCmin. Ela garante que, caso um comprador $b$ pague o preço $p$, então não exista qualquer item disponível para esse comprador com preço estritamente menor que $p$. Em outras palavras, essa restrição força que o pagamento realizado corresponda ao menor preço dentre todos os itens que o comprador pode adquirir, modelando diretamente o comportamento racional de escolha do item mais barato.
-
-Por fim, as restrições de domínio \eqref{dib_dom} definem a natureza binária das variáveis de decisão, assegurando que tanto a atribuição de preços quanto as decisões de pagamento sejam modeladas de forma discreta.
-
-Em conjunto, a formulação modela o problema ao integrar decisões de precificação e comportamento dos compradores de maneira consistente: os preços são atribuídos aos itens, os compradores escolhem pagar por no máximo um item compatível com sua valoração, e a estrutura de restrições garante que essa escolha corresponda sempre ao menor preço disponível. Assim, mesmo sem explicitar diretamente a alocação item-comprador, a formulação consegue representar fielmente a dinâmica do problema de compra mínima.
-
-\subsubsection{Formulação de Decisão Direta (DD)}
-
-A formulação DD adota uma abordagem de decisão direta, combinando variáveis binárias de alocação com variáveis contínuas de preço. Diferentemente da formulação indireta, essa modelagem representa explicitamente a relação entre compradores e itens, permitindo capturar de forma mais direta a estrutura do problema. Ao mesmo tempo, a utilização de variáveis contínuas para os preços confere maior flexibilidade à modelagem.
-
-As variáveis de decisão são definidas da seguinte forma: $x_{ib}$ é uma variável binária que indica se o comprador $b$ adquire o item $i$; $\hat{p}_{ib}$ representa o valor efetivamente pago por $b$ ao adquirir $i$; $\pi_i$ corresponde ao preço atribuído ao item $i$; e $y{ib}$ é uma variável binária que indica se o item $i$ é viável para o comprador $b$, isto é, se seu preço é compatível com a valoração $v_{ib}$.
+A formulação de Decisão Direta (DD) baseia-se no modelo linear inteiro misto de Heilporn et al.~\cite{heilporn2010} para precificação livre de inveja, adaptado por Catabriga~\cite{catabriga2025} para o PCmin. Essa abordagem define as variáveis binárias $x_{ib}$ (alocação) e $y_{ib}$ (viabilidade), as variáveis contínuas $\pi_i$ (preço do item) e $\hat{p}_{ib}$ (valor pago), além do conjunto $S_b = \{i \in I \mid v_{ib} > 0\}$ de itens de interesse de cada comprador. Além disso, são definidos os parâmetros limitantes $R_b$ e $\epsilon$. O parâmetro $R_b$ corresponde à maior valoração atribuída pelo comprador $b$ a um item viável, isto é, $R_b = \max\{v_{ib} \mid i \in S_b\}$. Por sua vez, $\epsilon$ representa a menor diferença positiva de preço dentre todas as valorações oferecidas, sendo definido como $\epsilon = \min\{v_{ib} - v_{i'b'} \mid \forall i,i' \in I,\; b,b' \in B,\; v_{ib} \neq v_{i'b'}\}$.
 
 \begin{align}
 \text{maximizar} \quad & \sum_{b \in B} \sum_{i \in S_b} \hat{p}_{ib} \label{dd_obj} \\
-\text{sujeito a} \quad & \sum_{i \in S_b} x_{ib} \leq 1, & \forall b \in B \label{dd_1} \\
-& v_{ib} \cdot x_{ib} - \hat{p}_{ib} \geq 0, & \forall b \in B, \forall i \in S_b \label{dd_2} \\
-& \hat{p}_{ib} \leq \pi_i, & \forall b \in B, \forall i \in S_b \label{dd_3} \\
-& \hat{p}_{ib} \geq \pi_i - R_i \cdot (1 - x_{ib}), & \forall b \in B, \forall i \in S_b \label{dd_4}  \\
-& y_{ib} \geq \frac{v_{ib} - \pi_i + \epsilon}{v_{ib} + \epsilon}, & \forall b \in B, \forall i \in S_b \label{dd_viab}  \\
-& \pi_i \geq \sum_{j \in S_b} \hat{p}_{jb} - R_b(1 - y_{ib}), & \forall b \in B, \forall i \in S_b \label{dd_pcm}  \\
-& \hat{p}_{ib} \geq 0, & \forall b \in B, \forall i \in S_b \label{dd_5} \\
-& \pi_i \geq 0, & \forall i \in I \label{dd_6}  \\
-& x_{ib}, y_{ib} \in \{0, 1\}, & \forall b \in B, \forall i \in S_b \label{dd_7} 
+\text{sujeito a} \quad & \sum_{i \in S_b} x_{ib} &&\leq 1, &&\forall b \in B \label{dd_1} \\
+& v_{ib} \cdot x_{ib} - \hat{p}_{ib} &&\geq 0, &&\forall b \in B, \forall i \in S_b \label{dd_2} \\
+& \hat{p}_{ib} &&\leq \pi_i, &&\forall b \in B, \forall i \in S_b \label{dd_3} \\
+& \hat{p}_{ib} &&\geq \pi_i - R_i \cdot (1 - x_{ib}), &&\forall b \in B, \forall i \in S_b \label{dd_4}  \\
+& y_{ib} &&\geq \frac{v_{ib} - \pi_i + \epsilon}{v_{ib} + \epsilon}, &&\forall b \in B, \forall i \in S_b \label{dd_viab}  \\
+& \pi_i &&\geq \sum_{j \in S_b} \hat{p}_{jb} - R_b(1 - y_{ib}), &&\forall b \in B, \forall i \in S_b \label{dd_pcm}  \\
+& \hat{p}_{ib} &&\geq 0, &&\forall b \in B, \forall i \in S_b \label{dd_5} \\
+& \pi_i &&\geq 0, &&\forall i \in I \label{dd_6}  \\
+& x_{ib}, y_{ib} &&\in \{0, 1\}, &&\forall b \in B, \forall i \in S_b \label{dd_7} 
 \end{align}
 
-A função objetivo \eqref{dd_obj} maximiza a receita total obtida, somando os valores efetivamente pagos pelos compradores. Como $\hat{p}_{ib}$ representa diretamente o pagamento associado à alocação do item $i$ ao comprador $b$, a função objetivo captura explicitamente o valor arrecadado pela solução.
+A função objetivo \eqref{dd_obj} maximiza a receita total a partir do somatório dos pagamentos $\hat{p}_{ib}$. Em seguida, a restrição \eqref{dd_1} garante a hipótese de demanda unitária, limitando cada comprador a no máximo uma aquisição em $S_b$, enquanto \eqref{dd_2} assegura que nenhum pagamento exceda a valoração máxima do cliente ($R_b$).
 
-A restrição \eqref{dd_1} garante que cada comprador seja alocado a no máximo um item, refletindo a hipótese de demanda unitária. Assim, evita-se que um mesmo comprador realize múltiplas compras.
+O vínculo entre preços e faturamento é estabelecido pelas restrições \eqref{dd_3} e \eqref{dd_4}. Através do parâmetro limitante $R_i$, esse conjunto força que o valor pago $\hat{p}_{ib}$ seja exatamente igual ao preço do item $\pi_i$ sempre que houver alocação ($x_{ib} = 1$), permitindo valor nulo caso contrário. Na sequência, a restrição \eqref{dd_viab} ativa o indicador binário $y_{ib}$ sempre que o preço do item for compatível com a disposição a pagar do comprador, utilizando o parâmetro $\epsilon$ para garantir a precisão dessa escolha.
 
-A restrição \eqref{dd_2} assegura que o pagamento realizado por um comprador não exceda sua valoração pelo item adquirido. Caso $x_{ib} = 1$, a desigualdade impõe $\hat{p}{ib} \leq v{ib}$; caso contrário, a restrição não impõe limite relevante, sendo posteriormente controlada pelas demais restrições.
+Por fim, a condição de compra mínima é modelada pela restrição \eqref{dd_pcm}. Quando um item é viável ($y_{ib} = 1$), o modelo impõe que seu preço $\pi_i$ seja limitante superior para o valor pago por $b$. Como o objetivo é maximizar a receita, o sistema é induzido a igualar o pagamento ao menor preço dentre todas as alternativas viáveis para o comprador. Finalmente, as restrições \eqref{dd_5}, \eqref{dd_6} e \eqref{dd_7} definem a não-negatividade e a natureza binária das variáveis.
 
-As restrições \eqref{dd_3} e \eqref{dd_4} atuam em conjunto para vincular o pagamento ao preço do item. A restrição \eqref{dd_3} garante que o valor pago por um comprador não ultrapasse o preço $\pi_i$ do item. Já a restrição \eqref{dd_4}, por meio de um parâmetro grande $R_i$, força que, sempre que $x_{ib} = 1$, o pagamento $\hat{p}_{ib}$ seja igual ao preço $\pi_i$. Quando $x{ib} = 0$, essa restrição é relaxada, permitindo que $\hat{p}_{ib}$ assuma valor nulo. Dessa forma, essas duas restrições asseguram consistência entre preço e pagamento apenas quando há alocação.
+% \subsubsection{Formulação de Decisão Indireta por Viabilidade (DIV)}
 
-A restrição \eqref{dd_viab} define a variável binária $y_{ib}$ como um indicador de viabilidade. Quando o preço do item $i$ é menor ou igual à valoração $v_{ib}$, o lado direito da desigualdade aproxima-se de 1, forçando $y_{ib} = 1$. Caso contrário, o lado direito torna-se inferior a 1, permitindo que $y_{ib}$ assuma valor 0. Assim, essa restrição identifica corretamente os pares item-comprador para os quais a compra é factível.
+% A formulação DIV simplifica a modelagem ao eliminar variáveis de alocação explícita, concentrando-se exclusivamente na relação entre viabilidade dos itens e o preço efetivamente pago por cada comprador. Diferentemente da formulação DD, não há uma variável que indique diretamente qual item foi escolhido; essa decisão é inferida implicitamente a partir das restrições do modelo.
 
-A restrição \eqref{dd_pcm} é responsável por modelar a condição de compra mínima. Quando um item $i$ é viável para o comprador $b$ (isto é, $y_{ib} = 1$), a restrição impõe que seu preço $\pi_i$ seja maior ou igual ao valor pago por $b$. Como a função objetivo maximiza esse pagamento, o modelo é induzido a igualar esse valor ao menor preço dentre todos os itens viáveis para o comprador, garantindo o comportamento racional de escolha do item mais barato. Caso o item não seja viável ($y_{ib} = 0$), a restrição é relaxada por meio do termo $R_b(1 - y_{ib})$.
+% As variáveis de decisão são definidas como segue: $\pi_i$ representa o preço atribuído ao item $i$; $\hat{p}b$ denota o valor pago pelo comprador $b$; e $y{ib}$ é uma variável binária que indica se o item $i$ é viável para o comprador $b$, ou seja, se o preço do item é compatível com sua valoração $v_{ib}$.
 
-As restrições \eqref{dd_5} e \eqref{dd_6} garantem a não negatividade das variáveis de preço e pagamento, enquanto \eqref{dd_7} define a natureza binária das variáveis de decisão $x_{ib}$ e $y_{ib}$.
+% \begin{align}
+% \text{maximizar} \quad & \sum_{b \in B} \hat{p}_b \label{div_obj} \\
+% \text{sujeito a} \quad & y_{ib} \geq \frac{v_{ib} - \pi_i + \epsilon}{v_{ib} + \epsilon}, & \forall b \in B, \forall i \in S_b \label{div_viab}\\
+% & \pi_i - v_{ib} \leq (R_i - v_{ib}) \cdot (1 - y_{ib}), & \forall b \in B, \forall i \in S_b \label{div_1} \\
+% & \hat{p}_b \leq \pi_i + R_b(1 - y_{ib}), & \forall b \in B, \forall i \in S_b \label{div_pcm} \\
+% & \hat{p}_b \leq \sum_{i \in S_b} (v_{ib} \cdot y_{ib}), & \forall b \in B \label{div_2} \\
+% & \pi_i \geq 0, & \forall i \in I  \\
+% & \hat{p}_b \geq 0, & \forall b \in B  \\
+% & y_{ib} \in \{0, 1\}, & \forall b \in B, \forall i \in S_b 
+% \end{align}
 
-Em conjunto, a formulação modela o problema ao integrar explicitamente decisões de alocação, precificação e viabilidade. A presença simultânea dessas componentes permite representar de forma direta o processo de decisão dos compradores, assegurando que cada um selecione, dentre os itens viáveis, aquele de menor preço, ao mesmo tempo em que se maximiza a receita total obtida.
+% A função objetivo \eqref{div_obj} maximiza a receita total obtida, somando os valores pagos por cada comprador. Como $\hat{p}_b$ representa diretamente o pagamento realizado por $b$, a função objetivo captura o valor arrecadado de forma agregada, sem explicitar qual item foi adquirido.
 
-\subsubsection{Formulação de Decisão Indireta por Viabilidade (DIV)}
+% As restrições \eqref{div_viab} e \eqref{div_1} atuam conjuntamente para definir a viabilidade dos itens. A restrição \eqref{div_viab} força a variável $y_{ib}$ a assumir valor 1 quando o preço do item $i$ é menor ou igual à valoração $v_{ib}$, enquanto a restrição \eqref{div_1} garante que, sempre que $y_{ib} = 1$, tem-se $\pi_i \leq v_{ib}$. Dessa forma, essas duas restrições asseguram que $y_{ib}$ identifica corretamente os itens acessíveis a cada comprador.
 
-A formulação DIV simplifica a modelagem ao eliminar variáveis de alocação explícita, concentrando-se exclusivamente na relação entre viabilidade dos itens e o preço efetivamente pago por cada comprador. Diferentemente da formulação DD, não há uma variável que indique diretamente qual item foi escolhido; essa decisão é inferida implicitamente a partir das restrições do modelo.
+% A restrição \eqref{div_pcm} modela a condição de compra mínima. Para cada item viável ($y_{ib} = 1$), essa restrição impõe que o valor pago $\hat{p}_b$ não exceda o preço $\pi_i$. Como isso vale para todos os itens viáveis, $\hat{p}_b$ é limitado superiormente pelo menor preço dentre eles.
 
-As variáveis de decisão são definidas como segue: $\pi_i$ representa o preço atribuído ao item $i$; $\hat{p}b$ denota o valor pago pelo comprador $b$; e $y{ib}$ é uma variável binária que indica se o item $i$ é viável para o comprador $b$, ou seja, se o preço do item é compatível com sua valoração $v_{ib}$.
+% A restrição \eqref{div_2} reforça a consistência econômica do modelo ao garantir que o valor pago por um comprador não exceda sua valoração pelos itens viáveis. Assim, evita-se que o modelo produza soluções em que um comprador pague mais do que estaria disposto a pagar.
 
-\begin{align}
-\text{maximizar} \quad & \sum_{b \in B} \hat{p}_b \label{div_obj} \\
-\text{sujeito a} \quad & y_{ib} \geq \frac{v_{ib} - \pi_i + \epsilon}{v_{ib} + \epsilon}, & \forall b \in B, \forall i \in S_b \label{div_viab}\\
-& \pi_i - v_{ib} \leq (R_i - v_{ib}) \cdot (1 - y_{ib}), & \forall b \in B, \forall i \in S_b \label{div_1} \\
-& \hat{p}_b \leq \pi_i + R_b(1 - y_{ib}), & \forall b \in B, \forall i \in S_b \label{div_pcm} \\
-& \hat{p}_b \leq \sum_{i \in S_b} (v_{ib} \cdot y_{ib}), & \forall b \in B \label{div_2} \\
-& \pi_i \geq 0, & \forall i \in I  \\
-& \hat{p}_b \geq 0, & \forall b \in B  \\
-& y_{ib} \in \{0, 1\}, & \forall b \in B, \forall i \in S_b 
-\end{align}
+% As restrições restantes asseguram a não negatividade das variáveis contínuas e a natureza binária das variáveis $y_{ib}$.
 
-A função objetivo \eqref{div_obj} maximiza a receita total obtida, somando os valores pagos por cada comprador. Como $\hat{p}_b$ representa diretamente o pagamento realizado por $b$, a função objetivo captura o valor arrecadado de forma agregada, sem explicitar qual item foi adquirido.
+% Em conjunto, a formulação modela o problema de forma implícita: embora não haja uma variável que identifique diretamente o item escolhido, as restrições impõem que o valor $\hat{p}_b$ corresponda ao menor preço dentre os itens viáveis para cada comprador. Como a função objetivo busca maximizar esse valor, o modelo reproduz corretamente o comportamento racional dos compradores no problema de compra mínima, ao mesmo tempo em que reduz o número de variáveis e simplifica a estrutura da formulação.
 
-As restrições \eqref{div_viab} e \eqref{div_1} atuam conjuntamente para definir a viabilidade dos itens. A restrição \eqref{div_viab} força a variável $y_{ib}$ a assumir valor 1 quando o preço do item $i$ é menor ou igual à valoração $v_{ib}$, enquanto a restrição \eqref{div_1} garante que, sempre que $y_{ib} = 1$, tem-se $\pi_i \leq v_{ib}$. Dessa forma, essas duas restrições asseguram que $y_{ib}$ identifica corretamente os itens acessíveis a cada comprador.
+% \subsubsection{Formulação de Decisão Direta e por Inveja (DDI)}
 
-A restrição \eqref{div_pcm} modela a condição de compra mínima. Para cada item viável ($y_{ib} = 1$), essa restrição impõe que o valor pago $\hat{p}_b$ não exceda o preço $\pi_i$. Como isso vale para todos os itens viáveis, $\hat{p}_b$ é limitado superiormente pelo menor preço dentre eles.
+% A formulação DDI baseia-se no conceito de \textit{envy-free pricing}, explorando relações entre compradores para impor limites consistentes sobre os preços pagos. Diferentemente das formulações anteriores, essa abordagem não modela explicitamente preços por item, mas sim utiliza comparações entre valorações de diferentes compradores para garantir coerência econômica na solução.
 
-A restrição \eqref{div_2} reforça a consistência econômica do modelo ao garantir que o valor pago por um comprador não exceda sua valoração pelos itens viáveis. Assim, evita-se que o modelo produza soluções em que um comprador pague mais do que estaria disposto a pagar.
+% As variáveis de decisão são definidas da seguinte forma: $x_{ib}$ é uma variável binária que indica se o comprador $b$ é alocado ao item $i$, enquanto $\hat{p}_b$ representa o valor pago pelo comprador $b$. Assim como em outras formulações, assume-se que cada comprador pode adquirir no máximo um item.
 
-As restrições restantes asseguram a não negatividade das variáveis contínuas e a natureza binária das variáveis $y_{ib}$.
+% \begin{align}
+% \text{maximizar} \quad & \sum_{b \in B} \hat{p}_b \label{ddi_obj} \\
+% \text{sujeito a} \quad & \sum_{i \in S_b} x_{ib} \leq 1, & \forall b \in B \label{ddi_1} \\
+% & \hat{p}_b \leq v_{ib'} + R_b \cdot (1 - x_{ib'}), & \forall b \in B, \forall i \in S_b, \forall b' \in S_i \wedge v_{ib'} \leq v_{ib} \label{ddi_pcm} \\
+% & \hat{p}_b \leq \sum_{i \in S_b} (v_{ib} \cdot x_{ib}), & \forall b \in B \label{ddi_2} \\
+% & \hat{p}_b \geq 0, & \forall b \in B  \\
+% & x_{ib} \in \{0, 1\}, & \forall b \in B, \forall i \in S_b
+% \end{align}
 
-Em conjunto, a formulação modela o problema de forma implícita: embora não haja uma variável que identifique diretamente o item escolhido, as restrições impõem que o valor $\hat{p}_b$ corresponda ao menor preço dentre os itens viáveis para cada comprador. Como a função objetivo busca maximizar esse valor, o modelo reproduz corretamente o comportamento racional dos compradores no problema de compra mínima, ao mesmo tempo em que reduz o número de variáveis e simplifica a estrutura da formulação.
+% A função objetivo \eqref{ddi_obj} maximiza a receita total obtida, somando os valores pagos por cada comprador. Como $\hat{p}_b$ representa diretamente o pagamento realizado, a função objetivo agrega a contribuição individual de cada comprador para o valor total arrecadado.
 
-\subsubsection{Formulação de Decisão Direta e por Inveja (DDI)}
+% A restrição \eqref{ddi_1} impõe que cada comprador seja alocado a no máximo um item, preservando a hipótese de demanda unitária e evitando múltiplas aquisições por um mesmo comprador.
 
-A formulação DDI baseia-se no conceito de \textit{envy-free pricing}, explorando relações entre compradores para impor limites consistentes sobre os preços pagos. Diferentemente das formulações anteriores, essa abordagem não modela explicitamente preços por item, mas sim utiliza comparações entre valorações de diferentes compradores para garantir coerência econômica na solução.
+% A restrição \eqref{ddi_pcm} é o elemento central da formulação e incorpora o conceito de \textit{envy-free pricing}. Ela estabelece que o valor pago por um comprador $b$ não pode exceder a valoração de outro comprador $b'$ para um mesmo item $i$, sempre que essa valoração for menor ou igual à de $b$. Intuitivamente, isso impede que um comprador pague mais por um item enquanto outro comprador estaria disposto a adquiri-lo por um valor inferior, evitando situações de “inveja”. O termo com constante grande $R_b$ garante que essa restrição seja ativada apenas quando o item $i$ está efetivamente associado ao comprador considerado.
 
-As variáveis de decisão são definidas da seguinte forma: $x_{ib}$ é uma variável binária que indica se o comprador $b$ é alocado ao item $i$, enquanto $\hat{p}_b$ representa o valor pago pelo comprador $b$. Assim como em outras formulações, assume-se que cada comprador pode adquirir no máximo um item.
+% A restrição \eqref{ddi_2} assegura a consistência entre o pagamento realizado e a valoração do item efetivamente escolhido. Como $x_{ib}$ indica a alocação, essa restrição garante que o valor pago por $b$ não ultrapasse sua valoração pelo item adquirido.
 
-\begin{align}
-\text{maximizar} \quad & \sum_{b \in B} \hat{p}_b \label{ddi_obj} \\
-\text{sujeito a} \quad & \sum_{i \in S_b} x_{ib} \leq 1, & \forall b \in B \label{ddi_1} \\
-& \hat{p}_b \leq v_{ib'} + R_b \cdot (1 - x_{ib'}), & \forall b \in B, \forall i \in S_b, \forall b' \in S_i \wedge v_{ib'} \leq v_{ib} \label{ddi_pcm} \\
-& \hat{p}_b \leq \sum_{i \in S_b} (v_{ib} \cdot x_{ib}), & \forall b \in B \label{ddi_2} \\
-& \hat{p}_b \geq 0, & \forall b \in B  \\
-& x_{ib} \in \{0, 1\}, & \forall b \in B, \forall i \in S_b
-\end{align}
+% As demais restrições definem a não negatividade das variáveis de pagamento e a natureza binária das decisões de alocação.
 
-A função objetivo \eqref{ddi_obj} maximiza a receita total obtida, somando os valores pagos por cada comprador. Como $\hat{p}_b$ representa diretamente o pagamento realizado, a função objetivo agrega a contribuição individual de cada comprador para o valor total arrecadado.
+% Em conjunto, a formulação modela o problema ao explorar relações globais entre compradores, ao invés de depender exclusivamente de decisões locais de preço ou viabilidade. As restrições de \textit{envy-free pricing} garantem que os pagamentos sejam consistentes com a estrutura de preferências dos compradores, evitando soluções em que algum agente teria incentivo a escolher uma alternativa mais barata. Dessa forma, mesmo sem explicitar diretamente os preços dos itens, a formulação assegura que cada comprador paga um valor compatível com o menor preço possível dentre as opções disponíveis, caracterizando adequadamente o problema de compra mínima.
 
-A restrição \eqref{ddi_1} impõe que cada comprador seja alocado a no máximo um item, preservando a hipótese de demanda unitária e evitando múltiplas aquisições por um mesmo comprador.
+% As quatro formulações apresentadas diferem principalmente na forma como modelam as decisões de preço, alocação e viabilidade, o que impacta diretamente tanto o tamanho quanto a força de suas relaxações lineares. A formulação DIB, por adotar uma abordagem indireta com variáveis binárias para preços e pagamentos, tende a produzir modelos mais compactos em termos de alocação explícita, porém com um número potencialmente elevado de variáveis associadas ao conjunto de preços candidatos. Por outro lado, a formulação DD modela explicitamente a alocação entre compradores e itens, o que a torna mais intuitiva e estruturalmente fiel ao problema, mas ao custo de um maior número de variáveis e restrições.
 
-A restrição \eqref{ddi_pcm} é o elemento central da formulação e incorpora o conceito de \textit{envy-free pricing}. Ela estabelece que o valor pago por um comprador $b$ não pode exceder a valoração de outro comprador $b'$ para um mesmo item $i$, sempre que essa valoração for menor ou igual à de $b$. Intuitivamente, isso impede que um comprador pague mais por um item enquanto outro comprador estaria disposto a adquiri-lo por um valor inferior, evitando situações de “inveja”. O termo com constante grande $R_b$ garante que essa restrição seja ativada apenas quando o item $i$ está efetivamente associado ao comprador considerado.
+% A formulação DIV surge como uma simplificação da DD, eliminando variáveis de alocação e concentrando-se na modelagem da viabilidade e do preço mínimo pago. Essa redução resulta em modelos mais enxutos, embora dependa fortemente da função objetivo para induzir corretamente o comportamento de escolha do menor preço. Já a formulação DDI explora relações entre compradores por meio do conceito de \textit{envy-free pricing}, introduzindo restrições globais que capturam comparações entre diferentes agentes, o que pode fortalecer a formulação ao restringir soluções inconsistentes.
 
-A restrição \eqref{ddi_2} assegura a consistência entre o pagamento realizado e a valoração do item efetivamente escolhido. Como $x_{ib}$ indica a alocação, essa restrição garante que o valor pago por $b$ não ultrapasse sua valoração pelo item adquirido.
-
-As demais restrições definem a não negatividade das variáveis de pagamento e a natureza binária das decisões de alocação.
-
-Em conjunto, a formulação modela o problema ao explorar relações globais entre compradores, ao invés de depender exclusivamente de decisões locais de preço ou viabilidade. As restrições de \textit{envy-free pricing} garantem que os pagamentos sejam consistentes com a estrutura de preferências dos compradores, evitando soluções em que algum agente teria incentivo a escolher uma alternativa mais barata. Dessa forma, mesmo sem explicitar diretamente os preços dos itens, a formulação assegura que cada comprador paga um valor compatível com o menor preço possível dentre as opções disponíveis, caracterizando adequadamente o problema de compra mínima.
-
-As quatro formulações apresentadas diferem principalmente na forma como modelam as decisões de preço, alocação e viabilidade, o que impacta diretamente tanto o tamanho quanto a força de suas relaxações lineares. A formulação DIB, por adotar uma abordagem indireta com variáveis binárias para preços e pagamentos, tende a produzir modelos mais compactos em termos de alocação explícita, porém com um número potencialmente elevado de variáveis associadas ao conjunto de preços candidatos. Por outro lado, a formulação DD modela explicitamente a alocação entre compradores e itens, o que a torna mais intuitiva e estruturalmente fiel ao problema, mas ao custo de um maior número de variáveis e restrições.
-
-A formulação DIV surge como uma simplificação da DD, eliminando variáveis de alocação e concentrando-se na modelagem da viabilidade e do preço mínimo pago. Essa redução resulta em modelos mais enxutos, embora dependa fortemente da função objetivo para induzir corretamente o comportamento de escolha do menor preço. Já a formulação DDI explora relações entre compradores por meio do conceito de \textit{envy-free pricing}, introduzindo restrições globais que capturam comparações entre diferentes agentes, o que pode fortalecer a formulação ao restringir soluções inconsistentes.
-
-De maneira geral, formulações com decisão direta tendem a oferecer maior controle estrutural sobre a solução, enquanto formulações indiretas frequentemente resultam em modelos menores e potencialmente mais eficientes computacionalmente. A escolha da formulação mais adequada depende, portanto, de um equilíbrio entre tamanho do modelo, força da relaxação linear e desempenho prático observado na resolução das instâncias.
+% De maneira geral, formulações com decisão direta tendem a oferecer maior controle estrutural sobre a solução, enquanto formulações indiretas frequentemente resultam em modelos menores e potencialmente mais eficientes computacionalmente. A escolha da formulação mais adequada depende, portanto, de um equilíbrio entre tamanho do modelo, força da relaxação linear e desempenho prático observado na resolução das instâncias.
