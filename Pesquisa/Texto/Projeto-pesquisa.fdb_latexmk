@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber Projeto-pesquisa"] 1780273136.42984 "Projeto-pesquisa.bcf" "Projeto-pesquisa.bbl" "Projeto-pesquisa" 1780595522.21669 0
-  "Projeto-pesquisa.bcf" 1780595522.10633 112015 dda7ba26a3fc93d3c09426c454e515e4 "pdflatex"
+["biber Projeto-pesquisa"] 1780595864.00192 "Projeto-pesquisa.bcf" "Projeto-pesquisa.bbl" "Projeto-pesquisa" 1780595870.2492 0
+  "Projeto-pesquisa.bcf" 1780595870.14343 112015 dda7ba26a3fc93d3c09426c454e515e4 "pdflatex"
   "Secoes/Referencias/referencias.bib" 1780273204.06112 11463 c2fd2bcf1f73444c54b302d5c0be086a ""
   (generated)
   "Projeto-pesquisa.bbl"
   "Projeto-pesquisa.blg"
   (rewritten before read)
-["pdflatex"] 1780595520.48671 "/Users/erickfreitas/Desktop/Mesa - Erick’s MacBook Air/Mestrado-IC-Unicamp/Pesquisa/Texto/Projeto-pesquisa.tex" "Projeto-pesquisa.pdf" "Projeto-pesquisa" 1780595522.21691 0
-  "/Users/erickfreitas/Desktop/Mesa - Erick’s MacBook Air/Mestrado-IC-Unicamp/Pesquisa/Texto/Projeto-pesquisa.tex" 1780595520.27508 3527 ebd26292c538ea0f09829eaef57b2844 ""
+["pdflatex"] 1780595868.58068 "/Users/erickfreitas/Desktop/Mesa - Erick’s MacBook Air/Mestrado-IC-Unicamp/Pesquisa/Texto/Projeto-pesquisa.tex" "Projeto-pesquisa.pdf" "Projeto-pesquisa" 1780595870.24945 0
+  "/Users/erickfreitas/Desktop/Mesa - Erick’s MacBook Air/Mestrado-IC-Unicamp/Pesquisa/Texto/Projeto-pesquisa.tex" 1780595862.41406 3527 ebd26292c538ea0f09829eaef57b2844 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -256,11 +256,11 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1772657071 5541377 04880c840ca220163a28f1a3af0ee662 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1772657027 3636760 1b947afe584dc4c3654a00b8b3b71aba ""
   "/usr/local/texlive/2026/texmf.cnf" 1772409725 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "Projeto-pesquisa.aux" 1780595522.10165 11871 d38edf8a6ac51014fdeca4559a224bc7 "pdflatex"
-  "Projeto-pesquisa.bbl" 1780273137.98641 54501 636f2d53ac38a5be525b711b5144c265 "biber Projeto-pesquisa"
-  "Projeto-pesquisa.out" 1780595522.1042 2949 ff58824cf30afa982481ef2225989b28 "pdflatex"
-  "Projeto-pesquisa.run.xml" 1780595522.10696 2539 43499c764925fffdffd3ed780083fe3b "pdflatex"
-  "Projeto-pesquisa.tex" 1780595520.27508 3527 ebd26292c538ea0f09829eaef57b2844 ""
+  "Projeto-pesquisa.aux" 1780595870.13823 11871 d38edf8a6ac51014fdeca4559a224bc7 "pdflatex"
+  "Projeto-pesquisa.bbl" 1780595865.63024 54501 636f2d53ac38a5be525b711b5144c265 "biber Projeto-pesquisa"
+  "Projeto-pesquisa.out" 1780595870.1412 2949 ff58824cf30afa982481ef2225989b28 "pdflatex"
+  "Projeto-pesquisa.run.xml" 1780595870.14418 2539 43499c764925fffdffd3ed780083fe3b "pdflatex"
+  "Projeto-pesquisa.tex" 1780595862.41406 3527 ebd26292c538ea0f09829eaef57b2844 ""
   "Secoes/Analise/analise.tex" 1780271770.81259 4972 8fa3cf6ed69a77b34880c9c99a941614 ""
   "Secoes/Figuras/Photos/RKO_FLOW_V2.jpeg" 1778881515.67594 52697 0bb941e079341f8f573a17deb4107b99 ""
   "Secoes/Figuras/figuras.tex" 1778870630.36609 6095 ff9b23bc93700848abfd79979d349ede ""
