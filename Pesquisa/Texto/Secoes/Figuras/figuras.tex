@@ -56,11 +56,11 @@
     % Arestas
     \draw (b1) --node[pos=0.2, fill=white]{3} (i1);
     \draw (b1) --node[pos=0.2, fill=white]{4} (i2);
-    \draw (b1) --node[pos=0.2, fill=white]{2} (i3);
+    \draw (b1) --node[pos=0.215, fill=white]{2} (i3);
 
     \draw (b2) --node[pos=0.2, fill=white]{5} (i2);
     \draw (b2) --node[pos=0.2, fill=white]{6} (i3);
-    \draw (b2) --node[pos=0.2, fill=white]{3} (i4);
+    \draw (b2) --node[pos=0.215, fill=white]{3} (i4);
 
     \draw (b3) --node[pos=0.2, fill=white]{5} (i3);
     \draw (b3) --node[pos=0.2, fill=white]{2} (i4);
@@ -95,6 +95,17 @@
     \draw (i1) -- (b1);
     \draw (i4) -- (b2);
     \draw (i3) -- (b3);
+
+
+    \draw[dashed, thick] (b1) -- (i2);
+    \draw[dashed, thick] (b1) -- (i3);
+
+    \draw[dashed, thick] (b2) -- (i2);
+    \draw[dashed, thick] (b2) --(i3);
+
+    \draw[dashed, thick] (b3) --(i4);
+
+    \draw[dashed, thick] (b4) -- (i4);
     
 \end{tikzpicture}
 }
