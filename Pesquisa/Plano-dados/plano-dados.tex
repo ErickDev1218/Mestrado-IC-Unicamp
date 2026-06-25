@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+
+% =========================================================
+% CONFIGURAÇÕES BÁSICAS
+% =========================================================
+
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+% Codificação e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+% Espaçamento
+\usepackage{setspace}
+\doublespacing
+
+% =========================================================
+% PACOTES MATEMÁTICOS
+% =========================================================
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{IEEEtrantools}
+
+% =========================================================
+% FIGURAS E TABELAS
+% =========================================================
+
+\usepackage{graphicx}
+\graphicspath{{./Secoes/Figuras/Photos/}}
+
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{adjustbox}
+
+% =========================================================
+% ALGORITMOS
+% =========================================================
+
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% =========================================================
+% LEGENDAS
+% =========================================================
+
+\usepackage{caption}
+\captionsetup{
+    justification=raggedright,
+    singlelinecheck=false
+}
+
+\usepackage{subcaption}
+
+% =========================================================
+% TIKZ E GANTT
+% =========================================================
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+\usepackage{pgfgantt}
+
+% =========================================================
+% CORES E LINKS
+% =========================================================
+
+\usepackage{xcolor}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\usepackage[hidelinks]{hyperref}
+
+% =========================================================
+% FORMATAÇÃO
+% =========================================================
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{4pt}
+
+% =========================================================
+% BIBLIOGRAFIA
+% =========================================================
+
+% biblatex: bibliografia no estilo IEEE e citações numéricas agrupadas em um único colchete
+\usepackage{csquotes}
+\usepackage{multicol}
+\usepackage[backend=biber,bibstyle=ieee,citestyle=numeric,sorting=none,sortcites=true,doi=true,isbn=true,url=true,natbib=true]{biblatex}
+\addbibresource{Secoes/Referencias/referencias.bib}
+
+% Reduz o espaçamento entre itens na bibliografia
+\setlength{\bibitemsep}{0.25\baselineskip}
+\setlength{\bibhang}{1em}
+\setlength{\biblabelsep}{0.5em}
+
+% =========================================================
+% DOCUMENTO
+% =========================================================
+
+\title{O Problema da Compra Mínima: Heurísticas e Formulações}
+\author{Antônio Erick Freitas Ferreira}
+\date{\today}
+
+\begin{document}
+
+% \maketitle
+
+\begin{center}
+    {\LARGE \bfseries O Problema da Compra Mínima: Heurísticas e Formulações}
+    \rule{\textwidth}{0.4pt}
+\end{center}
+
+\section*{Descrição dos Dados e Metadados}
+
+\subsection*{Quais serão os dados coletados?}
+
+Serão utilizadas instâncias sintéticas, representando mercados artificiais compostos por produtos, compradores e respectivas valorações. Também serão gerados dados provenientes dos experimentos computacionais realizados ao longo do projeto, incluindo métricas como valor da função objetivo, tempo de execução, gap de otimalidade, número de nós explorados e demais indicadores utilizados para avaliar o desempenho das formulações e algoritmos desenvolvidos. Os dados podem ser reusados à curto e a longo prazo e também poderão ser compartilhados. Tudo isso será armazenado em forma de texto.
+
+\subsection*{Que metadados serão anotados e qual padrão será seguido?}
+
+As documentações dos dados gerados serão feitas por meio de trabalhos acadêmicos (artigos e
+dissertação) onde serão descritas as bases do projeto, metodologias e os resultados.
+
+\section*{Aspectos Legais e Facilidade de Acesso aos Dados}
+
+\subsection*{Quais são as questões legais e éticas associadas aos dados e relevantes a este projeto?}
+
+Os dados gerados neste projeto serão de acesso livre, com disponibilidade de acesso pelo repositório da Unicamp REDU ou pelo repositório de código GitHub.
+
+Possivelmente serão utilizados dados de outros pesquisadores para comparação com os dados gerados neste projeto, sendo assim a permissão dos mesmos será solicitada para a utilização dessas informações. Nenhum outro dado privado ou que envolva situações de privacidade em ambientes públicos está previsto para ser utilizado.
+
+\subsection*{Quais são as políticas a serem utilizadas para o compartilhamento de dados?}
+
+Os dados podem ser compartilhados tanto em sua forma bruta como por meio das estatísticas agregadas, ambas as formas por meio do acesso aos repositórios REDU e ao GitHub. Porém, mesmo que os dados sejam de acesso livre, eles devem ser referenciados de acordo com a autoria deles, seja dos participantes deste projeto ou de dados terceiros. Qualquer outro dado que não seja considerado púbico terá permissão solicitada ao respectivo autor.
+
+\section*{Gestão de Dados e Armazenamento}
+
+\subsection*{Em que formatos serão armazenados os arquivos resultantes da pesquisa em questão? Que software poderá ser utilizado para a manipulação de cada um dos formatos listados?}
+
+Os arquivos gerados neste projeto serão todos no formato de texto. O modelo teórico será descrito em um arquivo do tipo PDF, com suas respectivas explicações. O código será armazenado na forma da linguagem de programação utilizada. Os resultados das simulações serão armazenados em arquivos JSON e TXT, assim poderão ser facilmente analisados de forma automatizada.
+
+\subsection*{Como e onde estes arquivos serão mantidos? Por quanto tempo ocorrerá esta preservação? Como será realizado o backup destes dados?}
+
+Os arquivos resultantes deste projeto serão armazenados no repositório da Unicamp REDU e no repositório de código GitHub, amboms com duração de acessos com longos prazos.
+\end{document}
