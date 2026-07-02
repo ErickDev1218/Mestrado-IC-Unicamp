@@ -4,7 +4,9 @@ No comércio, decidir o preço de um produto deixou de ser uma tarefa simples pa
 
 No que diz respeito aos estudos de precificação, Rusmevichientong et al.~\cite{rusmevichientong2006} estabeleceram um modelo geral para a precificação de múltiplos itens, onde o vendedor conhece quanto cada cliente está disposto a pagar e busca a maior receita possível. A partir dessa base, surgem diferentes modelos de comportamento. No \textit{Problema da Compra Máxima} (PCmax), o cliente escolhe o item mais caro que pode pagar, enquanto no \textit{Problema da Compra por Preferência} (PCrank), a escolha segue uma ordem de prioridade pessoal.
 
-Já no \emph{Problema da Compra Mínima} (PCmin), o foco deste projeto, assume-se que o comprador levará o item mais barato entre aqueles que ele considera viáveis. Essa última premissa reflete situações reais onde o consumidor busca a opção mais econômica entre substitutos aceitáveis, tornando o PCmin um cenário de grande relevância prática.
+% Já no \emph{Problema da Compra Mínima} (PCmin), o foco deste projeto, assume-se que o comprador levará o item mais barato entre aqueles que ele considera viáveis. 
+
+Já no \emph{Problema da Compra Mínima} (PCmin), foco deste projeto, assume-se que o comprador adquire o item de menor preço dentre aqueles cujo valor é inferior ou igual à sua valoração. Essa última premissa reflete situações reais onde o consumidor busca a opção mais econômica entre substitutos aceitáveis, tornando o PCmin um cenário de grande relevância prática.
 
 De maneira formal, o PCmin foi definido por Rusmevichientong et al.~\cite{rusmevichientong2006} da seguinte forma. Seja $I$ um conjunto de itens com estoque ilimitado e $B$ um conjunto de compradores. As valorações dos consumidores são representadas por uma matriz de valorações~$V = \{v_{ib} \mid v_{ib} \in \mathbb{R}_+\}$, em que cada elemento $v_{ib}$ corresponde ao valor máximo que o comprador $b \in B$ está disposto a pagar pelo item $i \in I$. Caso um comprador não tenha interesse em um determinado item, sua valoração correspondente é definida como zero.
 
